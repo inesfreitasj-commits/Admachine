@@ -168,24 +168,38 @@ def extract(pdf_path, outdir, min_px, min_area, render_fallback, dpi):
 
         placed = []
         for info in page.get_images(full=True):
-            xref = info[0]
+            xref, smask = info[0], info[1]
             try:
                 rects = page.get_image_rects(xref)
             except Exception:
                 rects = []
             y_top = min([r.y0 for r in rects], default=0.0)
             bbox = list(rects[0]) if rects else [0.0, 0.0, 0.0, 0.0]
-            placed.append((y_top, xref, bbox))
+            placed.append((y_top, xref, bbox, smask))
         placed.sort(key=lambda r: r[0])
 
         page_got_image = False
-        for y_top, xref, bbox in placed:
+        for y_top, xref, bbox, smask in placed:
             key = (pno, xref)
             if key in seen_xrefs:
                 continue
             seen_xrefs.add(key)
             try:
                 pix = fitz.Pixmap(doc, xref)
+                # PDFs carry transparency in a separate soft-mask object. Ignoring it
+                # renders every transparent pixel BLACK, which silently poisons a
+                # cut-out product shot used as a generation reference. Apply the mask
+                # and composite onto white.
+                if smask:
+                    mpix = fitz.Pixmap(doc, smask)
+                    rgba = fitz.Pixmap(pix, mpix)
+                    src = rgba.samples
+                    buf = bytearray(rgba.width * rgba.height * 3)
+                    for i in range(rgba.width * rgba.height):
+                        a = src[i * 4 + 3] / 255.0
+                        for k in range(3):
+                            buf[i * 3 + k] = int(src[i * 4 + k] * a + 255 * (1 - a))
+                    pix = fitz.Pixmap(fitz.csRGB, rgba.width, rgba.height, bytes(buf), False)
             except Exception:
                 continue
             if pix.width < min_px or pix.height < min_px:

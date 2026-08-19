@@ -58,6 +58,23 @@ Everything else — scene, product placement, palette, other text — stays byte
 between the two prompts. That is what makes the pair a clean A/B read; if two things
 change, the test tells you nothing.
 
+## Low-resolution reference photos
+
+The model copies what it sees, blur included — a soft reference produces packaging
+covered in plausible-looking nonsense words. Whenever label text matters, name it:
+
+```
+LABEL TEXT (the attached reference is low-resolution and its label text is blurred —
+render these exact words crisply, do not copy the blur):
+- brand mark in the oval near the top: "<Brand>"
+- centred copy beneath it, two lines: "<line one>" then "<line two>"
+- band at the bottom, small white text: "<strapline>"
+All label lettering must be sharp and correctly spelled. No invented or garbled words.
+```
+
+Check the result: at hero size the label should be readable. Where the product sits
+small in frame the text stays fuzzy, which is fine for feed but wrong under zoom.
+
 ## When a generation gets refused (exit code 6)
 
 Usually a health/medical claim or an implied before/after body result. Soften the

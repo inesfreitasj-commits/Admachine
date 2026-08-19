@@ -117,8 +117,11 @@ Write the confirmed settings to `$RUN/logs/run-config.json` so the run is reprod
 1. `WebFetch` the product URL. Pull out: product name, exact price, any offer or
    bundle copy, guarantee, shipping claim, key ingredients/benefits, and review count
    or rating. Save to `$RUN/assets/product-page.md`.
-2. **Download the actual product photo.** For Shopify, `<product-url>.json` exposes
-   image URLs:
+2. **Get the actual product photo.** Prefer what the user supplies — a photo, a PDF,
+   or a zip is more reliable than scraping and often the only route when the site is
+   blocked. Extract a supplied PDF with the step-2 script (it applies PDF soft masks,
+   so cut-out product shots come out on white instead of black). Otherwise scrape;
+   for Shopify, `<product-url>.json` exposes image URLs:
 
 ```bash
 curl -sSL "<product-url>.json" -o "$RUN/assets/product.json"
@@ -128,6 +131,12 @@ curl -sSL "<image-url>" -o "$RUN/assets/product.jpg"
    Not Shopify? Try `<url>/products/<handle>.json`, then the page's OpenGraph
    `og:image`, then the largest `<img>` on the page. If every route fails, **stop and
    ask the user to supply a product photo** — do not generate without one.
+
+   **If the site is unreachable** (egress policy, login wall), do not guess and do not
+   route around it: say which host is blocked and ask for full-page screenshots of the
+   advertorial and sales page. Slice a tall screenshot into readable strips by opening
+   the PNG with `fitz.open(file)` and calling `page.get_pixmap(clip=..., dpi=60)` per
+   strip, then read the strips to pull pricing and claims verbatim.
 
 3. **Open `$RUN/assets/product.jpg` with the Read tool and look at it.** Then write
    `$RUN/assets/product-visual.md` describing what you actually see:
@@ -204,6 +213,11 @@ Rules for this step:
 - Each prompt = scene description + exact overlay text + the product visual
   description from step 4 + a line like *"the product must exactly match the attached
   reference photo — same bottle, cap, label, and colours."*
+- **If the reference photo is low-resolution, spell out the label copy in the prompt.**
+  The model faithfully reproduces blur, so a fuzzy reference yields packaging covered in
+  convincing gibberish. Quote the brand mark and every label line exactly, and say the
+  reference is low-res and its text must be rendered crisply rather than copied. This
+  is the single highest-value fix for brand fidelity.
 - **Default aspect `1:1`, saved as `.png`.** Use `4:5` for vertical feed or `9:16`
   for stories/Reels only if the user asks. Confirm the placement if unsure.
 - **Run sequentially**, not in parallel — the API rate-limits and parallel batches
