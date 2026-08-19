@@ -182,7 +182,7 @@ Helper: `~/.claude/skills/static-remix/scripts/gemini-image-ref.sh`
 ```bash
 GEMINI_API_KEY=... \
   ~/.claude/skills/static-remix/scripts/gemini-image-ref.sh \
-    "<full prompt>" 4:5 "$RUN/production/concept_01_var_01.png" "$RUN/assets/product.jpg"
+    "<full prompt>" 1:1 "$RUN/production/concept_01_var_01.png" "$RUN/assets/product.jpg"
 ```
 
 It posts to `generativelanguage.googleapis.com/v1beta/models/gemini-3-pro-image-preview:generateContent`,
@@ -192,6 +192,11 @@ attaches the reference image as base64 `inline_data`, sets
 `output_path`. JSON encoding and base64 are done in perl, so it works on Git Bash for
 Windows. Long prompts: use `--prompt-file <file>` to dodge shell quoting.
 
+**Output format.** The model always returns JPEG — the API has no output-format
+option. Ask for a `.png` path and the helper converts the bytes to real PNG with
+PyMuPDF (already required for step 2) before saving. The file extension and the
+actual bytes always agree, so ad-platform uploads don't reject the file.
+
 Rules for this step:
 
 - **Pass the product photo as the reference image on EVERY call.** This is what keeps
@@ -199,11 +204,13 @@ Rules for this step:
 - Each prompt = scene description + exact overlay text + the product visual
   description from step 4 + a line like *"the product must exactly match the attached
   reference photo — same bottle, cap, label, and colours."*
-- Default aspect `4:5` (feed). Use `1:1` for square placements, `9:16` for
-  stories/Reels. Ask if the user has a placement preference.
+- **Default aspect `1:1`, saved as `.png`.** Use `4:5` for vertical feed or `9:16`
+  for stories/Reels only if the user asks. Confirm the placement if unsure.
 - **Run sequentially**, not in parallel — the API rate-limits and parallel batches
   fail messily.
 - Save as `production/concept_NN_var_MM.png`.
+- `generationConfig.imageConfig.imageSize` accepts `"2K"` if the user wants larger
+  files than the default 1024x1024; add it to the helper's JSON body if needed.
 - Log every call's exit status to `$RUN/logs/generation.log`.
 
 ### Exit codes and retries

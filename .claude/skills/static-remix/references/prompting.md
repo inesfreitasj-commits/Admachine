@@ -7,7 +7,7 @@ Read this before writing the generation prompts in step 7.
 Every prompt has the same five blocks, in this order:
 
 ```
-1. FORMAT     "A single flat static advertisement image, 4:5 vertical, designed for
+1. FORMAT     "A single flat static advertisement image, 1:1 square, designed for
                a paid social feed placement."
 2. SCENE      Subject, setting, composition, lighting, camera angle, props.
 3. PRODUCT    The visual description from assets/product-visual.md, verbatim, plus:

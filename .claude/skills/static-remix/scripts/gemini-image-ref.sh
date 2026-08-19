@@ -143,5 +143,51 @@ if [ ! -s "$OUT" ]; then
   die "decoded image was empty for $OUT" 6
 fi
 
+# The model always returns JPEG — the API has no output-format option (both
+# outputMimeType and mimeType are rejected as unknown fields). So when the caller
+# asks for a different extension, convert locally with PyMuPDF, which this skill
+# already requires for PDF extraction. An ad platform will reject a JPEG named
+# .png on upload, so the bytes and the extension must agree either way.
+ACTUAL="$(perl -0777 -e '
+  binmode STDIN; local $/; my $d = <STDIN>;
+  print "jpg"  if substr($d,0,3) eq "\xff\xd8\xff";
+  print "png"  if substr($d,0,8) eq "\x89PNG\r\n\x1a\n";
+  print "webp" if substr($d,0,4) eq "RIFF" && substr($d,8,4) eq "WEBP";
+' < "$OUT")"
+
+WANT="$(printf '%s' "${OUT##*.}" | tr 'A-Z' 'a-z')"
+[ "$WANT" = "jpeg" ] && WANT="jpg"
+
+if [ -n "$ACTUAL" ] && [ "$ACTUAL" != "$WANT" ]; then
+  CONVERTED=0
+  if [ "$WANT" = "png" ] || [ "$WANT" = "jpg" ]; then
+    mv -f "$OUT" "$TMPDIR_RUN/src.$ACTUAL"
+    if python3 - "$TMPDIR_RUN/src.$ACTUAL" "$OUT" <<'PYCONV' 2>"$TMPDIR_RUN/conv.err"
+import sys
+try:
+    import pymupdf as fitz
+except ImportError:
+    import fitz
+pix = fitz.Pixmap(sys.argv[1])
+if pix.alpha:                      # JPEG has no alpha channel
+    pix = fitz.Pixmap(pix, 0)
+pix.save(sys.argv[2])
+PYCONV
+    then
+      CONVERTED=1
+    else
+      mv -f "$TMPDIR_RUN/src.$ACTUAL" "$OUT"
+      echo "gemini-image-ref: could not convert ${ACTUAL} -> ${WANT} ($(head -1 "$TMPDIR_RUN/conv.err"))" >&2
+      echo "gemini-image-ref: install PyMuPDF (pip install --user pymupdf) for format conversion" >&2
+    fi
+  fi
+  if [ "$CONVERTED" = "0" ]; then
+    FIXED="${OUT%.*}.${ACTUAL}"
+    [ "$FIXED" != "$OUT" ] && mv -f "$OUT" "$FIXED"
+    echo "gemini-image-ref: model returned ${ACTUAL}; saved as $FIXED (not $OUT)" >&2
+    OUT="$FIXED"
+  fi
+fi
+
 BYTES="$(perl -e 'print -s $ARGV[0]' "$OUT")"
 echo "OK  $OUT  (${BYTES} bytes, aspect ${ASPECT}${REF:+, ref $(basename "$REF")})"
