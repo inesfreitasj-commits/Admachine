@@ -201,6 +201,13 @@ One brief per concept in `$RUN/briefs/concept_NN.md`, tagged with its framework:
 
 - **Angle** — see the aggressive-angle rule below.
 
+### Native-market copy
+
+**All copy must read as native to the target market, never as translated English.** For
+non-English markets load `references/localization.md` before writing any overlay text,
+headline or caption — it carries the user's copy persona and the register to write in.
+Machine-translation-sounding copy is a defect on the same level as a garbled label.
+
 ### Always an aggressive angle
 
 **Every concept carries an aggressive angle by default.** First-person, specific,
@@ -250,6 +257,19 @@ Rules for this step:
 - Each prompt = scene description + exact overlay text + the product visual
   description from step 4 + a line like *"the product must exactly match the attached
   reference photo — same bottle, cap, label, and colours."*
+- **Ground the product in the scene.** Without this the bottle reads as a 2D cut-out
+  pasted onto a photo. Require: a contact shadow where the base meets the surface; the
+  same light direction and colour temperature as the rest of the frame; the same depth of
+  field as its surroundings; a faint reflection on polished or wooden surfaces; and
+  perspective matching the surface it stands on.
+
+- **Never place the product in the extreme foreground.** This is the real cause of giant
+  bottles — perspective enlarges anything near the lens, and no "no more than 12% of frame
+  height" instruction overrides it. Put the product at the same depth as the person, on a
+  nightstand or table beside them. The reliable alternative is having someone hold it with
+  their fingers wrapped around it, which gives the model a scale anchor. A product standing
+  alone in the foreground will come back oversized however you word the prompt.
+
 - **If the reference photo is low-resolution, spell out the label copy in the prompt.**
   The model faithfully reproduces blur, so a fuzzy reference yields packaging covered in
   convincing gibberish. Quote the brand mark and every label line exactly, and say the
