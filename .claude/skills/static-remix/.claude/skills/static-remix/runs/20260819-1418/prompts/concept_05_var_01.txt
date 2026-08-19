@@ -1,0 +1,53 @@
+A single flat square static advertisement image for a paid social feed, 1:1.
+
+SCENE:
+A hard vertical split-screen advertisement. LEFT HALF: cold desaturated grey-blue, a cluttered spill of white hormone tablets and blister packs on a clinical surface, unappealing. RIGHT HALF: warm blush-pink and cream, bright and calm, the ÉveilSens bottle standing alone and elegant with a few cherry-blossom petals. Strong visual contrast between the two halves.
+
+VARIATION: Hormone tablets and blister packs on the left.
+
+TEXT ON IMAGE (render exactly, in French, nothing else):
+Bold text at the top of each half.
+Left half, white text: LES HORMONES
+Right half, dark-magenta text: ÉVEILSENS
+Small white text at the bottom of the left half: Ordonnance · effets secondaires
+Small dark-magenta text at the bottom of the right half: 100 % naturelle · sans hormones
+
+PRODUCT (must match the attached reference photo exactly):
+A small ~20ml squeeze bottle with an OPAQUE WHITE plastic body, a LONG TAPERED CONICAL
+NOZZLE in translucent frosted natural plastic taking up the top third, and a ribbed white
+screw collar. A wrap-around label covers the lower two thirds: vivid MAGENTA-to-PINK
+gradient, hot pink at the edges fading to near-white behind the centre text, a small
+dark-magenta brand oval at the top, dark-magenta script copy, a stylised dark-magenta
+petal/droplet motif, and a solid magenta band at the bottom. The bottle must match the
+attached reference photo exactly - same shape, same nozzle, same label artwork and colours.
+
+LABEL TEXT (the attached reference is low-resolution and its label text is blurred - render
+these exact words crisply and correctly, do not copy the blur):
+- brand mark in the dark-magenta oval near the top of the label: "EveilSens" (with an acute accent: Eveil -> ÉveilSens)
+- centred script copy beneath it, two lines: "Augmentez votre plaisir." then "Profitez de l'orgasme."
+- solid magenta band at the bottom, small white text: "Female Pleasure Enhancer"
+All label lettering must be sharp and correctly spelled French. Note it is "Profitez DE l'orgasme",
+not "do". No invented, misspelled or garbled words anywhere on the packaging.
+
+Never a glass dropper, never a pump, never amber glass, never a rounded cap.
+
+INTEGRATION - the bottle must look PHYSICALLY PRESENT in the scene, photographed there,
+never pasted on:
+- it casts a real CONTACT SHADOW where its base meets the surface, plus a soft directional
+  shadow falling away from the scene's light source
+- it is lit by THE SAME light, from the same direction, at the same colour temperature as
+  everything else in the frame - warm lamplight makes it warm, cool window light makes it cool
+- it sits in the SAME depth of field: if the background is soft, the bottle is
+  correspondingly soft; if it is far from the lens it is out of focus too
+- on a polished or wooden surface it shows a faint reflection and picks up bounce colour
+  from that surface
+- its perspective and vanishing point match the surface it stands on, so it reads as
+  standing ON the furniture rather than floating in front of it
+It must NEVER look like a flat 2D cut-out, a sticker, or a product photo composited onto
+a photograph.
+
+STYLE: premium French direct-response beauty/wellness advertising. Warm, tasteful, editorial. Palette built on hot magenta, blush pink, cream and deep plum. High contrast, thumb-stopping, clean typography.
+
+Do not add any text beyond what is specified. No watermark, no logos, no captions,
+no distorted or misspelled lettering, no duplicate bottles, no extra product. All French
+accents must render correctly.
