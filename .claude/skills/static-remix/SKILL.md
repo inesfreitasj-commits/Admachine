@@ -166,6 +166,12 @@ tool**, then write a short teardown into `$RUN/briefs/teardowns.md`:
   badge, colour-blocking, text hierarchy
 - **Swap** — what becomes the user's brand: product, palette, claim, price, proof
 
+**If the user supplies their own winning ads, tear those down FIRST and reproduce their
+top repeated composition as a concept before reaching for any swipe-file framework.** A
+format that already converts for this exact product outranks a stranger's ad every time.
+Count how often each composition repeats across their winners — the most repeated one is
+their proven format, and omitting it is the most expensive mistake available.
+
 ## Step 6 — Write one production brief per concept
 
 One brief per concept in `$RUN/briefs/concept_NN.md`, tagged with its framework:
@@ -176,9 +182,40 @@ One brief per concept in `$RUN/briefs/concept_NN.md`, tagged with its framework:
   relative size. Keep them short; long copy renders badly.
 - **Headline** — the ad headline that runs with it
 - **Caption** — the primary text / caption
-- **Variation axis** — the ONE thing that changes between `var_01` and `var_02`
-  (camera angle, overlay wording, background, model). Everything else stays fixed —
-  that is what makes the pair a clean test.
+- **Variation axis** — the ONE thing that changes between `var_01` and `var_02`.
+  **It must be VISUAL: camera angle, composition, setting, crop, or model presence.**
+  Everything else stays fixed — that is what makes the pair a clean test.
+
+  **Never use overlay wording as the only axis.** Changing a few words while scene,
+  lighting and product placement stay identical produces two images that look the
+  same in a feed: half that concept's budget buys nothing. If you want to test copy,
+  change the words *and* the composition.
+
+- **Product scale** — every brief states how big the product sits in frame, with a
+  physical size anchor and a cap on frame share (e.g. *"a small 20 ml bottle, about
+  as tall as an adult hand is wide; no more than 15% of frame height; when held, the
+  fingers wrap most of its height"*). Without this the model renders a palm-sized
+  bottle as a 500 ml one. Expect to fight it: the instruction lands reliably when a
+  hand or another object gives scale, and is often ignored in a bare product shot —
+  check every image and regenerate the ones that came back oversized.
+
+- **Angle** — see the aggressive-angle rule below.
+
+### Always an aggressive angle
+
+**Every concept carries an aggressive angle by default.** First-person, specific,
+outcome-first, no hedging. Numbers and timings up front. The partner's or observer's
+reaction as the proof. In DR, corporate wellness phrasing ("contribue à améliorer le
+confort", "les résultats parlent d'eux-mêmes") is a defect, not a safe default — it is
+the single most common way a generated batch underperforms the user's own winners.
+
+Mine the aggression from what already converts for them: their winning ads' hooks are
+the tone to match and, where the copy is theirs, to reuse verbatim.
+
+**The guardrail that never moves:** aggressive *framing*, page-supported *facts*.
+Invented prices, fabricated review counts, or medical outcome claims the page doesn't
+make get the account banned rather than scaled. Aggression lives in the phrasing and
+the imagery — never in a number you made up.
 
 **Pricing and offer copy must be pulled verbatim from the product page. Never invent a
 price, discount, guarantee, review count, or clinical claim.** If a framework needs a

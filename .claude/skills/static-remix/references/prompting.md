@@ -75,6 +75,28 @@ All label lettering must be sharp and correctly spelled. No invented or garbled 
 Check the result: at hero size the label should be readable. Where the product sits
 small in frame the text stays fuzzy, which is fine for feed but wrong under zoom.
 
+## Two blocks worth pasting into every prompt
+
+**Scale** — without it a palm-sized bottle renders as a 500 ml one:
+```
+SCALE: a small 20 ml bottle, roughly the size of a human palm — about as tall as an
+adult hand is wide. No more than 15% of the frame height; never dominating the
+composition. When held, it sits in one hand with the fingers wrapping most of its height.
+```
+Most reliable when a hand or a nearby object supplies scale; least reliable in a bare
+product shot, so check every result.
+
+**Colour lock** — stops the product drifting between images in a batch:
+```
+COLOUR (exact, no substitutions): body OPAQUE BRIGHT WHITE — not cream, not ivory, not
+beige. Label gradient HOT MAGENTA (#D6006E) at the edges fading to near-white behind the
+centre text. Solid HOT MAGENTA band at the bottom. Nozzle translucent natural polyethylene.
+The motif is a SINGLE stylised line-drawn petal with a droplet — never a lotus, never a
+multi-petal flower, never a leaf.
+```
+Colour holds well. The motif is stubborn — the model tends toward a generic lotus
+whatever you say, so treat brand marks as something to check rather than trust.
+
 ## When a generation gets refused (exit code 6)
 
 Usually a health/medical claim or an implied before/after body result. Soften the
