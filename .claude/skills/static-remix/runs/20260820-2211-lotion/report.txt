@@ -194,3 +194,40 @@ SPEND
   Batch 3                  2 x $0.25   =  $0.50
   Ferméa total (38 images)             =  $9.50
   RUNNING TOTAL ACROSS ALL PRODUCTS    = $32.00
+
+
+================================================================================
+BATCH 4 — SURGICAL MARKING ANGLE — 5 generations, $1.25
+================================================================================
+Client reference: a real operating-theatre prep photo — limb painted orange with
+iodine, blue surgical drapes, black marker geometry with handwritten cm measurements.
+
+  M3  Loose upper arm on blue drapes, iodine-orange, black excision outline with
+      cross-hatched ladder edges, "24 CM" and "EXCISION" handwritten on the skin.
+      Closest to the reference and the strongest of the four.
+  M4  Two gloved hands pinching the loose fold, same theatre register, "9 cm".
+  M2  Consultation-room version — one woman, arm raised, purple marker on the
+      hanging underarm skin. Softer register, far less likely to be flagged by Meta.
+  M1  Consultation-room close-up, gloved pinch blanching the skin.
+
+FIXED IN THIS BATCH
+  The first M2 had TWO PEOPLE in it — the client spotted it. Cause: the brief said
+  "both arms raised out to the sides", which only works from a FRONTAL view. The model
+  rendered her side-on, so both arms ran off to the same edge and the upper one read
+  as a second person standing behind her. Regenerated with "ONLY ONE ARM APPEARS
+  ANYWHERE IN THE FRAME" plus an explicit one-person clause. $0.25.
+  RULE FOR NEXT TIME: never write "both arms" / "both legs" unless the camera position
+  is also pinned to frontal. Name the number of limbs that may appear in the frame.
+
+COPY — DELIBERATELY RESTRAINED, AND WHY
+  All four carry "Peau des bras très relâchée ?" / "16 huiles testées : le classement".
+  The image supplies the aggression; the copy claims nothing.
+  The harder line — "Avant d'en arriver là…" — implies the oil prevents surgery. That
+  is a medical claim the funnel does not make anywhere, and it is the kind of implied
+  claim that gets an account restricted rather than just an ad rejected. It is a free
+  re-composite if the client wants it, but it is their decision, not mine to assume.
+
+SPEND
+  Batch 4                  5 x $0.25   =  $1.25
+  Ferméa total (43 images)             = $10.75
+  RUNNING TOTAL ACROSS ALL PRODUCTS    = $33.25

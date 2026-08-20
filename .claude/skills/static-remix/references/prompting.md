@@ -222,3 +222,32 @@ happily shrinks type to whatever fits the box it was given.
 Usually a health/medical claim or an implied before/after body result. Soften the
 claim to what the product page actually supports, drop any implied medical outcome,
 and retry once. If it refuses again, swap the concept rather than fighting it.
+
+
+## Never say "both arms" without pinning the camera
+
+A brief that said *"both arms are raised out to the sides at shoulder height"* produced
+an image with **two people in it**. The phrasing only works from a frontal view; the
+model placed the subject side-on, so both of her arms ran off the same edge of the
+frame and the upper one read as a second person standing behind her. The client spotted
+it before the QC pass did.
+
+State the number of limbs allowed in the frame, not the pose of the body:
+
+> ONLY ONE ARM APPEARS ANYWHERE IN THE FRAME — the arm nearest the camera. Her other
+> arm hangs down behind her body and is COMPLETELY HIDDEN. There must be exactly ONE
+> shoulder, ONE upper arm, ONE elbow and ONE forearm in the whole picture.
+> CRITICAL — ONE PERSON ONLY: no second person, no arm entering the frame from any
+> edge, nobody standing behind her.
+
+The same trap applies to *both hands*, *both legs*, *both feet*, and to any second
+figure implied but not described — a partner, a passer-by, a reflection. Count the body
+parts you want and say the number.
+
+## Match a supplied reference on its MATERIALS, not its subject
+
+When the client sends a photo as a style reference, the thing to reproduce is the
+material world in it, described concretely: iodine-stained skin, blue non-woven surgical
+drapes filling the background, black marker with cross-hatched ladder edges and
+handwritten centimetre annotations, hard overhead theatre light. Naming those got a
+near-exact match first time. Writing "like a surgical photo" would not have.
