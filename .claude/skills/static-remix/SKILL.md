@@ -432,6 +432,13 @@ worst = sorted((q.correlation(sigs[a], sigs[b]), a, b)
 
 Anything at r >= 0.60 is a duplicate to Meta.
 
+**Run the duplicate check on `production/`, not `final/`.** When a batch shares one
+composited lockup — the same kicker, the same bottom band in the same place on every
+image — that template dominates a 16x16 greyscale signature and inflates every score.
+Measured on a 36-image batch: 6 pairs cleared 0.60 after compositing, only 2 before,
+and four of the six were plainly different creatives. Judge the photographs, then look
+at the flagged pairs yourself before calling anything a duplicate.
+
 **Never judge a pair having viewed only one of its images.** A whole concept once shipped
 with the wrong product — amber glass instead of the real bottle — because only `var_01`
 was checked and `var_02` was assumed fine.

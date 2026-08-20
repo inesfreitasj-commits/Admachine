@@ -119,3 +119,45 @@ SPEND
   ------------------------------------------------------------
   RUNNING TOTAL                                        $27.50
 Nothing was generated beyond the 20 approved.
+
+
+================================================================================
+BATCH 2 — 16 more, $4.00        (client asked for: more native, stronger claims)
+================================================================================
+SHELF / OUT OF STOCK (the two the client picked out)
+  S1  Last bottle on the shelf, competitors full — "Il ne reste que 4 flacons."
+  S2  Empty slot + a HANDWRITTEN note taped to the rail. NO OVERLAY — the note is
+      the message, and an overlay would make it look like an ad. Strongest native here.
+UGC (the other one the client picked out)
+  U1  Woman ~60 in her own kitchen, flash, Nathalie L. quote
+  U2  Woman showing her own forearm, bottle held back at the hip, Caroline G. quote
+  U3  Selfie in the car with the pharmacy bag on the seat. NO TEXT
+NATIVE, NO TEXT AT ALL
+  N1  Parcel torn open on a French hallway floor
+  N2  Bedside table at night — bottle, reading glasses, blister strip, water
+  N3  Forearm freshly oiled, mid-stroke. No bottle, no branding
+AGGRESSIVE
+  X1  Woman pulling her own neck skin at the bathroom mirror
+      « J'ai tout essayé… rien ne fonctionne. »   ← the patient quote, verbatim
+  X2  Ordinary white lotion rubbed into a crepey arm, creases showing straight through
+      "Une simple hydratation ne suffit pas"      ← verbatim
+NEW CONCEPT TYPES
+  Y1  Dermatologist examining a patient's forearm in a French consulting room
+  Y2  The same forearm at 40 / 55 / 70 ANS, three panels
+  Y3  Woman outside a French pharmacy holding a handwritten cardboard sign
+  Y4  Your own advertorial read on a phone at a café table. Pure native
+  Y5  The five tested oils laid out in rank order, Ferméa first
+  Y6  Extreme macro of crepey skin — "C'est ça, la peau « papier froissé »."
+
+DUPLICATE CHECK — 630 pairs across all 36
+  One real duplicate: A3 (shelf hand lifting) vs S1 (last bottle), r = 0.79. Same shot,
+  same shelf, same gesture. A3 was already a reject for scale, so S1 replaces it — drop
+  A3 and the set is clean.
+  The metric flagged four more, and they are wrong. A shared composited lockup dominates
+  the signature: 6 pairs cleared 0.60 on the finished images, only 2 on the raw photos
+  before any overlay. Judge the photographs. This is now written into the skill.
+
+SPEND
+  Batch 2                 16 x $0.25   =  $4.00
+  Ferméa total (36 images)             =  $9.00
+  RUNNING TOTAL ACROSS ALL PRODUCTS    = $31.50
