@@ -1,0 +1,25 @@
+{
+  "pdf": "/root/.claude/uploads/bf0cd556-3b67-5206-a435-cab5cfef6902/20672048-SANS.pdf",
+  "pages": 1,
+  "heading_style": null,
+  "headings_found": [],
+  "frameworks": {
+    "UNLABELED": 1
+  },
+  "images": [
+    {
+      "file": "img_0001_UNLABELED.png",
+      "page": 1,
+      "framework": "UNLABELED",
+      "width": 367,
+      "height": 686,
+      "bbox": [
+        429.5,
+        150.0,
+        1070.8,
+        1347.8
+      ],
+      "source": "embedded"
+    }
+  ]
+}

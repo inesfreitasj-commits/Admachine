@@ -1,0 +1,7 @@
+PDF: /root/.claude/uploads/bf0cd556-3b67-5206-a435-cab5cfef6902/20672048-SANS.pdf (1 pages)
+Heading font: NOT DETECTED (no text layer?) — images labelled UNLABELED
+
+Frameworks detected (1 images total):
+  UNLABELED                        1 images
+
+  img_0001_UNLABELED.png                   p1    UNLABELED                    367x686

@@ -208,6 +208,24 @@ non-English markets load `references/localization.md` before writing any overlay
 headline or caption — it carries the user's copy persona and the register to write in.
 Machine-translation-sounding copy is a defect on the same level as a garbled label.
 
+### The concept bar — cut filler before it costs money
+
+Three kinds of concept are rejected on sight and must not be proposed:
+**not aggressive enough** (no number, no claim, no tension — could be any brand),
+**generic** (stock lifestyle: smiling cyclist, sunset jog, couple laughing over coffee), and
+**AI-looking** (bad hands, floating product, plastic skin, nonsense text).
+
+Ten sharp concepts beat twenty with filler. Cut, don't pad.
+
+`references/concept-library.md` carries the weekly 30-concept split, the concept types,
+and the scene ideas the user has already validated.
+
+### Put the timeframe in the copy
+
+**Wherever an ad carries text, work the timeframe in** — "en 7 jours", "en 90 secondes",
+"en 2 semaines". A deadline converts harder than a benefit alone. Standing user preference,
+applies to every product.
+
 ### Always an aggressive angle
 
 **Every concept carries an aggressive angle by default.** First-person, specific,
@@ -227,6 +245,37 @@ the imagery — never in a number you made up.
 **Pricing and offer copy must be pulled verbatim from the product page. Never invent a
 price, discount, guarantee, review count, or clinical claim.** If a framework needs a
 number the page doesn't have, use a claim the page does support instead.
+
+## Step 6.5 — Before spending: flag every shot you are not confident in
+
+**Read `references/concept-library.md`, `references/native-realism.md` and
+`references/rejected-patterns.md` first. Then, before a single API call, classify
+every planned shot as high or low confidence, and raise the low-confidence ones with the
+user BEFORE generating.**
+
+The user pays $0.25 per image from their own key. An unasked question costs them money;
+asking costs one message. Never gamble with someone else's credit to avoid a conversation.
+
+Known-unreliable shots — do not propose these, or flag them explicitly if the user asks
+for one:
+
+| Shot type | Verdict |
+|---|---|
+| Product nearest the lens / on the front-most surface | **Will come back oversized.** Don't propose it. |
+| Small product where the label must be readable | **Will come back garbled** at low reference resolution |
+| Any scene wording with *dropper*, *serum*, *pipette* | **Will swap to amber glass.** Reword. |
+| A pair differing only in wording | **Will come back as near-duplicates** |
+| Product held in a hand | Medium — only reliable with the face anchor |
+| Product resting at mid-distance | Reliable |
+| Face-anchored held product | Reliable |
+
+Raise a doubt as a concrete choice, not a vague check-in. *"This concept needs the label
+readable, but your reference photo is too soft for that at this size. I can compose so the
+label isn't the focal point, or you can send a sharper packshot and I'll do it properly.
+Which?"*
+
+**If the product photo is low-resolution, ask for a better one before generating a batch.**
+It is the single highest-value input and costs the user nothing.
 
 ## Step 7 — Generate with Nano Banana Pro
 
@@ -257,6 +306,11 @@ Rules for this step:
 - Each prompt = scene description + exact overlay text + the product visual
   description from step 4 + a line like *"the product must exactly match the attached
   reference photo — same bottle, cap, label, and colours."*
+- **Localise the scene, not just the copy.** Buildings, signage, people, interiors, props,
+  currency and — critically — **clothing matched to the current season in the target
+  market**. Resolve the real date and season each run rather than assuming.
+  `references/native-realism.md` has the checklist and the AI-tell fixes.
+
 - **Ground the product in the scene.** Without this the bottle reads as a 2D cut-out
   pasted onto a photo. Require: a contact shadow where the base meets the surface; the
   same light direction and colour temperature as the rest of the frame; the same depth of
@@ -300,6 +354,29 @@ a short batch.
 
 Set `GEMINI_DRY_RUN=1` to build and inspect the request JSON without calling the API —
 worth doing once on the first concept of a large batch to check the wiring.
+
+## Step 7.5 — Quality gate: view EVERY image before showing the user anything
+
+Run `python3 scripts/qc_batch.py <run>/production` to catch near-duplicate pairs and
+product-colour drift mechanically, then **open every single image with the Read tool.**
+
+**Never judge a pair having viewed only one of its images.** A whole concept once shipped
+with the wrong product — amber glass instead of the real bottle — because only `var_01`
+was checked and `var_02` was assumed fine.
+
+| Check | Fails if |
+|---|---|
+| Product identity | Not the real product: wrong material, wrong closure, wrong motif, wrong colour |
+| Product scale | Taller than ~⅓ of the nearest face, or dominating the frame |
+| Pair distinctness | The two variations read the same at a glance |
+| Grip | Where held, fingers don't visibly contact and press the surface |
+| Integration | No contact shadow, or light not matching the scene |
+| Copy | Garbled, misspelled or invented words in the overlay |
+| One scene per image | The image shows a split-screen of both variations |
+
+Report every failure **to the user as a failure, before they find it** — never ship quietly,
+never call a batch finished while knowing it isn't. Regenerate within the approved count if
+budget remains; otherwise say plainly which images failed and what fixing them would cost.
 
 ## Step 8 — Write the report
 
