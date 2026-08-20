@@ -130,6 +130,23 @@ the nearest thing to the lens.
 
 Say where the product sits in depth, not just how big it should be.
 
+## Sizing composited text for a feed, not for a screen
+
+Text added in code is easy to make too small, because it looks fine at full size on a
+desktop and is unreadable on a phone in-feed. An auto-fit routine makes this worse: it
+happily shrinks type to whatever fits the box it was given.
+
+- Size for the **thumbnail**, not the full-resolution file. If it isn't comfortably
+  readable when the whole image is about 400px wide, it is too small.
+- If the copy doesn't fit at a readable size, **cut the copy** — never shrink the type.
+  Three short lines beat three long ones every time.
+- Give the shortest, most important line the **largest** size. On a sign or a card the
+  timeframe or the number should dominate.
+- Map the usable area honestly: a held sign is only full-width where nobody's hands are.
+  Give upper lines the full width and lower lines a narrower box.
+- Always look at the result before delivering. Measured widths tell you it fits; only
+  looking tells you it reads.
+
 ## When a generation gets refused (exit code 6)
 
 Usually a health/medical claim or an implied before/after body result. Soften the
