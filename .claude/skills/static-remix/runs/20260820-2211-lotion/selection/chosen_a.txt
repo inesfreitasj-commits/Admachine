@@ -1,0 +1,10 @@
+D2_ba_decollete
+D3_ugc_holding
+D1_ba_forearm
+C5_pharmacy_aisle
+C4_knees_garden
+C2_upper_arm_bathroom
+B5_test_winner_hero
+B4_trustpilot_authority
+B2_bathroom_native
+A6_hook_hand_back

@@ -1,0 +1,16 @@
+PDF: /root/.claude/uploads/bf0cd556-3b67-5206-a435-cab5cfef6902/1d4f934e-Untitled_design_6.pdf (10 pages)
+Heading font: NOT DETECTED (no text layer?) — images labelled UNLABELED
+
+Frameworks detected (10 images total):
+  UNLABELED                        10 images
+
+  img_0001_UNLABELED.png                   p1    UNLABELED                    1024x1024
+  img_0002_UNLABELED.png                   p2    UNLABELED                    1024x1024
+  img_0003_UNLABELED.png                   p3    UNLABELED                    1010x1010
+  img_0004_UNLABELED.png                   p4    UNLABELED                    1024x1024
+  img_0005_UNLABELED.png                   p5    UNLABELED                    1024x1024
+  img_0006_UNLABELED.png                   p6    UNLABELED                    1024x1024
+  img_0007_UNLABELED.png                   p7    UNLABELED                    1024x1024
+  img_0008_UNLABELED.png                   p8    UNLABELED                    1024x1024
+  img_0009_UNLABELED.png                   p9    UNLABELED                    1024x1024
+  img_0010_UNLABELED.png                   p10   UNLABELED                    1024x1024

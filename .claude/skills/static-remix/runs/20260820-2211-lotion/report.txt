@@ -231,3 +231,61 @@ SPEND
   Batch 4                  5 x $0.25   =  $1.25
   Ferméa total (43 images)             = $10.75
   RUNNING TOTAL ACROSS ALL PRODUCTS    = $33.25
+
+================================================================================
+CLIENT SELECTION — 20 of 42 chosen        (matched file-by-file, not by eye)
+================================================================================
+CHOSEN
+  D2_ba_decollete
+  D3_ugc_holding
+  D1_ba_forearm
+  C5_pharmacy_aisle
+  C4_knees_garden
+  C2_upper_arm_bathroom
+  B5_test_winner_hero
+  B4_trustpilot_authority
+  B2_bathroom_native
+  A6_hook_hand_back
+  A2_shelf_rupture_stock
+  A5_hook_inner_arm
+  S2_handwritten_note
+  Y3_cardboard_sign
+  U2_ugc_arm_show
+  Y5_five_oils_table
+  Y4_phone_article
+  U3_ugc_car
+  M1_preop_arm_close
+  M3_preop_iodine_close
+
+NOT CHOSEN
+  A1_shelf_test_winner
+  A3_shelf_hand_lifting
+  A4_hook_decollete
+  B1_ingredients
+  B3_hydration_not_enough
+  C1_papier_froisse
+  C3_pinch_test
+  D4_pump_into_palm
+  M2_preop_arm_wide
+  M4_preop_iodine_pinch
+  N1_parcel_doormat
+  N2_bedside
+  N3_oiled_arm
+  S1_last_bottle
+  U1_ugc_kitchen
+  W1_whatsapp
+  W2_changing_room
+  X1_tout_essaye
+  X2_lotion_fails
+  Y1_derm_exam
+  Y2_three_ages
+  Y6_macro_texture
+
+TWO THINGS ONLY THE FILE MATCH REVEALED
+  · M1 was taken straight from production/ — the RAW file, without the lockup.
+  · M3 was hand-edited by the client to remove BOTH the lockup AND the "24 CM" /
+    "EXCISION" written on the skin, then enlarged.
+  On shock imagery they stripped every word, including the words inside the photograph.
+  Deliver a clean version alongside the composited one next time. It costs nothing.
+
+FULL ANALYSIS: references/selection-signal.md

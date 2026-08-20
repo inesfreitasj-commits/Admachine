@@ -33,6 +33,12 @@ Three kinds of ad waste the user's money, and they are rejected on sight:
 **Before proposing a concept, ask: does it lead with a number, a claim, or a visual shock?**
 If not, cut it. The user would rather have 10 sharp concepts than 20 with filler.
 
+## Check the scoreboard first
+
+`references/selection-signal.md` records which 20 of 42 delivered ads a client actually
+chose, matched file by file. It is measured, not remembered. Read it before proposing a
+batch — it says which buckets convert selection, and which went 0 for 3.
+
 ## Diagnose the creative system before you mine the winners
 
 Read `references/creative-systems.md` first. Claim-led and editorial-test products win on
