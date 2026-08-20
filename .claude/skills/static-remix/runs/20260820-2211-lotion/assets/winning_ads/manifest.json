@@ -1,0 +1,53 @@
+{
+  "pdf": "/root/.claude/uploads/bf0cd556-3b67-5206-a435-cab5cfef6902/1a21334c-Untitled_design_3.pdf",
+  "pages": 3,
+  "heading_style": null,
+  "headings_found": [],
+  "frameworks": {
+    "UNLABELED": 3
+  },
+  "images": [
+    {
+      "file": "img_0001_UNLABELED.png",
+      "page": 1,
+      "framework": "UNLABELED",
+      "width": 745,
+      "height": 745,
+      "bbox": [
+        -5.7,
+        0.0,
+        1505.5,
+        1511.3
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0002_UNLABELED.png",
+      "page": 2,
+      "framework": "UNLABELED",
+      "width": 742,
+      "height": 743,
+      "bbox": [
+        -0.0,
+        0.0,
+        1497.8,
+        1500.0
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0003_UNLABELED.png",
+      "page": 3,
+      "framework": "UNLABELED",
+      "width": 746,
+      "height": 745,
+      "bbox": [
+        0.0,
+        0.0,
+        1502.2,
+        1500.0
+      ],
+      "source": "embedded"
+    }
+  ]
+}

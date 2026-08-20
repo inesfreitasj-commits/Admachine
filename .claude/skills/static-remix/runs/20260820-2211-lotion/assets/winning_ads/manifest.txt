@@ -1,0 +1,9 @@
+PDF: /root/.claude/uploads/bf0cd556-3b67-5206-a435-cab5cfef6902/1a21334c-Untitled_design_3.pdf (3 pages)
+Heading font: NOT DETECTED (no text layer?) — images labelled UNLABELED
+
+Frameworks detected (3 images total):
+  UNLABELED                        3 images
+
+  img_0001_UNLABELED.png                   p1    UNLABELED                    745x745
+  img_0002_UNLABELED.png                   p2    UNLABELED                    742x743
+  img_0003_UNLABELED.png                   p3    UNLABELED                    746x745

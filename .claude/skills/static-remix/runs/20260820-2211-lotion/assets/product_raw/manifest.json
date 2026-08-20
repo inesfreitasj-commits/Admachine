@@ -1,0 +1,25 @@
+{
+  "pdf": "/root/.claude/uploads/bf0cd556-3b67-5206-a435-cab5cfef6902/770207c4-Untitled_design_4.pdf",
+  "pages": 1,
+  "heading_style": null,
+  "headings_found": [],
+  "frameworks": {
+    "UNLABELED": 1
+  },
+  "images": [
+    {
+      "file": "img_0001_UNLABELED.png",
+      "page": 1,
+      "framework": "UNLABELED",
+      "width": 285,
+      "height": 606,
+      "bbox": [
+        381.1,
+        36.6,
+        1052.3,
+        1463.1
+      ],
+      "source": "embedded"
+    }
+  ]
+}

@@ -281,6 +281,18 @@ It is the single highest-value input and costs the user nothing.
 
 Helper: `~/.claude/skills/static-remix/scripts/gemini-image-ref.sh`
 
+**Never write the API key into a file.** Not into a batch script, not into a log, not
+into a run folder — run folders get committed, and GitHub's secret scanner will block
+the push after the work is done. Pass the key on the command line for a single call, and
+for a batch script read it from the environment:
+
+```bash
+: "${GEMINI_API_KEY:?set GEMINI_API_KEY in the environment before running}"
+```
+
+If a key does reach a commit, fix the file and `git commit --amend` while it is still
+unpushed — that drops it from history — and tell the user to rotate the key.
+
 ```bash
 GEMINI_API_KEY=... \
   ~/.claude/skills/static-remix/scripts/gemini-image-ref.sh \
@@ -355,10 +367,70 @@ a short batch.
 Set `GEMINI_DRY_RUN=1` to build and inspect the request JSON without calling the API —
 worth doing once on the first concept of a large batch to check the wiring.
 
+## Step 7.4 — Composite the copy in code, not in the image
+
+**Generate the photograph. Draw the words yourself.** Nothing on an image model's
+output can be trusted to be spelled correctly, and nothing it draws can be corrected
+without paying for another generation. `scripts/compose_text.py` draws headlines,
+badges, day labels, quotes, rating blocks and flag roundels onto a finished image for
+free, exactly, and as many times as you like.
+
+```python
+import sys; sys.path.insert(0, "~/.claude/skills/static-remix/scripts")
+from compose_text import Composer, hook_lockup, trim_uniform_border
+```
+
+Which copy goes where:
+
+| Copy | Where it belongs |
+|---|---|
+| Headlines, kickers, badges, day labels, quotes, ratings, press strips | **Composited.** Flat overlay graphics — the model adds nothing |
+| Price labels on a shelf rail, signage, a handwritten sign, label text on the pack | **Generated.** They live in the scene's perspective and lighting |
+
+Everything in the module is specified in **fractions of the image size**, so a layout
+measured once off the client's winner reproduces at any output resolution.
+
+Three rules the module enforces so you cannot break them by accident:
+
+- **It refuses to shrink type to fit.** `centered()`, `badge()` and `hook_lockup()`
+  raise if a line would run off the frame. Shorten the copy instead — auto-fitting
+  silently produced a headline nobody could read in the feed, and a centred line whose
+  width exceeded the frame bled off *both* edges unnoticed.
+- **Use `band()`, not `scrim()`, over a busy or white background.** A gradient over
+  supermarket price labels leaves white copy unreadable. Check what is actually under
+  the text before choosing.
+- **`scrim()` is a real alpha ramp, not stacked translucent rectangles.** Overlapping
+  rects double-darken at every seam and the banding is visible in the feed.
+
+Also run `trim_uniform_border()` on every raw photo before compositing. The model
+sometimes frames a shot with a flat white margin, which reads as a designed edge and
+destroys the raw-phone-photo illusion the native ads depend on.
+
+**Reference upgrade — build a two-panel reference when reproducing a scene.** The
+helper takes one reference image, so when you are iterating on a client winner, paste
+their high-resolution packshot beside the winning ad on one canvas and attach that.
+The model then has both the pack and the scene. This is what makes shelf rail labels
+and pack lettering come back clean at the same time.
+
 ## Step 7.5 — Quality gate: view EVERY image before showing the user anything
 
-Run `python3 scripts/qc_batch.py <run>/production` to catch near-duplicate pairs and
+Run `python3 scripts/qc_batch.py <run>/final` to catch near-duplicate pairs and
 product-colour drift mechanically, then **open every single image with the Read tool.**
+
+`qc_batch.py` only pairs files named `*_var_NN`. When a batch uses concept names
+instead, run the all-pairs check yourself — a batch of 20 has 190 pairs and the
+duplicate can be anywhere:
+
+```python
+import sys, itertools, glob, os
+sys.path.insert(0, "~/.claude/skills/static-remix/scripts")
+import qc_batch as q
+sigs = {os.path.basename(f): q.signature(f) for f in sorted(glob.glob("final/*.png"))}
+worst = sorted((q.correlation(sigs[a], sigs[b]), a, b)
+               for a, b in itertools.combinations(sigs, 2))[-8:]
+```
+
+Anything at r >= 0.60 is a duplicate to Meta.
 
 **Never judge a pair having viewed only one of its images.** A whole concept once shipped
 with the wrong product — amber glass instead of the real bottle — because only `var_01`

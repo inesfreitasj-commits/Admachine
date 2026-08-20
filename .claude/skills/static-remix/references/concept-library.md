@@ -33,6 +33,12 @@ Three kinds of ad waste the user's money, and they are rejected on sight:
 **Before proposing a concept, ask: does it lead with a number, a claim, or a visual shock?**
 If not, cut it. The user would rather have 10 sharp concepts than 20 with filler.
 
+## Diagnose the creative system before you mine the winners
+
+Read `references/creative-systems.md` first. Claim-led and editorial-test products win on
+opposite mechanics, and the same format — a pharmacy shelf, a before/after — argues a
+different thing in each. Getting this backwards produces competent ads for the wrong case.
+
 ## Mine the winners first, every time
 
 **Always tear down the client's winning ads in depth and use them as the guide.** Not a

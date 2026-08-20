@@ -1,0 +1,121 @@
+================================================================================
+FERMÉA™ — HUILE CORPS RAFFERMISSANTE — STATIC BATCH 01
+Run: 20260820-2211-lotion        20 images        $5.00        20 Aug 2026
+================================================================================
+
+WHAT THE CLIENT'S WINNERS ACTUALLY ARE
+--------------------------------------------------------------------------------
+This is NOT the ArtériVie system. ArtériVie won on claims and price. Ferméa wins on
+EDITORIAL AUTHORITY — a consumer test. The two hook winners make no product claim at
+all; the shelf winner puts Ferméa 4th of 5 on price and that is the point.
+
+  Shelf winner   French pharmacy rail, 5 oils, real rail prices, Ferméa at 34,95 €
+                 MID-TABLE. The argument is "it was tested and it won", never "it is
+                 cheapest". Building this like the ArtériVie shelf ad would kill it.
+  Hook winners   Tricolore + VAINQUEUR DU TEST 2026, red TEST PRODUIT badge, a light
+                 line + a bold underlined line, over a raw unretouched phone photo of
+                 an older woman's crepey skin.
+
+Every ad below was built inside that system. The lockup geometry was measured off
+their own 742x742 winner and reproduced to the pixel.
+
+--------------------------------------------------------------------------------
+THE 20
+--------------------------------------------------------------------------------
+A — ITERATIONS ON THE WINNERS (6)
+  A1  Shelf, 5 oils, wider aisle, red VAINQUEUR DU TEST sticker on Ferméa's rail
+  A2  Shelf with Ferméa's slot EMPTY + RUPTURE DE STOCK tag → "uniquement en ligne"
+  A3  Shopper's hand lifting Ferméa off the rail, prices still readable
+  A4  Hook lockup — crepey décolleté, indoors
+  A5  Hook lockup — crepey inner upper arm, café terrace, August sun
+  A6  Hook lockup — crepey back of the hand, blown-out garden
+B — WITH PRODUCT (5)
+  B1  Bottle + the five REAL botanicals, "94 % ont constaté une peau plus ferme…"
+  B2  Bottle on a real French bathroom shelf, NO TEXT — pure native
+  B3  Plain cream vs Ferméa, "Une simple hydratation ne suffit pas"
+  B4  Trustpilot authority card, 4,8 / 60 452 avis / garantie 60 jours
+  B5  Hero pack, tricolore kicker + "#1 CHOIX DE LA DERMATOLOGUE"
+C — WITHOUT PRODUCT (5)
+  C1  "Papier froissé" made literal — crumpled napkin beside a crepey forearm. NO TEXT
+  C2  Bathroom mirror selfie, slack upper arm. NO TEXT
+  C3  Pinch test. NO TEXT                                        ← SEE REJECTS
+  C4  Crepey knees and thighs, terrace, August
+  C5  French pharmacy body-care aisle, no pack visible
+D — BEFORE/AFTER + HOLDING (4)
+  D1  Forearm, JOUR 1 / JOUR 7
+  D2  Décolleté, JOUR 1 / JOUR 7 (matches their own before/after zones)
+  D3  UGC woman ~50 holding the pack, face-anchored, Françoise G. quote
+  D4  Pumping oil into the palm at the bath rim
+
+--------------------------------------------------------------------------------
+QC
+--------------------------------------------------------------------------------
+Every one of the 20 was opened and looked at, not just the sheet.
+Near-duplicate check across all 190 pairs: highest r = 0.474 (B1 vs B5), gate is 0.60.
+NO DUPLICATES.
+
+NOT SHIPPING AS-IS — 2 of 20
+  C3  pinch_test    The pinch is there but the skin does not TENT, and it reads young
+                    and smooth. The symptom is not in the image, so the ad says nothing.
+                    The kitchen also reads American, not French.
+  A3  hand_lifting  Two faults: the bottle is the nearest thing to the lens and comes
+                    back too large (the exact reject called out on ArtériVie), and a
+                    second black pump floats behind it on an amber bottle.
+                    The label reads beautifully, so it is salvageable — but as shipped
+                    it is the "big product" mistake again.
+
+Both are one regeneration each, $0.25 apiece. NOT SPENT — your call.
+
+--------------------------------------------------------------------------------
+FREE FIXES ALREADY APPLIED (no extra generation)
+--------------------------------------------------------------------------------
+  · Every line of on-image copy was composited in code, not generated, so it is
+    spelled correctly and sized for the feed rather than the file.
+  · A2 and A3: the headline was moved off the white rail price labels (onto the empty
+    grey shelf panel / onto a solid bar). A gradient there left the copy unreadable.
+  · A5 and D1 came back with a flat white border framing the photo — trimmed, because
+    a border breaks the raw-phone-photo illusion the native ads depend on.
+  · Reference upgrade: the shelf ads were generated against a two-panel reference —
+    your 285x606 packshot beside your own winning shelf ad — so the model had the pack
+    AND the scene. That is why the rail labels and the Ferméa label both come back clean.
+
+--------------------------------------------------------------------------------
+COPY — WHERE EVERY WORD CAME FROM
+--------------------------------------------------------------------------------
+Nothing on any of these 20 images was invented. Sources, all verbatim:
+  94 % ont constaté une peau plus ferme sous 7 jours      sales page
+  Une simple hydratation ne suffit pas                    sales page
+  4,8 sur Trustpilot / 60 452 avis / 60 000 clients       sales page
+  Garantie satisfait ou remboursé 60 jours                sales page
+  #1 CHOIX DE LA DERMATOLOGUE                             advertorial
+  16 huiles testées / une dermatologue                    advertorial
+  Disponible uniquement en ligne / rupture de stock       advertorial (their own cons)
+  « Après tant de crèmes essayées, je suis impressionnée. » — Françoise G., sales page
+  papier froissé                                          both pages
+  Bakuchiol · rose musquée · pépins de raisin · grenade · onagre · vitamine E · squalane
+                                                          sales page ingredient list
+  Rail prices 34,95 / 59,90 / 34,90 / 29,90 / 12,90 €     your own winning shelf ad
+
+DELIBERATELY AVOIDED: 98 %, 21 jours, garantie 30 jours, "Vu dans VIVA/alive/
+Chatelaine/Best Health" (Canadian outlets), and the advertorial's comparison table.
+
+--------------------------------------------------------------------------------
+FOUR THINGS WRONG ON YOUR OWN PAGES — worth fixing at source
+--------------------------------------------------------------------------------
+1. The advertorial's comparison table is headed "SheBloom", not Ferméa, and its prices
+   are 359 € / 650 €+ / 349 € / 359 € / 129 € — a copy-paste from a different funnel.
+   Anyone who scrolls that far sees another brand's name in your own table.
+2. Competitor #3's score bars are in SWEDISH inside a French article:
+   "Minskar Slapphet", "Slätar ut Pappersstruktur", "Prisvärdhet", "Återställer Elasticitet".
+3. Hero says 98 % of wrinkles, body says 90 %. Sales page says 94 % in 7 jours, the
+   advertorial says 94 % in 21 jours. Guarantee is 60 jours on one page, 30 on the other.
+4. The same competitor is "Goda" in the advertorial and "CODA" on the winning shelf ad.
+
+--------------------------------------------------------------------------------
+SPEND
+--------------------------------------------------------------------------------
+  This batch                            20 x $0.25   =  $5.00
+  ÉveilSens (55) + ArtériVie (35)                    = $22.50
+  ------------------------------------------------------------
+  RUNNING TOTAL                                        $27.50
+Nothing was generated beyond the 20 approved.
