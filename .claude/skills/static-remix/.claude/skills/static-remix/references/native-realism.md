@@ -20,6 +20,15 @@ Work through this list for every scene with a location or a person:
 | **Documents & props** | Prescriptions, cards, receipts, packaging conventions are country-specific |
 | **Money** | Local currency, local price formatting and decimal conventions |
 
+## The person in frame matches the buyer
+
+A men's product shows men. A women's product shows women. This sounds too obvious to write
+down; it was still got wrong, by putting a woman in the foreground of a scan-results shot
+for a men's product.
+
+The one deliberate exception is **partner POV**, where the partner is the narrator — she
+bought it for him — and not the patient. Everywhere else, match the audience.
+
 ## Season and temperature — check, do not assume
 
 **Always resolve the current season in the target market before writing scenes**, and dress

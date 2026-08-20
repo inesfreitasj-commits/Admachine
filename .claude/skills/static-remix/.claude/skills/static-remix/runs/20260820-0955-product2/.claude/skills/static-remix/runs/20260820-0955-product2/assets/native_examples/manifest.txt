@@ -1,0 +1,23 @@
+PDF: /root/.claude/uploads/bf0cd556-3b67-5206-a435-cab5cfef6902/9b9c9d25-Untitled_design_2.pdf (17 pages)
+Heading font: NOT DETECTED (no text layer?) — images labelled UNLABELED
+
+Frameworks detected (17 images total):
+  UNLABELED                        17 images
+
+  img_0001_UNLABELED.png                   p1    UNLABELED                    2000x2000
+  img_0002_UNLABELED.png                   p2    UNLABELED                    1254x1254
+  img_0003_UNLABELED.png                   p3    UNLABELED                    1200x750
+  img_0004_UNLABELED.png                   p4    UNLABELED                    483x600
+  img_0005_UNLABELED.png                   p5    UNLABELED                    600x600
+  img_0006_UNLABELED.png                   p6    UNLABELED                    600x600
+  img_0007_UNLABELED.png                   p7    UNLABELED                    1254x1254
+  img_0008_UNLABELED.png                   p8    UNLABELED                    600x600
+  img_0009_UNLABELED.png                   p9    UNLABELED                    600x600
+  img_0010_UNLABELED.png                   p10   UNLABELED                    600x600
+  img_0011_UNLABELED.png                   p11   UNLABELED                    597x600
+  img_0012_UNLABELED.png                   p12   UNLABELED                    300x300
+  img_0013_UNLABELED.png                   p13   UNLABELED                    864x1184
+  img_0014_UNLABELED.png                   p14   UNLABELED                    600x600
+  img_0015_UNLABELED.png                   p15   UNLABELED                    1263x1245
+  img_0016_UNLABELED.png                   p16   UNLABELED                    600x600
+  img_0017_UNLABELED.png                   p17   UNLABELED                    1254x1254

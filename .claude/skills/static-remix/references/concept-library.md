@@ -117,6 +117,35 @@ bare feet or hands showing the symptom; a home remedy mid-use; a thermal or scan
 photographed off a phone screen. These carry no branding and no text and work purely on
 curiosity.
 
+## Show the symptom, not the category
+
+"Pale and blotchy with faint mottling" is a clinical description. It shows nothing. The
+symptom has to be a physical sign a layperson can point at:
+
+| Weak (category) | Strong (evidence) |
+|---|---|
+| poor circulation | **swollen** ankles, sock-elastic indentations, tight shiny skin |
+| inflammation | visibly puffy, red, one side larger than the other |
+| fatigue | slumped at the kitchen table mid-afternoon, coffee going cold |
+| poor sleep | bedside clock reading 3:47, eyes open |
+
+If you cannot point at the image and say what is wrong, the symptom is not in it.
+
+## Retail scenes must contain the product — or make its absence the point
+
+A pharmacy or shop scene with no product in it has no link to what is being sold. Two valid
+executions:
+
+1. The pack is on the shelf or in the customer's hand.
+2. The absence IS the message — "your pharmacist doesn't stock it", out of stock in store
+   and available online — which only works with an explicit line saying so.
+
+## Clean does not mean flat
+
+Flat ground plus flat icons is thinner than anything in a good winning set. Winners carry
+depth: dark registers, dimensional renders, gradient, shadow, texture, material richness.
+Clean means uncluttered, never plain.
+
 ## Copy rules
 
 - **Aggressive angle and a strong claim on every concept.** Non-negotiable.

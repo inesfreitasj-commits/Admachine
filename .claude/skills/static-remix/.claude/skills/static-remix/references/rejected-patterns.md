@@ -87,3 +87,35 @@ engineering.
 
 The pair containing the amber-glass bottle was declared a keeper **after viewing only one
 of its two images.** A pair is not checked until every image in it has been looked at.
+
+---
+
+# Worked example 2 — nine rejected ArtériVie ads
+
+A second live batch, nine rejections, one dominant cause.
+
+| Ad | Note from the client | Root cause |
+|---|---|---|
+| native feet | Feet should be **swollen** to show poor circulation | Symptom described as a category, not shown as evidence |
+| x-ray | Should be **just a picture of an x-ray** — staged version looks fake | Artefact staged instead of shown |
+| pharmacy shelf | Needs **competitor products with higher prices**; must look like a **real** shelf | "Generic unbranded" written into the prompt |
+| doppler scan | Should be a **man** viewing his results | Audience mismatch on a men's product |
+| comparison | **Too simple**, colours too simple | "Clean" read as "flat" |
+| before/after | Artery good, **the people behind it make no sense** | Artefact staged instead of shown |
+| pharmacy counter | Good, but **our product isn't in it** | Retail scene with no product and no absence line |
+| doctor + model | Good, but **zoom to hands and model only** | Crop too wide |
+| UGC man | **Wrong product** in his hands | Product drift in a person-scene |
+
+## The one sentence that covers almost all of it
+
+**The idea was described instead of the evidence.** A staged x-ray instead of the x-ray.
+A clinical category instead of a swollen foot. "Generic boxes" instead of a real shelf.
+"Clean" instead of a designed image. Every prompt was accurate and insufficiently specific.
+
+**Specificity is what makes an image look real, and looking real is what makes it convert.**
+
+## The cheapest correction available
+
+**Crop tighter.** It removes the staging that caused the fakeness AND gives the product more
+pixels so its label renders faithfully. Three of these nine are fixed by cropping in and
+nothing else.

@@ -130,6 +130,58 @@ the nearest thing to the lens.
 
 Say where the product sits in depth, not just how big it should be.
 
+## When the hero is an artefact, SHOW the artefact
+
+A scan, an x-ray, a specimen, a diagram, an anatomical model, a document — these are
+already compelling. Wrapping one in a staged scene makes it read as fake, because the
+staging is the invented part.
+
+- **Crop to the artefact.** Full frame, nothing else competing.
+- Background must support it or be neutral. **Unrelated people are the fastest way to make
+  a real-looking artefact look staged.**
+- No lighting drama, no models admiring it, no room around it.
+
+This is not a native-only rule. It applies to any concept built on a medical or documentary
+object, in any bucket.
+
+## Crop tighter — the first move when an image is failing
+
+Tightening the crop fixes two different failures at once:
+
+1. **Fakeness** — removes the irrelevant scene that made it look staged.
+2. **Product and label fidelity** — the pack occupies more pixels, so its label renders
+   better.
+
+When an image is not working on either axis, crop in before adding anything. "Zoom in to
+just the hands and the model" is almost always the right note.
+
+## Product drift happens in person-scenes, not product-scenes
+
+Sorting a real batch by whether the pack rendered correctly:
+
+| Rendered correctly | Drifted to a different product |
+|---|---|
+| Studio product shot | Held in someone's hand in a kitchen |
+| Overhead flat-lay | Prop inside an editorial scene |
+| Hero on a shelf | |
+
+When the pack is the **photographic subject** it renders faithfully. When it is a **prop
+beside a person**, the model spends its attention on the person and rebuilds the pack from
+memory. **An attached reference image does not prevent this.**
+
+- Person-holding and person-scene shots carry the highest drift risk — verify every one.
+- Crop tight so the pack is large in frame.
+- Where label fidelity really matters, choose a product-hero composition instead.
+
+## Never write "generic" or "unbranded"
+
+Ask for "generic unbranded boxes" and the result is a shelf that looks like nothing, which
+reads as fake. Describe the real thing instead: for a pharmacy shelf, dense boxes, printed
+rail price labels, category signage, colour variety, slightly untidy facing.
+
+For comparison ads, invented look-alike local brands with **visible prices higher than
+yours** — the viewer doing that arithmetic is the entire mechanism of the concept.
+
 ## Sizing composited text for a feed, not for a screen
 
 Text added in code is easy to make too small, because it looks fine at full size on a
