@@ -1,0 +1,35 @@
+A single flat square photograph, 1:1. A raw, unstyled mobile-phone snapshot.
+
+SCENE: A woman's hand holds a smartphone upright above a kitchen worktop, and the screen
+shows a MESSAGING APP CONVERSATION between two friends. The screen is a plain messaging
+thread on a very pale background: a thin header bar at the top with a small round contact
+photo and a name, then three chat bubbles — one GREY bubble aligned to the LEFT, and two
+PALE GREEN bubbles aligned to the RIGHT below it, each with a tiny grey timestamp under it.
+The screen is slightly tilted, with a faint fingerprint smear across one corner. On the
+worktop below and around the phone, out of focus: a mug of tea, a set of house keys, a
+folded tea towel. Ordinary kitchen daylight from a window at the left.
+
+TEXT ON IMAGE (render exactly, in French, nothing else — only what is on the phone screen):
+In the header bar, a name in small dark text:
+Sophie
+In the GREY bubble on the left:
+Franchement tes bras ont changé, tu fais quoi ?
+In the first PALE GREEN bubble on the right:
+L'huile dont je t'ai parlé
+In the second PALE GREEN bubble on the right:
+7 jours. J'y croyais pas.
+Everything else on the screen is plain empty background.
+
+HANDS: exactly five fingers per hand, normal proportions relative to the head and to
+the object held. Fingers must physically contact and press the surface with visible
+indentation of the skin. Short unpolished or plainly manicured nails, visible knuckle
+creases, veins and age spots.
+
+CAMERA: a phone snapshot taken with the other hand, mild noise, no styling, no colour grade.
+The phone is at the same depth as the worktop and must NOT loom toward the lens.
+
+The chat must look like a real screenshot of a real conversation, not a designed graphic.
+No app logo, no brand name, no product anywhere in the frame.
+
+Do not add text beyond what is specified. No watermark, no captions, no distorted or
+misspelled lettering, no duplicate products, no extra bottles.

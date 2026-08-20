@@ -128,6 +128,23 @@ def Y6_macro_texture():
                 [("C'est ça, la peau « papier froissé ».", "sans")],
                 "16 huiles testées : le classement", scrim=0.72)
 
+
+# ---------------- W — new formats ----------------
+@job
+def W1_whatsapp():
+    """No overlay. NOTE: the model wrote "les bras" where the brief said "tes bras" —
+    flagged to the client rather than patched; a 10px replacement on a tilted phone
+    screen would look worse than the error."""
+    trim_uniform_border(p("W1_whatsapp")); shutil.copyfile(p("W1_whatsapp"), o("W1_whatsapp"))
+
+@job
+def W2_changing_room():
+    trim_uniform_border(p("W2_changing_room"))
+    hook_lockup(p("W2_changing_room"), o("W2_changing_room"),
+                [("Vous évitez encore les manches courtes ?", "sans")],
+                "16 huiles testées : le classement", scrim=0.72)
+
+
 if __name__ == "__main__":
     for n in (sys.argv[1:] or list(jobs)):
         if not os.path.exists(p(n)): print(f"MISS {n}"); continue

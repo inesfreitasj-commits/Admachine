@@ -161,3 +161,36 @@ SPEND
   Batch 2                 16 x $0.25   =  $4.00
   Ferméa total (36 images)             =  $9.00
   RUNNING TOTAL ACROSS ALL PRODUCTS    = $31.50
+
+
+================================================================================
+BATCH 3 — 2 more, $0.50        (client asked for: something different)
+================================================================================
+Two formats not used anywhere in the previous 36:
+
+  W2  CHANGING ROOM. A woman holds a sleeveless summer dress against herself and
+      looks at her own bare upper arms in the mirror, unconvinced — with the
+      long-sleeved top she just took off still hanging on the hook behind her.
+      This sells a BEHAVIOUR, not a body part: the avoidance, in August, in the
+      most unflattering light that exists. Nothing else in the set does that.
+      "Vous évitez encore les manches courtes ?" — a question about behaviour,
+      not a product claim, so nothing here needs page support.
+
+  W1  TEXT-MESSAGE SCREENSHOT. A phone held over a kitchen worktop showing a
+      three-message exchange between two friends. No product in frame, no brand,
+      no ad furniture at all — the entire persuasion is one friend asking another
+      what she is using. "7 jours" is the only claim and it is page-supported.
+
+⚠ W1 HAS ONE ERROR — NOT SHIPPING WITHOUT A DECISION
+   The first bubble reads "Franchement LES bras ont changé" where the brief said
+   "TES bras". A French reader will notice; the sentence does not work without the
+   possessive.
+   I did not patch it. The screen text is about ten pixels tall on a tilted phone,
+   and a composited replacement would not match the screen rendering, the
+   background pattern or the perspective — it would look worse than the typo.
+   One regeneration, $0.25. NOT SPENT — client's call.
+
+SPEND
+  Batch 3                  2 x $0.25   =  $0.50
+  Ferméa total (38 images)             =  $9.50
+  RUNNING TOTAL ACROSS ALL PRODUCTS    = $32.00
