@@ -182,6 +182,24 @@ rail price labels, category signage, colour variety, slightly untidy facing.
 For comparison ads, invented look-alike local brands with **visible prices higher than
 yours** — the viewer doing that arithmetic is the entire mechanism of the concept.
 
+## Detect where to composite — never hardcode coordinates
+
+Text composited at positions measured by eye off one render lands wrong, because the model
+places props differently every generation. Prices eyeballed onto a shelf came out floating
+beside their price stickers rather than printed on them.
+
+`scripts/label_boxes.py` finds blank light-coloured label rectangles — price stickers,
+shelf talkers, blank cards — and returns their boxes so text can be centred inside each one
+and auto-sized to fit.
+
+- Generate the surface **blank** (blank stickers, blank cardboard), then composite onto it.
+- Detect the target, don't guess it.
+- If the detector returns 0 boxes, sample one row of pixels across the image and read the
+  real threshold off the numbers rather than guessing again. A band that includes the
+  darker shelf edge below the labels will find nothing.
+- When a surface is too low-contrast to detect reliably, **rebuild it** — repaint the strip
+  and draw clean labels on it. Faster than over-tuning a detector for one image.
+
 ## Sizing composited text for a feed, not for a screen
 
 Text added in code is easy to make too small, because it looks fine at full size on a
