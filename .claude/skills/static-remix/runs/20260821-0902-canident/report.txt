@@ -1,0 +1,171 @@
+================================================================================
+CANIDENT™ — NETTOYANT DENTAIRE ANTI-TARTRE POUR CHIENS — BATCH 01
+Run: 20260821-0902-canident      20 generated / 13 shippable      $5.00
+================================================================================
+
+THE HEADLINE PROBLEM, FIRST
+--------------------------------------------------------------------------------
+7 of the 20 cannot ship. Not because any single one is bad — because the 8 ads I
+built in your winners' pack format are near-duplicates OF EACH OTHER.
+
+  the 8 pack ads      28 pairs, 27 over the duplicate gate, median r = 0.825
+  the 12 photo ads    66 pairs,  0 over the gate, median r = 0.187
+
+And the proof that this is my mistake and not the format's fault:
+
+  YOUR OWN TWO WINNERS SCORE r = +0.031 — essentially uncorrelated.
+
+They hold the same brand format and are still completely distinct, because their
+hero elements differ (paw bullets on white vs a big illustrated tooth on grey) and
+the pack sits at different scales and positions. I made eight ads with the same pack,
+at the same size, in the same place, on the same white ground, and only changed the
+drawing in the corner. Meta reads that as one ad.
+
+I flagged this risk while planning and then built them that way anyway. That is the
+error.
+
+SHIPPABLE NOW — 13
+--------------------------------------------------------------------------------
+  P6  pack hero, foam, 98 % / sans effort, paw bullets      (winner-1 format)
+  D1  brown tartar band at the gum line, lip held back
+  D2  lifting the babine, bottle ready — "Pas de brossage"
+  D3  foam on the teeth, calm spaniel — "5 secondes"
+  D4  clean white teeth, golden retriever — 356 vétérinaires
+  D5  older labrador on the vet's table — anaesthesia / 60 jours
+  O1  THE FLINCH — she turns her face away as he leans in
+  O2  the same room, the same dog, the cuddle back
+  O3  the drawer: chew sticks, water drops, finger brush, all failed
+  O4  the brushing fight in a French kitchen
+  BA1 side teeth, JOUR 1 / 48 H
+  BA2 single canine macro, JOUR 1 / 48 H
+  BA3 small terrier front teeth, JOUR 1 / JOUR 7
+
+O1 + O2 are a matched pair — same woman, same dog, same room, opposite emotion.
+That is a before/after of the RELATIONSHIP, which is what your funnel actually sells.
+
+NOT SHIPPING — 7
+--------------------------------------------------------------------------------
+  P1  illustrated tooth, tartar flaking    duplicate of the other pack ads (and of P6
+                                           at r = 0.650 after repair)
+  P2  jaw cutaway, 4-en-1                  ALSO the pack drifted — wrong logo, wrong
+                                           label layout, colour collie instead of B&W
+  P3  brush vs foam           P4  three-tooth timeline
+  P5  rinçage mechanism       P7  anaesthesia contrast
+  P8  chicken flavour                      all near-duplicates of each other
+
+To fix: regenerate with genuinely different LAYOUTS, not different drawings — pack
+left / pack small / pack bottom-centre, white vs grey vs pale-blue ground, illustration
+full-bleed vs inset. 7 × $0.25 = $1.75. NOT SPENT — your call.
+
+FREE REPAIRS ALREADY MADE
+--------------------------------------------------------------------------------
+  · Bullets were colliding with the illustrations. Dropped from the illustrated ads —
+    which is faithful anyway: YOUR winner 2 has no bullets either.
+  · P6's copy landed on top of the pack. Fixed by sliding and slightly shrinking the
+    pack on its own flat ground and extending that ground into the gap — free, invisible,
+    no regeneration. That is now a reusable tool in the skill.
+  · BA3 is badged JOUR 1 / JOUR 7 but carried a "sous 48 h" caption. Now reads
+    "En une semaine, des dents plus blanches" — Jérôme Mercier's own words.
+  · All copy composited in code, so every accent and every figure is exact.
+
+COPY — WHERE EVERY WORD CAME FROM
+--------------------------------------------------------------------------------
+Nothing was invented. Used: 98 % · 48 h · 356 vétérinaires · 60 jours · 5 secondes ·
+"Sans alcool, sans xylitol" · "Bâtonnets, gouttes, brosse à doigt" (your reviewer
+Isabelle R.) · "Le brossage tourne vite au parcours du combattant" · "Plus besoin de
+reculer" · "Soulevez la babine, 2 pressions".
+DELIBERATELY AVOIDED: 60 452 and 60 000 (byte-identical to the Ferméa funnel), 9 897,
+4,9, the Canadian press logos, and any euro figure for a vet descale — your page says
+"plusieurs centaines d'euros" and never gives a number.
+
+SIX THINGS WRONG ON YOUR OWN PAGES
+--------------------------------------------------------------------------------
+1. A COMPETITOR'S BOTTLE IS IN THREE OF YOUR OWN PHOTOS — a white pump reading
+   "PET ORAL TARTAR REMOVER", different logo: the advertorial's 4-en-1 section, its
+   how-to-use photo, and the sales page's ingredients section. A rival's pack is doing
+   your demonstrating on live pages.
+2. Pricing tiers say "Pour vous & votre partenaire" and "À partager avec vos proches" —
+   for a dog dental spray. Carried over from the Ferméa body-oil funnel.
+3. Prices identical to Ferméa: 18,32 / 22,48 / 34,95, struck from 210 / 140 / 70.
+4. "Vu dans : VIVA · alive · Chatelaine · Best Health" — Canadian outlets, same four.
+5. Trustpilot "60 452 avis / 60 000 clients" — byte-identical to Ferméa's.
+6. Rating conflict: advertorial "4.9 | 9,897 Avis" vs sales page "4,8 sur Trustpilot".
+
+AND YOUR WINNING AD HAS A DUPLICATED BULLET
+   Winner 1 lists "Convient aux chiens de tous âges" TWICE, bullets 3 and 4. It is
+   running like that. Free replacements from your own page: "Convient aux chiens et aux
+   chats de toutes tailles", "Sans alcool, sans xylitol".
+
+SPEND
+--------------------------------------------------------------------------------
+  This batch                            20 x $0.25   =  $5.00
+  ÉveilSens 13.75 + ArtériVie 8.75 + Ferméa 10.75    = $33.25
+  ------------------------------------------------------------
+  RUNNING TOTAL                                        $38.25
+Nothing generated beyond the 20 approved.
+
+
+================================================================================
+BATCH 01b — 7 PACK ADS REBUILT + 48 H EVERYWHERE      7 x $0.25 = $1.75
+================================================================================
+
+BOTH CORRECTIONS DONE
+  · 48 h is now the only timeframe in the batch. BA3 was badged JOUR 1 / JOUR 7 with
+    "En une semaine…" — rebadged to 48 H, recaptioned. Free, no regeneration. The whole
+    batch was then swept: no week-based timeframe survives anywhere.
+  · The winners' pack format went from ONE ad to EIGHT: P6 plus N1–N7.
+
+THE REAL CAUSE OF THE DUPLICATES — IT WAS MY OVERLAY, NOT THE ARTWORK
+--------------------------------------------------------------------------------
+Measuring the raw generated art separately from the composited ads settled it:
+
+    raw generated art          1 of 28 pairs over gate, median r = 0.204
+    after my compositing       4 of 28 pairs over gate, median r = 0.009 but max 0.746
+
+Compositing pushed P6 vs N1 from r = 0.094 to r = 0.704 — it ADDED 0.61 of similarity.
+Cause: I put the identical navy CTA bar and the identical top-left headline block on
+every ad. On a 16x16 signature that shared furniture dominates the frame.
+
+The fix was free and it is what YOUR OWN WINNERS ALREADY DO: winner 1 has the CTA bar
+and a left-set headline; winner 2 has NO bar and a CENTRED headline. Varying that across
+the series — bar on P6, N4, N6; no bar on N1, N2, N3, N5, N7; centred headline on N1 and
+N7 — dropped the batch to:
+
+    ALL 20 ADS, 190 PAIRS, 0 OVER THE GATE. Max r = 0.529.
+
+No extra generation was needed to fix it.
+
+THE 8 PACK ADS — EACH A DIFFERENT LAYOUT, NOT A DIFFERENT DRAWING
+--------------------------------------------------------------------------------
+  P6  pack centred, foam, paw bullets, blue ground, CTA bar      98 % / sans effort
+  N1  ENORMOUS tooth cropped by the left edge, grey ground       se décolle en 48 h
+  N2  brush-vs-foam split band, pack small bottom-centre         5 secondes
+  N3  PACK ON THE LEFT, jaw diagram right, blue ground           4-en-1
+  N4  photographic dog head left, pack right, white              goût poulet
+  N5  48-hour timeline, JOUR 0 / 24 H lettered in code, cream    la plaque devient tartre
+  N6  TOP-DOWN FLAT LAY, pack lying in foam, blue                sans alcool, sans xylitol
+  N7  three-panel rinçage story, pack small bottom-centre        la mousse reste
+
+TWO THINGS TO KNOW BEFORE RUNNING THESE
+--------------------------------------------------------------------------------
+  N1  The pack came back ILLUSTRATED rather than photographic — the flat-vector style
+      instruction carried over onto it. Every detail is right (blue logo, B&W collie,
+      AVANT/APRÈS, 60 ml) and the ad is internally coherent, but it is the only pack in
+      the set that is not a photograph. Your call whether that reads as a deliberate
+      illustrated execution or as off-brand. $0.25 to redo photographic.
+  N5  The pack landed ON TOP of the third stage marker, so that box could not be
+      lettered — the timeline reads JOUR 0 / 24 H and then stops. $0.25 to redo with the
+      pack in the bottom-left. NOT SPENT.
+  N2 and N5 also carry the pack small enough that its label micro-copy garbles at full
+  resolution. At feed size (~500 px) it reads as the pack and is fine; at 1024 px it does
+  not. That is the 437x661 reference showing its limit.
+
+SPEND
+--------------------------------------------------------------------------------
+  Batch 01    20 x $0.25  =  $5.00
+  Batch 01b    7 x $0.25  =  $1.75
+  Canident total                          $6.75
+  ÉveilSens 13.75 + ArtériVie 8.75 + Ferméa 10.75  = $33.25
+  ------------------------------------------------------------
+  RUNNING TOTAL                           $40.00
+Every free repair above cost nothing. Nothing generated beyond the 7 approved.

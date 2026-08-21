@@ -251,3 +251,55 @@ material world in it, described concretely: iodine-stained skin, blue non-woven 
 drapes filling the background, black marker with cross-hatched ladder edges and
 handwritten centimetre annotations, hard overhead theatre light. Naming those got a
 near-exact match first time. Writing "like a surgical photo" would not have.
+
+
+## In a fixed-format series, the duplicate usually comes from YOUR overlay
+
+A batch of eight ads in one client's pack format came back with 27 of its 28 pairs over
+the duplicate gate. The obvious diagnosis — the artwork is too samey — was wrong, and
+measuring the two stages separately is what proved it:
+
+| | pairs over gate | median r |
+|---|---|---|
+| the raw generated art | **1 of 28** | 0.204 |
+| the same art after compositing | **4 of 28**, max 0.746 | 0.009 |
+
+Compositing pushed one pair from **r = 0.094 to r = 0.704** — it *added* 0.61 of
+similarity. The cause was an identical navy CTA bar and an identical top-left headline
+block on every single ad. On a 16×16 greyscale signature that shared furniture is a large
+constant shape, and it swamps everything the artwork is doing.
+
+**So measure both stages before blaming the pictures:**
+
+```python
+raw  = {n: q.signature(f"production/{n}.png") for n in names}
+comp = {n: q.signature(f"final/{n}.png")      for n in names}
+```
+
+If `comp` is worse than `raw`, the overlay is the problem and the fix is free.
+
+**Vary the furniture the way the client's own winners already do.** In that campaign
+winner 1 carried the CTA bar with a left-set headline and winner 2 carried no bar with a
+centred headline — which is part of why *their* two winners score r = 0.031. Putting the
+bar on three of eight and centring the headline on two dropped the whole 20-ad batch to
+**0 of 190 pairs over gate**, with no extra generation.
+
+Design the lockup helper for this from the start: make the CTA bar, the wordmark, the
+headline alignment, the type sizes and the copy column all optional parameters, not
+constants baked into the function.
+
+## Distinctness lives in the large shapes
+
+The related trap, in the same batch: eight ads with the same pack, at the same size, in
+the same place, on the same white ground, each with a different small illustration in the
+lower-left corner. The detail changed; the picture did not.
+
+What actually separates two ads in one format is the **dominant mass, the ground colour,
+and the pack's position and scale** — an enormous element cropped by the frame edge, a
+mirrored layout with the pack on the other side, a top-down flat lay, a photographic
+subject where the others are vector, a band across the middle with the pack shrunk to the
+bottom. Rebuilding on those axes took the same eight arguments from a 0.825 median to
+0.204 in the raw art.
+
+**Never brief a series as "same layout, different illustration".** Brief each one as a
+different picture that happens to share a brand system.

@@ -31,6 +31,10 @@ RED    = (0.898, 0.180, 0.180)   # the red of the winning ads' TEST PRODUIT badg
 BLEU   = (0.000, 0.129, 0.588)   # tricolore blue
 ROUGE  = (0.929, 0.161, 0.224)   # tricolore red
 GOLD   = (0.788, 0.541, 0.294)
+ROYAL  = (0.106, 0.373, 0.682)   # Canident headline blue
+NAVY   = (0.071, 0.227, 0.388)   # Canident CTA bar
+TEAL   = (0.122, 0.420, 0.369)   # Canident wordmark
+NEARBK = (0.102, 0.102, 0.180)   # the winners' headline black
 INK    = (0.106, 0.086, 0.070)   # near-black brown, for type on the cream ground
 TPGREEN= (0.000, 0.714, 0.478)   # Trustpilot green
 
@@ -186,6 +190,18 @@ class Composer:
         self.page.insert_image(fitz.Rect(x0*self.W, y0*self.H, x1*self.W, y1*self.H),
                                filename=path)
 
+    def paw(self, cx, cy, r, color=ROYAL):
+        """The paw-print bullet glyph from the Canident winners. r = pad radius."""
+        R = r * self.H
+        cxp, cyp = cx * self.W, cy * self.H
+        pad = fitz.Rect(cxp - R, cyp - R * 0.72, cxp + R, cyp + R * 0.95)
+        sh = self.page.new_shape(); sh.draw_oval(pad); sh.finish(color=None, fill=color); sh.commit()
+        for dx, dy, rr in ((-1.05, -1.28, 0.40), (-0.36, -1.62, 0.40),
+                           (0.36, -1.62, 0.40), (1.05, -1.28, 0.40)):
+            t = fitz.Rect(cxp + dx * R - rr * R, cyp + dy * R - rr * R * 1.15,
+                          cxp + dx * R + rr * R, cyp + dy * R + rr * R * 1.15)
+            sh = self.page.new_shape(); sh.draw_oval(t); sh.finish(color=None, fill=color); sh.commit()
+
     def save(self, out, zoom=1):
         self.page.get_pixmap(matrix=fitz.Matrix(zoom, zoom)).save(out)
         return out
@@ -224,6 +240,90 @@ def hook_lockup(src, out, line1_spans, line2, badge_text="TEST PRODUIT",
     c.text(0.0445, 0.9340, line2, key="sans-bold", size=L2)
     c.underline(0.0445, 0.0445 + w2, 0.9470)
     return c.save(out) if out else c
+
+
+
+def canident_lockup(src, out, line1, line2, bullets=(), cta="Commandez Canident\u2122 maintenant \u2192",
+                    wordmark="Canident\u2122", line1_color=NEARBK, line2_color=ROYAL,
+                    head_top=0.108, bullet_cap=0.40, x=0.053, gap=0.111, align="left", sizes=(0.060, 0.100)):
+    """Reproduce the Canident winners' pack-forward lockup on a generated pack ad.
+
+    Geometry measured off the client's 743x738 winner and expressed as fractions, so one
+    measurement holds at any output size. `bullets` may contain "\n" for a second line.
+    Pass bullets=() for the ads that carry a headline only.
+    """
+    c = Composer(src)
+    L1, L2 = sizes
+    X = x
+    # Line 1 sits ABOVE the pack and may run nearly full width, exactly as it does in the
+    # client's winner. Line 2 sits BESIDE the pack, so it has to stay in the left half —
+    # in the winner it is a single word.
+    for txt, size, cap, label in ((line1, L1, 0.93 - X + 0.053, "line 1"),
+                                  (line2, L2, 0.58 - X + 0.053, "line 2")):
+        w = c.measure(txt, "sans-bold", size)
+        if w > cap:
+            raise SystemExit(
+                f'{label} "{txt}" is {w:.3f} of the frame width (cap {cap}) — it would run '
+                f'into the pack. Shorten it; do NOT shrink the type.')
+    # Winner 1 sets its headline left and carries a CTA bar; winner 2 centres its headline
+    # and carries no bar. Reproducing only one of those on every ad in a series makes the
+    # shared furniture dominate the frame — which is what turns distinct artwork into
+    # near-duplicates. Vary it the way the client's own two winners do.
+    if align == "center":
+        c.centered(head_top, line1, key="sans-bold", size=L1, color=line1_color, shadow=False)
+        c.centered(head_top + gap, line2, key="sans-bold", size=L2, color=line2_color, shadow=False)
+    else:
+        c.text(X, head_top, line1, key="sans-bold", size=L1, color=line1_color, shadow=False)
+        c.text(X, head_top + gap, line2, key="sans-bold", size=L2, color=line2_color, shadow=False)
+
+    if bullets:
+        y, size, lead = 0.314, 0.035, 0.047
+        # Bullets sit BESIDE the pack, so every row has to stop before it. Same guard as
+        # the headline, for the same reason: a bullet running under the box is unreadable.
+        for b in bullets:
+            for row in b.split("\n"):
+                w = X + 0.071 + c.measure(row, "sans", size)
+                if w > bullet_cap:
+                    raise SystemExit(
+                        f'bullet row "{row}" ends at {w:.3f} of the frame width (cap '
+                        f'{bullet_cap}) — it would run under the pack. Shorten it.')
+        for b in bullets:
+            rows = b.split("\n")
+            c.paw(X + 0.024, y - size * 0.34, 0.017)
+            for i, row in enumerate(rows):
+                c.text(X + 0.071, y + i * lead, row, key="sans" if i else "sans",
+                       size=size, color=NEARBK, shadow=False)
+            y += lead * len(rows) + 0.038
+
+    if wordmark:
+        c.text(X, 0.831, wordmark, key="sans-bold", size=0.042, color=TEAL, shadow=False)
+    if cta:
+        c.band(0.902, 1.0, fill=NAVY, opacity=1.0)
+        c.centered(0.962, cta, key="sans-bold", size=0.046, color=WHITE, shadow=False)
+    return c.save(out) if out else c
+
+
+def slide(src, dx, dst=None, sample=(0.02, 0.02), scale=1.0):
+    """Slide the picture sideways on its own flat background, and extend that background
+    into the strip left behind. dx is a fraction of the width, positive = move right.
+
+    Use when a generated pack or subject sits where the headline has to go. On a flat
+    studio ground this is invisible and free — far better than paying to regenerate, and
+    it also breaks the layout similarity that makes a fixed-format series read as
+    duplicates."""
+    pix = fitz.Pixmap(src)
+    W, H = pix.width, pix.height
+    r, g, b = pix.pixel(int(W * sample[0]), int(H * sample[1]))
+    doc = fitz.open()
+    page = doc.new_page(width=W, height=H)
+    page.draw_rect(fitz.Rect(0, 0, W, H), color=None, fill=(r / 255, g / 255, b / 255))
+    sw, sh = W * scale, H * scale
+    off = dx * W
+    top = H - sh                      # keep the subject standing on the same baseline
+    page.insert_image(fitz.Rect(off, top, off + sw, top + sh), filename=src)
+    out = dst or src
+    page.get_pixmap().save(out)
+    return out
 
 
 def trim_uniform_border(src, dst=None, min_var=90.0, max_frac=0.10):
