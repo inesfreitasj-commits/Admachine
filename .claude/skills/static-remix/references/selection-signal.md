@@ -47,7 +47,7 @@ the "a moisturiser is not enough" comparison. In an editorial-test system (see
 `creative-systems.md`) the product does not argue for itself — the verdict argues for it.
 Ingredients and mechanism are claim-led furniture and they die here.
 
-**5. Text-free still lifes do not sell. 0 for 3.** A parcel on the doormat, a bedside table,
+**5. Text-free still lifes did not sell for THIS product. 0 for 3.** A parcel on the doormat, a bedside table,
 an oiled forearm — all beautifully made, all cut. `native-realism.md` is right that polish
 is the enemy, but an ad still needs something happening to somebody. Compare what WAS taken:
 a note taped to a shelf, a woman holding a cardboard sign, a phone showing an article, a
@@ -71,8 +71,65 @@ let the client choose — it costs nothing, since the raw file already exists.
 ## What this means for the next batch
 
 - Lead with before/after, UGC and symptom-on-a-real-person. They convert selection.
-- Every concept must contain a person, or the evidence a person left behind.
+- Every concept must contain a person, or the evidence a person left behind — **but see the
+  Canident section below: this held for a body oil and inverted completely for a dog product.**
 - Kill any concept whose one-line description is a noun with no verb.
 - Never propose two versions of one idea; propose two ideas.
 - Every "iteration" needs a different argument from the winner it iterates on.
 - Deliver shock and pattern-interrupt concepts text-free as well as composited.
+
+
+---
+
+# Second measured product — Canident (FR dog dental foam)
+
+29 ads delivered, **17 chosen**, matched file by file. The client also supplied **3 images
+that were not mine** — real stock photos of severe tartar, a red-circled tooth, and a real
+vet procedure — which is a client showing the register they want, and worth reading as data.
+
+| Bucket | Chosen | |
+|---|---|---|
+| **Pack format** | **8 / 8** | **100 %** |
+| Hard clinical angles | 6 / 9 | 67 % |
+| Photographic dog | 2 / 5 | 40 % |
+| Before / after | 1 / 3 | 33 % |
+| **Dog + owner** | **0 / 4** | **0 %** |
+
+## Three filters explained all 17
+
+1. **Is the pack in it?** Every pack ad was taken, including all seven rebuilds.
+2. **Does it show the problem or the procedure — on the SUFFERER, not the buyer?** Every
+   chosen non-pack ad does: the mouth opened, the anaesthetic, the scaler, the invoice, the
+   gauze. Not one chosen ad is about how the owner feels.
+3. **Can you tell what it is in half a second?** The rejects were the ones needing a beat:
+   tight macros, one oblique image (flakes in a food bowl mean nothing until you read the
+   caption), and a no-tension beauty shot.
+
+## ⚠ This overturned the Ferméa rule — read both together
+
+Ferméa said *every concept needs a person*. Canident chose **0 of 5** human-led ads,
+including the two rated highest in the batch. The reconciling principle is **who is ill**:
+
+> **When the buyer is not the sufferer, sell the sufferer's condition and the mechanism,
+> not the buyer's emotion.** Ferméa's buyer had the crepey skin, so her feelings were the
+> product's territory. Canident's buyer has a dog. Her embarrassment is real, but it is not
+> evidence — the tartar is.
+
+The warning sign was there before the batch: the client's own winners contained no people
+at all, and that was flagged as *under test* rather than acted on. **The winners were right.**
+
+**So the meta-rule, which matters more than either finding:**
+
+> A pattern measured on ONE product is a hypothesis, not a rule. Write it down, mark which
+> product it came from, and let the client's winners for the NEXT product overrule it
+> without argument. Two products agreeing makes a rule; one product agreeing makes a guess.
+
+## What held across both products
+
+- **Ship shock and pattern-interrupt concepts text-free as well as composited.** Ferméa took
+  a surgical ad straight from `production/`; Canident did the same with the receded-gum ad.
+  Two products, same behaviour — this is now standard delivery, not a thing to remember.
+- **Legibility beats intensity.** Both products rejected the tightest macros and kept the
+  wider frames that read instantly.
+- **Every flagged defect was also rejected by the client.** Three for three on Ferméa,
+  and the same again here. Flagging honestly and flagging accurately are the same skill.

@@ -252,3 +252,52 @@ FIXED FREE, NO REGENERATION
   All 29 ads re-checked: 406 pairs, 0 over the duplicate gate, max r = 0.577.
 
 CANIDENT TOTAL STILL $9.00 — RUNNING TOTAL $42.25
+
+
+================================================================================
+CLIENT SELECTION — 17 of 29 chosen      (matched file by file, not by eye)
+================================================================================
+  PACK FORMAT          8/8   100 %   P6 N1 N2 N3 N4 N5 N6 N7
+  HARD CLINICAL        6/9    67 %   X3 X4 X6 X7 X8 X9
+  PHOTOGRAPHIC DOG     2/5    40 %   D2 D5
+  BEFORE / AFTER       1/3    33 %   BA3
+  DOG + OWNER          0/4     0 %   none
+
+THREE FILTERS EXPLAIN ALL 17
+  1. Is the pack in it?  Every pack ad taken, including all seven rebuilds.
+  2. Does it show the problem or the procedure ON THE DOG, not on the owner?
+  3. Can you tell what it is in half a second?  The rejects are the tight macros,
+     the oblique one (flakes in a bowl mean nothing until you read the caption),
+     and the no-tension beauty shot.
+
+THE RULE THIS OVERTURNED
+  Ferméa's selection said every concept needs a person in it. Canident chose 0 of 5
+  human-led ads — including the two rated highest in the batch. The principle that
+  reconciles them is WHO IS ILL: when the buyer is not the sufferer, sell the
+  sufferer's condition and the mechanism, not the buyer's emotion. Ferméa's buyer had
+  the crepey skin. Canident's buyer has a dog; her embarrassment is real but it is not
+  evidence — the tartar is.
+  The warning was there before the batch: your own winners contain no people at all.
+
+  Meta-rule now in the skill: a pattern measured on ONE product is a hypothesis. The
+  next product's winners overrule it without argument.
+
+THE PRODUCT-BOX TEXT YOU HAD TO AMEND — CAUSE FOUND
+  It maps exactly onto how large the pack was briefed:
+     28-30 % of frame height ("SMALL")   N2  N5  N7   ALL THREE GARBLED
+     55-70 %                             N1 N3 N4 N6 P6   all clean
+  It survived QC because each ad was reviewed whole at reduced size, where the garbling
+  is invisible. It only shows at 100 %.
+  Three rules now in the skill: floor the pack at 50 % of frame height; where a layout
+  needs a smaller pack, composite the real packshot instead of letting the model draw
+  it; and crop the pack and read its label at full resolution as its own QC step.
+
+ALSO ADOPTED
+  · Shock and clinical concepts now ship TEXT-FREE as well as composited. You took X7
+    as the raw file — the second product running where that happened.
+  · The red-circle annotation from your reference image is now a documented device.
+  · Noted that you upscale to ~1254 px before running.
+
+YOUR THREE REFERENCE IMAGES
+  Severe tartar macro, a red-circled tooth, and a real vet procedure. All three are the
+  problem, on the dog, instantly legible — the same three filters as your picks.

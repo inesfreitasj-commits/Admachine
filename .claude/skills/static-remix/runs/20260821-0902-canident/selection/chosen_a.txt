@@ -1,0 +1,10 @@
+N3_pack_left_mirrored
+X9_deux_bouches
+X7_gencive_retractee
+X4_facture_veto
+X8_gaze_tartre
+X3_anesthesie_intubee
+X6_scaler_grattage
+X6_scaler_grattage
+N2_brush_vs_foam_top
+N2_brush_vs_foam_top

@@ -1,0 +1,151 @@
+{
+  "pdf": "/root/.claude/uploads/bf0cd556-3b67-5206-a435-cab5cfef6902/1ec77214-Untitled_design_13.pdf",
+  "pages": 10,
+  "heading_style": null,
+  "headings_found": [],
+  "frameworks": {
+    "UNLABELED": 10
+  },
+  "images": [
+    {
+      "file": "img_0001_UNLABELED.png",
+      "page": 1,
+      "framework": "UNLABELED",
+      "width": 1024,
+      "height": 1024,
+      "bbox": [
+        0.0,
+        0.0,
+        1500.0,
+        1500.0
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0002_UNLABELED.png",
+      "page": 2,
+      "framework": "UNLABELED",
+      "width": 1024,
+      "height": 1024,
+      "bbox": [
+        0.0,
+        0.0,
+        1500.0,
+        1500.0
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0003_UNLABELED.png",
+      "page": 3,
+      "framework": "UNLABELED",
+      "width": 1024,
+      "height": 1024,
+      "bbox": [
+        0.0,
+        0.0,
+        1500.0,
+        1500.0
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0004_UNLABELED.png",
+      "page": 4,
+      "framework": "UNLABELED",
+      "width": 1024,
+      "height": 1024,
+      "bbox": [
+        0.0,
+        0.0,
+        1500.0,
+        1500.0
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0005_UNLABELED.png",
+      "page": 5,
+      "framework": "UNLABELED",
+      "width": 1254,
+      "height": 1254,
+      "bbox": [
+        0.0,
+        0.0,
+        1500.0,
+        1500.0
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0006_UNLABELED.png",
+      "page": 6,
+      "framework": "UNLABELED",
+      "width": 1024,
+      "height": 1024,
+      "bbox": [
+        0.0,
+        0.0,
+        1500.0,
+        1500.0
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0007_UNLABELED.png",
+      "page": 7,
+      "framework": "UNLABELED",
+      "width": 990,
+      "height": 992,
+      "bbox": [
+        -0.0,
+        0.0,
+        1497.0,
+        1500.0
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0008_UNLABELED.png",
+      "page": 8,
+      "framework": "UNLABELED",
+      "width": 1254,
+      "height": 1254,
+      "bbox": [
+        0.0,
+        0.0,
+        1500.0,
+        1500.0
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0009_UNLABELED.png",
+      "page": 9,
+      "framework": "UNLABELED",
+      "width": 1254,
+      "height": 1254,
+      "bbox": [
+        0.0,
+        0.0,
+        1500.0,
+        1500.0
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0010_UNLABELED.png",
+      "page": 10,
+      "framework": "UNLABELED",
+      "width": 1254,
+      "height": 1254,
+      "bbox": [
+        0.0,
+        0.0,
+        1500.0,
+        1500.0
+      ],
+      "source": "embedded"
+    }
+  ]
+}

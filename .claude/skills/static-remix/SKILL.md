@@ -451,7 +451,14 @@ was checked and `var_02` was assumed fine.
 | Grip | Where held, fingers don't visibly contact and press the surface |
 | Integration | No contact shadow, or light not matching the scene |
 | Copy | Garbled, misspelled or invented words in the overlay |
+| **Pack lettering** | **Crop the pack and read it at 100 %.** Below ~50 % of frame height the model's label micro-copy garbles, and it is invisible at review size — a client once had to hand-fix three boxes |
+| Sequence direction | A timeline or before/after runs the wrong way — state what changes between first and last panel |
 | One scene per image | The image shows a split-screen of both variations |
+
+**Ship shock and pattern-interrupt concepts text-free as well as composited.** Two clients
+running, on two different products, have taken such an ad straight from `production/` or
+stripped the overlay by hand. The clean file already exists, so delivering both costs
+nothing and saves them the edit.
 
 Report every failure **to the user as a failure, before they find it** — never ship quietly,
 never call a batch finished while knowing it isn't. Regenerate within the approved count if

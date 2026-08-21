@@ -349,3 +349,54 @@ for src_i, dst_i in ((2, 0), (1, 1), (0, 2)):   # paste back reordered, centred
 
 Check the group widths first — if they are within a few pixels of each other, centring each
 cut in its destination slot leaves no visible seam.
+
+
+## Never brief a pack as "small" — the label garbles and the client has to fix it
+
+A client had to hand-amend the product box on three delivered ads: "NETTOYANT DDNTAIRE",
+"AKTY-TARTRE", "POUN CHIENS". The cause was purely mechanical and maps exactly onto how big
+the pack was briefed:
+
+| Pack height in frame | Label |
+|---|---|
+| **28–30 %** (briefed "SMALL and CENTRED along the bottom") | **garbled — every one** |
+| 55–70 % | clean — every one |
+
+It survived QC because the ads were reviewed whole, at reduced size, where garbling is
+invisible. **It only shows at 100 %.**
+
+Three rules follow:
+
+1. **Floor the pack at 50 % of frame height** in any brief where the pack appears. If a
+   layout seems to need a smaller pack, change the layout.
+2. **Where a layout genuinely needs a small pack, composite the real packshot** rather than
+   letting the model draw it. On a flat studio ground, pasting `assets/product.png` in is
+   exact, free, and removes the entire class of error:
+
+   ```python
+   c = Composer(p(name))
+   c.image(x0, y0, x1, y1, "assets/product.png")   # fractions, keeps the real lettering
+   ```
+
+3. **QC the pack at 100 %, as its own check.** Crop the pack region and read the label the
+   way the duplicate gate is run separately — looking at the whole ad will not catch it:
+
+   ```python
+   # enlarge just the pack region and open it with Read
+   pg.insert_image(fitz.Rect(-x0*Z, -y0*Z, (-x0+W)*Z, (-y0+H)*Z), filename=src)
+   ```
+
+The same applies to any small in-scene lettering the model draws — shelf labels, signage,
+screens. Below roughly half the frame, assume it is wrong until you have read it enlarged.
+
+## Circle the thing you want looked at
+
+A client supplied, as a reference, a greyscale dog's mouth with the offending tooth ringed
+in red marker. It is a cheap and very effective answer to "can you tell what this is in half
+a second" — and it composites in code for nothing:
+
+```python
+c.page.draw_oval(fitz.Rect(...), color=RED, width=0.008 * c.H, fill=None)
+```
+
+Worth testing on any macro or clinical image where the subject needs finding.
