@@ -7,6 +7,7 @@ Deliberately NOT used: 60 452, 60 000, 9 897, 4,9, any euro figure for a vet des
 """
 import sys, os, shutil
 sys.path.insert(0, "/root/.claude/skills/static-remix/scripts")
+import pymupdf as fitz
 from compose_text import (Composer, canident_lockup, trim_uniform_border,
                           WHITE, NAVY, ROYAL, TEAL, NEARBK)
 
@@ -20,18 +21,28 @@ def job(fn): jobs[fn.__name__] = fn; return fn
 
 CTA = "Commandez Canident™ maintenant →"
 
-def photo(n, l1, l2, scrim=0.72):
-    """Photographic ads: the pack format doesn't apply, but the brand bar does."""
+def photo(n, l1, l2, scrim=0.72, bar=True):
+    """Photographic ads: the pack format doesn't apply, but the brand bar does.
+
+    `bar` is variable on purpose. An identical navy bar plus an identical copy block on
+    every ad is a large constant shape, and it manufactures duplicate scores out of
+    pictures that share nothing — it added +0.37 between a dog's mouth and a paper
+    invoice. Dropping it on a few breaks that without touching the photographs.
+    """
     trim_uniform_border(p(n))
     c = Composer(p(n))
-    c.scrim(0.52, 0.902, opacity=scrim)
-    c.band(0.902, 1.0, fill=NAVY, opacity=1.0)
-    c.text(0.055, 0.735, l1, key="sans", size=0.046)
-    c.text(0.055, 0.822, l2, key="sans-bold", size=0.060)
+    foot = 0.902 if bar else 1.0
+    c.scrim(0.52, foot, opacity=scrim)
+    if bar:
+        c.band(0.902, 1.0, fill=NAVY, opacity=1.0)
+    dy = 0.0 if bar else 0.052
+    c.text(0.055, 0.735 + dy, l1, key="sans", size=0.046)
+    c.text(0.055, 0.822 + dy, l2, key="sans-bold", size=0.060)
     w = c.measure(l2, "sans-bold", 0.060)
     if w > 0.90: raise SystemExit(f'"{l2}" is {w:.3f} wide — shorten it.')
-    c.underline(0.055, 0.055 + w, 0.840)
-    c.centered(0.962, CTA, key="sans-bold", size=0.046, color=WHITE, shadow=False)
+    c.underline(0.055, 0.055 + w, 0.840 + dy)
+    if bar:
+        c.centered(0.962, CTA, key="sans-bold", size=0.046, color=WHITE, shadow=False)
     c.save(o(n))
 
 # ---------------- P/N — the winners' own pack format ----------------
@@ -165,6 +176,39 @@ def BA2_gumline_macro(): _ba("BA2_gumline_macro")
 @job
 def BA3_small_dog_front(): _ba("BA3_small_dog_front",
 )  # 48 h everywhere — the campaign timeframe, per the client
+
+
+# ---------------- X — hard angles, explicit clinical imagery ----------------
+# Every line below is page-supported. "gratte / ramollit" is near-verbatim from the
+# advertorial; "plusieurs centaines d'euros" and the gamelle are verbatim. No euro figure
+# is ever put on an invoice, because the page never gives one.
+_X = [
+ ("X1_calcul_severe",     "Ce n'est plus de la plaque.",          "C'est du tartre durci."),
+ ("X2_gamelle_tartre",    "Il en a retrouvé dans sa gamelle.",    "Le tartre se détache en 48 h"),
+ ("X3_anesthesie_intubee","Détartrage : anesthésie générale.",    "Un risque chez le chien âgé."),
+ ("X4_facture_veto",      "Détartrage sous anesthésie.",          "Plusieurs centaines d'euros."),
+ ("X5_le_baiser",         "Vous connaissez cette odeur.",         "Elle vient des bactéries."),
+ ("X6_scaler_grattage",   "Le vétérinaire gratte le tartre.",     "La mousse le ramollit."),
+ ("X7_gencive_retractee", "Le tartre ne s'arrête pas aux dents.", "Les gencives aussi."),
+ ("X8_gaze_tartre",       "Deux jours de mousse.",                "Voilà ce qui part."),
+ ("X9_deux_bouches",      "La même bouche.",                      "48 heures d'écart."),
+]
+for _n, _l1, _l2 in _X:
+    def _mk(n=_n, l1=_l1, l2=_l2):
+        if n == "X4_facture_veto":
+            # the thumb did not quite cover the TOTAL cell and a blurred figure is legible
+            # enough to read as a real number. The page never states a euro amount, so the
+            # cell is painted out in paper colour rather than shipped with an invented one.
+            trim_uniform_border(p(n))
+            c = Composer(p(n))
+            c.page.draw_rect(fitz.Rect(0.735 * c.W, 0.700 * c.H, 0.862 * c.W, 0.757 * c.H),
+                             color=None, fill=(0.894, 0.867, 0.780))
+            c.save("production/X4_facture_veto.png")
+        photo(n, l1, l2,
+              bar=n not in ("X4_facture_veto", "X2_gamelle_tartre", "X8_gaze_tartre"),
+              scrim=0.86 if n == "X9_deux_bouches" else 0.72)
+    _mk.__name__ = _n
+    job(_mk)
 
 
 if __name__ == "__main__":

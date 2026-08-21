@@ -169,3 +169,54 @@ SPEND
   ------------------------------------------------------------
   RUNNING TOTAL                           $40.00
 Every free repair above cost nothing. Nothing generated beyond the 7 approved.
+
+
+================================================================================
+BATCH 01c — 9 HARD-ANGLE ADS      9 x $0.25 = $2.25
+================================================================================
+Brief: stronger, more aggressive, more explicit.
+
+  X5  THE RECOIL — her face mid-flinch as his open mouth reaches her cheek. Eyes shut,
+      nose wrinkled, hand up between them. The strongest ad in the whole batch.
+  X1  Severe calculus — one carnassial encased in layered brown-black crust, gum receded
+  X3  Under general anaesthetic — mouth gag, ET tube, pulse-ox on the tongue, monitor
+  X6  The ultrasonic scaler scraping the tooth, gloved hands, green drape
+  X4  A French vet invoice: DÉTARTRAGE SOUS ANESTHÉSIE GÉNÉRALE, every other line blurred
+  X2  Tartar flakes in the food bowl among the kibble — Thierry M.'s own story
+  X8  White gauze wiped along the teeth, coming away brown with hard flakes in the weave
+  X9  Two mouths side by side, heavy deposit vs clean
+  X7  Gum receded from the tooth neck, calculus in the pocket
+
+HELD BACK ON PURPOSE — clinical, not gory
+  No blood, no pus, no open wounds, no surgical incisions anywhere. Explicit dental
+  disease converts; gore gets the ad rejected and the account looked at. Everything above
+  is confronting in the way a vet's own case photo is confronting.
+
+COPY — STILL NOTHING INVENTED
+  "Le vétérinaire gratte le tartre / La mousse le ramollit" is near-verbatim from the
+  advertorial: "les méthodes traditionnelles… cherchent à retirer mécaniquement le tartre
+  par brossage ou grattage, ce spray dentaire aide à le ramollir".
+  "Plusieurs centaines d'euros" and "un risque chez le chien âgé" are verbatim.
+  "Il en a retrouvé dans sa gamelle" is Thierry M., verbatim.
+
+  ⚠ THE INVOICE CARRIES NO TOTAL. The thumb did not quite cover the TOTAL cell and a
+  blurred figure was legible enough to read as real, so the cell was painted out in paper
+  colour. Your page says "plusieurs centaines d'euros" and never gives a number, so
+  neither does the ad.
+
+  X9 came back as visibly the SAME dog in both panels, so the line was changed from
+  "Deux chiens. Deux bouches." to "La même bouche. / 48 heures d'écart." — the copy now
+  matches the picture instead of contradicting it.
+
+THE DUPLICATE GATE, AGAIN CAUSED BY THE OVERLAY
+  The first pass put one pair over gate: a dog's mouth and a paper invoice at r = 0.627.
+  Raw art r = 0.260 — the overlay added +0.367, the same failure as the pack ads. Fixed
+  free by dropping the navy bar from three of the photographic ads.
+
+    ALL 29 ADS, 406 PAIRS, 0 OVER THE GATE. Max r = 0.577.
+
+SPEND
+  Batch 01   20 x $0.25  = $5.00      Batch 01b   7 x $0.25  = $1.75
+  Batch 01c   9 x $0.25  = $2.25
+  Canident total                       $9.00
+  RUNNING TOTAL ACROSS ALL PRODUCTS   $42.25
