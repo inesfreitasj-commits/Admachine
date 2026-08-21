@@ -303,3 +303,49 @@ bottom. Rebuilding on those axes took the same eight arguments from a 0.825 medi
 
 **Never brief a series as "same layout, different illustration".** Brief each one as a
 different picture that happens to share a brand system.
+
+
+## Check which way a sequence runs, not just its labels
+
+A three-stage timeline shipped showing a tooth getting **steadily worse** — clean, then
+filmed, then heavily encrusted — under the labels JOUR 0 / 24 H / 48 H, with the product
+pack sitting at the end of the arrow. The literal message was *"48 hours with this product
+and your dog's teeth look like this."* The client spotted it; the QC pass did not.
+
+Every individual element checked out, which is exactly why it survived: the headline was
+verbatim from the funnel (*"la plaque dentaire peut se transformer en tartre en seulement
+48 heures"*), the stage labels were in the right order, the illustration was well drawn.
+**The direction was the benefit reversed**, and nothing in the checklist looked at
+direction.
+
+Before shipping any timeline, before/after, or multi-panel sequence, say out loud what
+changes between the first panel and the last, and confirm it is the outcome the product
+sells. If the product removes something, the last panel has less of it.
+
+## One number, one meaning per account
+
+The same batch used **48 h** as the payoff in eight ads and as the speed of deterioration
+in one. A number that means "improvement" and "decay" in the same ad account weakens the
+claim the whole campaign rests on. Find the direction the funnel uses — here the hero, the
+sidebar, the FAQ and both winning ads all used 48 h as the payoff — and hold it everywhere.
+
+Problem-agitation ads are still fine; they just have to agitate with a *different* number,
+or with no number at all.
+
+## Swapping panels is free — regenerating is not
+
+That timeline was fixed without spending anything, because flat-ground vector panels are
+separable. Measure the groups by scanning for non-background columns, cut each to its own
+file, blank the slots to the sampled background colour, and paste them back in the order
+you want:
+
+```python
+cream = tuple(c/255 for c in pix.pixel(int(0.02*W), int(0.55*H)))   # sample, never guess
+for a, b in GROUPS:                      # blank
+    page.draw_rect(fitz.Rect(a*W-2, y0-2, b*W+2, y1+2), color=None, fill=cream)
+for src_i, dst_i in ((2, 0), (1, 1), (0, 2)):   # paste back reordered, centred
+    ...
+```
+
+Check the group widths first — if they are within a few pixels of each other, centring each
+cut in its destination slot leaves no visible seam.

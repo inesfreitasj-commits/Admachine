@@ -220,3 +220,35 @@ SPEND
   Batch 01c   9 x $0.25  = $2.25
   Canident total                       $9.00
   RUNNING TOTAL ACROSS ALL PRODUCTS   $42.25
+
+
+================================================================================
+FIX — N5 RAN BACKWARDS      $0.00
+================================================================================
+The client asked whether the timeline made sense, because it looked like the dog was
+GAINING tartar. It was: clean -> yellow -> heavy brown, labelled JOUR 0 / 24 H / 48 H,
+with the pack at the end of the arrow. The literal message was "48 hours with this
+product and your dog's teeth look like this."
+
+Every element checked out individually, which is why it survived QC: the headline was
+verbatim from the advertorial ("la plaque dentaire peut se transformer en tartre en
+seulement 48 heures"), the stage labels were in order, the illustration was well drawn.
+The DIRECTION was the benefit reversed, and nothing in the checklist looked at direction.
+
+It also broke the batch: 48 h is the payoff number in eight other ads here, and in your
+hero, your sidebar, your FAQ and both winning ads. One ad where the same number means
+deterioration undermines the claim the whole campaign rests on.
+
+FIXED FREE, NO REGENERATION
+  The three tooth groups sat on flat cream at x 0.067-0.299 / 0.384-0.618 / 0.703-0.938,
+  within 3 px of each other in width, so groups 1 and 3 were cut, the slots blanked to the
+  sampled cream, and the cuts pasted back swapped and centred. No seam.
+  Sequence now reads HEAVY BROWN -> YELLOW -> CLEAN.
+  Headline changed to "Le tartre brun se détache / en 48 h" — same direction as the picture.
+  JOUR 0 / 24 H needed no change: JOUR 0 is now the encrusted tooth.
+  The pack sits at the CLEAN end, so it now reads as the answer rather than the cause —
+  which also retires the earlier note about it covering the third marker.
+
+  All 29 ads re-checked: 406 pairs, 0 over the duplicate gate, max r = 0.577.
+
+CANIDENT TOTAL STILL $9.00 — RUNNING TOTAL $42.25

@@ -88,8 +88,12 @@ def N4_dog_photo_left():
 
 @job
 def N5_48h_timeline():
+    # The sequence runs heavy -> yellow -> clean, so the headline must run in the same
+    # direction. "La plaque devient tartre en 48 h" was verbatim from the funnel but it
+    # pointed the ad at deterioration, with the pack sitting at the bad end of the arrow —
+    # and 48 h is the payoff number everywhere else in this account.
     c = canident_lockup(p("N5_48h_timeline"), None,
-        "La plaque devient tartre", "en 48 h", cta=None, wordmark=None)
+        "Le tartre brun se détache", "en 48 h", cta=None, wordmark=None)
     # the three blue boxes were generated deliberately empty so the stages could be
     # lettered exactly here rather than gambled on the model
     # the third box is covered by the pack — see report.txt; only the visible two are lettered
