@@ -439,6 +439,18 @@ Measured on a 36-image batch: 6 pairs cleared 0.60 after compositing, only 2 bef
 and four of the six were plainly different creatives. Judge the photographs, then look
 at the flagged pairs yourself before calling anything a duplicate.
 
+### The review is NOT optional when the client is waiting
+
+Twenty ads once shipped after three of them had been opened, because the client was asking
+for speed. They came back with malformed legs and the wrong shoes — both of which were
+obvious in the first image opened afterwards. **Time pressure is the exact condition under
+which this step gets skipped, which makes it the exact condition under which it matters.**
+Opening twenty images costs a couple of minutes. Shipping twenty unopened costs the batch,
+the client's trust, and the money to redo it.
+
+If there is genuinely no time to review all of them, send the ones you HAVE opened and say
+the rest are still being checked. Never send an unopened image.
+
 **Never judge a pair having viewed only one of its images.** A whole concept once shipped
 with the wrong product — amber glass instead of the real bottle — because only `var_01`
 was checked and `var_02` was assumed fine.
@@ -451,6 +463,8 @@ was checked and `var_02` was assumed fine.
 | Grip | Where held, fingers don't visibly contact and press the surface |
 | Integration | No contact shadow, or light not matching the scene |
 | Copy | Garbled, misspelled or invented words in the overlay |
+| **Anatomy** | Feet: five toes with nails, ankle bone visible, Achilles hollow present, heel in contact. Hands: five fingers, real pressure. **Count the limbs** — orphan feet and third arms drift in |
+| **Footwear** | Right sex, right style, straps and fastenings actually present |
 | **Pack lettering** | **Crop the pack and read it at 100 %.** Below ~50 % of frame height the model's label micro-copy garbles, and it is invisible at review size — a client once had to hand-fix three boxes |
 | Sequence direction | A timeline or before/after runs the wrong way — state what changes between first and last panel |
 | One scene per image | The image shows a split-screen of both variations |

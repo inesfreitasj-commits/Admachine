@@ -27,7 +27,7 @@
 
 set -uo pipefail
 
-MODEL="gemini-3-pro-image-preview"
+MODEL="${GEMINI_IMAGE_MODEL:-gemini-3-pro-image-preview}"
 ENDPOINT="https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent"
 
 die() { echo "gemini-image-ref: $*" >&2; exit "${2:-2}"; }

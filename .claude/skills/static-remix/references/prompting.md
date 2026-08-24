@@ -400,3 +400,60 @@ c.page.draw_oval(fitz.Rect(...), color=RED, width=0.008 * c.H, fill=None)
 ```
 
 Worth testing on any macro or clinical image where the subject needs finding.
+
+
+## Never brief the ABSENCE of an anatomical landmark
+
+A batch of swollen-leg ads came back with legs the client called "not normal". The cause was
+not the model. It was this line, which I had put in a shared block on nearly every prompt:
+
+> "the whole ankle reads as a **smooth continuous column with no visible hollow** beside the
+> tendon"
+
+That is an instruction to delete the medial malleolus and the Achilles hollow — the two
+landmarks that make a leg read as a leg. The model obeyed exactly, and every ad the block
+touched came back with smooth featureless tubes for legs.
+
+**Describe a symptom by what it ADDS, never by what it removes.** Swelling is flesh spilling
+over a sandal strap, a shiny stretched look on the tightest part, a sock groove indented with
+the flesh bulging above and below it, a thumb-press dent that stays. The landmarks remain,
+softened. The same applies to wasting, sagging, inflammation and every other deformity: name
+what appears, never what disappears.
+
+## A feet block, and it is stricter than the hands block
+
+Feet are worse than hands. Use this wherever a bare foot is in frame:
+
+> FEET AND ANKLES — RENDER THE ANATOMY, DO NOT REMOVE IT: exactly five toes, big toe clearly
+> largest, each with a real toenail; the heel broad and in proper contact with the surface;
+> the Achilles tendon visible as a cord up the back of the ankle; the ANKLE BONE ON THE INNER
+> SIDE remains a visible rounded bump and the small hollows either side of the Achilles remain
+> present even when puffy. Real skin: pores, freckles, sun spots, fine thread veins.
+
+Also cap the limb count explicitly in the tail — "exactly the number of legs and feet
+described, belonging to one person" — because orphan feet drifted into two ads in that batch.
+
+## Barefoot shots are candid and environmental, never studio
+
+In the same batch, four foot ads came out right and three came out wrong, and the split was
+entirely about framing:
+
+| Worked | Failed |
+|---|---|
+| One leg, side on, large in frame, resting on a real chair / footstool / coffee table, shot from the subject's own eyeline, real household clutter in shot | Front-on, standing, both feet together, small in frame, on a seamless studio ground |
+
+The model has seen millions of real casual foot photographs and comparatively few clean
+studio foot renders, so studio framing pulls it toward the idealised stock leg — which has no
+ankle bone. **Shoot bare feet the way a person photographs their own.**
+
+## Name footwear exactly: sex, style, strap, fastening
+
+"A plain leather shoe" returned **men's brown lace-up Oxfords on a woman in a summer dress**.
+The brief has to carry the whole specification:
+
+> a WOMAN'S FLAT SUMMER SANDAL — tan leather sole, a wide band across the toes, and a proper
+> ANKLE STRAP WITH A SMALL METAL BUCKLE at the side. Not a shoe, not a lace-up, not a men's
+> brogue, not a slip-on, not a trainer.
+
+The same batch proved the model renders that perfectly when asked — the failure was entirely
+in the vagueness of the brief.
