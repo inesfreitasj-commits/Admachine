@@ -457,3 +457,90 @@ The brief has to carry the whole specification:
 
 The same batch proved the model renders that perfectly when asked — the failure was entirely
 in the vagueness of the brief.
+
+## "An out-of-focus foreground element" buys you a dead slab
+
+Asked for candid depth on five ads in one batch, four came back with a large featureless
+smear across the bottom of the frame — 36 %, 33 %, 18 %, and a low-angle tiled floor. Not
+blurred detail: **blank**. A third of an ad spent on nothing.
+
+The model reads "foreground element" as "a nearer plane", and with nothing named to put
+there it fills the plane with the surface itself.
+
+| Don't ask for | Ask for |
+|---|---|
+| an out-of-focus foreground element | depth from the BACKGROUND — a lit doorway behind her, the room falling away |
+| shallow depth of field, foreground blur | the near edge of a mug, bottom-left corner only, out of focus |
+| shot from low, close to the surface | eye level with the subject |
+
+And check the fraction before you composite. Cropping the slab is free, but re-squaring
+then costs you either the sides of the picture or a footer you did not plan.
+
+## Never ask for an empty area "where the labels will go"
+
+This brief:
+
+> leave two clear empty white areas in the upper right and lower right where callout labels
+> will be placed
+
+produced a diagram with **literal black rectangles drawn round those areas**, plus a box
+round the headline. The model does not know the areas are for something else; it draws what
+you described, and what you described was a layout.
+
+Say what the picture contains, never what the overlay will do to it:
+
+> the upper third of the frame is plain background, no drawing in it
+
+This is the same failure as *"no visible hollow beside the tendon"* on the legs: **describe
+the overlay to the image model and the image model draws the overlay.** The composite is
+yours. It is never in the prompt.
+
+`erase_drawn_rules()` in `compose_text.py` rubs such rules out afterwards, but only where
+they cross blank paper — where they cross artwork they stay, as a faint dashed trace. So
+the repair is real but partial. Not asking is still cheaper.
+
+## Paper props print gibberish — fold them, turn them over, or leave them out
+
+A till receipt in a handbag came back carrying **mirror-flipped Latin**: readable enough
+that anyone who looked would see it was fake. Receipts, prescriptions, invoices, forms,
+price labels, order slips — anything with a column of small print.
+
+Three ways out, in order of preference:
+
+1. Don't put readable paper in the shot.
+2. Brief it **folded, face-down, or half out of frame** so no line is complete.
+3. Blur it afterwards with `Composer.soften()`.
+
+*Wall posters are the exception.* A blurred anatomy chart on a clinic wall passed inspection
+at 300 % — real background blur is genuine depth of field, and the model does it well. It is
+the paper in the FOCAL PLANE that betrays you.
+
+## Do the blur properly, or the patch is worse than the defect
+
+The first attempt at `soften()` downsampled the region and re-inserted it. It produced a
+mosaic of hard square blocks with a razor edge round the rectangle — visible from across the
+room, and far more obviously wrong than the gibberish it was covering. **A patch is only a
+fix if it disappears.** Box-blur at full resolution and ramp the blur to nothing over the
+outer fifth of the patch, so there is no boundary to see.
+
+## A clock face cannot say a duration
+
+Two dials were briefed to mean "up to 2 hours" against "5 minutes". The render came back
+with hands at roughly 9:20 and 12:00 — arbitrary, and the duration was the entire argument
+of the ad. Gauges, dials, thermometers, progress bars, calendars, speedometers: the model
+draws the OBJECT convincingly and the READING at random.
+
+Anything whose value carries the claim is drawn in code. `Composer.clock()` does dials.
+Generate the ground and the styling; never the number.
+
+## Measure a repair against the file you are about to repair
+
+Four stray rules were located by pixel coordinate on a 922x927 frame. By the time the fix
+ran, `trim_uniform_border` had converged the frame to 886x923 and every coordinate was 18 px
+out. The horizontals happened to still land; the verticals silently missed, and the script
+printed OK.
+
+**A repair that reports success and does nothing is worse than no repair**, because the QC
+box gets ticked. So: detect the thing at run time rather than hard-coding where it was, and
+make the repair assert what it found — `erase_drawn_rules` returns a count and the job
+raises if it is short.

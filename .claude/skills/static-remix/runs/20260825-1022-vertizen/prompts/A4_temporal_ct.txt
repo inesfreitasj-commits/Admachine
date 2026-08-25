@@ -1,0 +1,18 @@
+A single flat square image, 1:1. A clinical CT scan.
+
+SCENE: An axial CT SLICE THROUGH THE TEMPORAL BONE, filling the frame, in grey-scale bone
+window — dense white bone, dark air spaces, and at the centre the intricate spiral of the
+cochlea and the fine loops of the semicircular canals rendered as delicate white curls inside
+the petrous bone. The rest of the skull base surrounds it in mottled grey and white.
+
+TEXT ON IMAGE: NONE. No headline, no caption, no label, no number, no watermark, no branding
+of any kind anywhere. Picture only.
+No patient name, no date, no scale bar, no numbers, no lettering anywhere — a red annotation
+circle will be composited afterwards, so do NOT draw one.
+
+STYLE: an authentic CT image — correct bone-window contrast, fine noise, deep black
+background. Not an illustration.
+
+Do not add any text beyond what is specified. No watermark, no captions, no distorted or
+misspelled lettering, no duplicate packs, no extra or orphan limbs — exactly the number of
+people and body parts described.

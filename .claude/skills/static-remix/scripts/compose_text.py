@@ -14,6 +14,7 @@ headline below ~0.040 of the frame height is unreadable in a Meta feed. This mod
 REFUSES to auto-shrink text to fit — if a line is too long it raises, so you shorten the
 copy instead of shipping type nobody can read.
 """
+import math
 import pymupdf as fitz
 
 FONT_DIR = "/mnt/skills/examples/canvas-design/canvas-fonts"
@@ -202,6 +203,151 @@ class Composer:
                           cxp + dx * R + rr * R, cyp + dy * R + rr * R * 1.15)
             sh = self.page.new_shape(); sh.draw_oval(t); sh.finish(color=None, fill=color); sh.commit()
 
+
+    def luminance_under(self, x0, y0, x1, y1, step=6):
+        """Mean perceived luminance (0-1) of the picture under a rectangle."""
+        px0, py0 = int(x0 * self.W), int(y0 * self.H)
+        px1, py1 = int(x1 * self.W), int(y1 * self.H)
+        px0, py0 = max(0, px0), max(0, py0)
+        px1, py1 = min(self.W - 1, px1), min(self.H - 1, py1)
+        vals = []
+        pix = fitz.Pixmap(self.src)
+        sx, sy = pix.width / self.W, pix.height / self.H
+        for y in range(py0, py1, step):
+            for x in range(px0, px1, step):
+                r, g, b = pix.pixel(min(pix.width - 1, int(x * sx)),
+                                    min(pix.height - 1, int(y * sy)))
+                vals.append((0.2126 * r + 0.7152 * g + 0.0722 * b) / 255)
+        return sum(vals) / len(vals) if vals else 0.5
+
+    def contrast_ok(self, color, x0, y0, x1, y1, minimum=0.33):
+        """Will `color` actually read against the picture here?
+
+        Copy has shipped in dark green over a sunlit bookshelf, invisible at thumbnail size.
+        Measure before drawing rather than eyeballing it afterwards. Returns
+        (ok, background_luminance, contrast)."""
+        bg = self.luminance_under(x0, y0, x1, y1)
+        fg = 0.2126 * color[0] + 0.7152 * color[1] + 0.0722 * color[2]
+        return abs(fg - bg) >= minimum, bg, abs(fg - bg)
+
+    def text_panel(self, x, baseline, lines, key="sans-bold", size=0.060, color=NEARBK,
+                   fill=WHITE, pad=0.018, lead=None, radius=0.10, opacity=0.94):
+        """Draw copy on its own solid panel — the reliable answer when the picture behind is
+        busy or its brightness is close to the type colour. Returns the panel rect."""
+        lead = lead or size * 1.28
+        w = max(self.measure(t, key, size) for t in lines)
+        top = baseline - size * 0.82 - pad
+        bot = baseline + lead * (len(lines) - 1) + size * 0.28 + pad
+        self.page.draw_rect(fitz.Rect((x - pad) * self.W, top * self.H,
+                                      (x + w + pad) * self.W, bot * self.H),
+                            color=None, fill=fill, fill_opacity=opacity,
+                            radius=radius)
+        for i, t in enumerate(lines):
+            self.text(x, baseline + i * lead, t, key=key, size=size, color=color, shadow=False)
+        return (x - pad, top, x + w + pad, bot)
+
+    def soften(self, x0, y0, x1, y1, radius=0.010, feather=0.28, wash=None,
+               wash_opacity=0.0):
+        """Blur a rectangle with a real box blur, faded out at its own edges.
+
+        The fix for a paper prop the image model has printed gibberish on — a receipt, a
+        prescription, an invoice, a foil blister. Blurring turns readable nonsense back into
+        what it should have been: out-of-focus print.
+
+        Do NOT do this by downsampling and re-inserting. That was the first attempt and it
+        produced a mosaic of hard square blocks with a razor edge around the rectangle — far
+        more obviously wrong than the gibberish it was hiding. A patch is only a fix if it
+        disappears: blur properly, and ramp the blur to nothing over the outer `feather` of
+        the patch so there is no boundary to see.
+
+        radius is a fraction of the image WIDTH. feather is a fraction of the patch.
+        """
+        r = fitz.Rect(x0 * self.W, y0 * self.H, x1 * self.W, y1 * self.H)
+        pm = fitz.Pixmap(fitz.csRGB, self.page.get_pixmap(clip=r))
+        w, h, n = pm.width, pm.height, 3
+        src = list(pm.samples)
+        rad = max(1, int(radius * self.W))
+
+        def box(buf, W, H, horizontal):
+            out = [0] * len(buf)
+            for a in range(H if horizontal else W):
+                line = []
+                for b in range(W if horizontal else H):
+                    idx = ((a * W + b) if horizontal else (b * W + a)) * n
+                    line.append(buf[idx:idx + n])
+                acc = [sum(p[c] for p in line[:rad + 1]) for c in range(n)]
+                cnt = rad + 1
+                L = len(line)
+                for b in range(L):
+                    idx = ((a * W + b) if horizontal else (b * W + a)) * n
+                    for c in range(n):
+                        out[idx + c] = acc[c] // cnt
+                    if b + rad + 1 < L:
+                        for c in range(n): acc[c] += line[b + rad + 1][c]
+                        cnt += 1
+                    if b - rad >= 0:
+                        for c in range(n): acc[c] -= line[b - rad][c]
+                        cnt -= 1
+            return out
+
+        blur = box(box(src, w, h, True), w, h, False)
+
+        fx, fy = max(1, int(w * feather)), max(1, int(h * feather))
+        for y in range(h):
+            wy = min(1.0, min(y, h - 1 - y) / fy)
+            for x in range(w):
+                k = min(wy, min(1.0, min(x, w - 1 - x) / fx))
+                if k >= 1.0:
+                    continue
+                i0 = (y * w + x) * n
+                for c in range(n):
+                    blur[i0 + c] = int(blur[i0 + c] * k + src[i0 + c] * (1 - k))
+
+        self.page.insert_image(r, pixmap=fitz.Pixmap(fitz.csRGB, w, h, bytes(bytearray(blur)), False))
+        if wash and wash_opacity:
+            self.page.draw_rect(r, color=None, fill=wash, fill_opacity=wash_opacity)
+        return r
+
+    def clock(self, cx, cy, r, hour, minute, ring=NEARBK, face=WHITE, hands=NEARBK,
+              arc_to=None, arc_color=None, arc_r=0.62, arc_width=0.10, ring_width=0.09):
+        """Draw an analogue dial in code.
+
+        A clock face cannot be briefed. Ask an image model for "two hours" and it draws
+        hands at whatever angle it likes — the duration is the whole point of the ad and it
+        is the one thing the picture will not carry. So the dial is drawn here, like every
+        other exact thing.
+
+        cx, cy, r are fractions of the frame (r of the height). `arc_to` is the elapsed
+        sweep in HOURS from 12 o'clock — 2.0 draws a two-hour wedge outline, 5/60 draws
+        five minutes.
+        """
+        R = r * self.H
+        C = fitz.Point(cx * self.W, cy * self.H)
+
+        def at(hours, rad):
+            a = hours / 12.0 * 2 * math.pi
+            return fitz.Point(C.x + rad * math.sin(a), C.y - rad * math.cos(a))
+
+        self.page.draw_circle(C, R, color=None, fill=ring)
+        self.page.draw_circle(C, R * (1 - ring_width), color=None, fill=face)
+        for i in range(12):
+            long = (i % 3 == 0)
+            p0 = at(i, R * (0.80 if long else 0.84))
+            p1 = at(i, R * 0.92)
+            self.page.draw_line(p0, p1, color=ring, width=R * (0.030 if long else 0.018))
+        if arc_to:
+            col = arc_color or ring
+            steps = max(8, int(abs(arc_to) * 24))
+            pts = [at(arc_to * i / steps, R * arc_r) for i in range(steps + 1)]
+            for a, b in zip(pts, pts[1:]):
+                self.page.draw_line(a, b, color=col, width=R * arc_width)
+        # minute hand long, hour hand short — the reader checks this without knowing it
+        self.page.draw_line(C, at(minute / 5.0, R * 0.78), color=hands, width=R * 0.045)
+        self.page.draw_line(C, at(hour + minute / 60.0, R * 0.52),
+                            color=hands, width=R * 0.062)
+        self.page.draw_circle(C, R * 0.05, color=None, fill=hands)
+        return C
+
     def save(self, out, zoom=1):
         self.page.get_pixmap(matrix=fitz.Matrix(zoom, zoom)).save(out)
         return out
@@ -326,7 +472,24 @@ def slide(src, dx, dst=None, sample=(0.02, 0.02), scale=1.0):
     return out
 
 
-def trim_uniform_border(src, dst=None, min_var=90.0, max_frac=0.10):
+def trim_uniform_border(src, dst=None, min_var=90.0, max_frac=0.10, _rounds=4):
+    """Crop to a FIXED POINT, so calling this twice is a no-op.
+
+    A single pass can leave a second, slightly different flat margin behind, and the next
+    run of the script then crops again. That silently moved A3's frame from 922x927 to
+    886x923 between two runs and broke a repair that had been measured against the first
+    size. Converge here instead, once."""
+    prev = None
+    for _ in range(_rounds):
+        out = _trim_once(src if prev is None else prev, dst or src,
+                         min_var=min_var, max_frac=max_frac)
+        if out == (prev if prev is not None else src):
+            break
+        prev = out
+    return prev or src
+
+
+def _trim_once(src, dst=None, min_var=90.0, max_frac=0.10):
     """Crop the flat white/grey margin the image model sometimes frames a photo with.
 
     Such a border reads as a "designed" edge in the feed and breaks the raw-phone-photo
@@ -361,6 +524,169 @@ def trim_uniform_border(src, dst=None, min_var=90.0, max_frac=0.10):
     page.insert_image(fitz.Rect(-left, -top, W - left, H - top), filename=src)
     page.get_pixmap().save(out)
     return out
+
+
+
+def pad_square(src, dst=None, fill=None, sample=(0.5, 0.02)):
+    """Pad the short axis so the frame is exactly 1:1.
+
+    `trim_uniform_border` leaves ragged ratios — 876x1024, 1007x1007, 938x1024 — and the
+    Meta feed wants a square. Letterboxing in the placement crops the ad unpredictably, so
+    square it here where the fill colour can be chosen. `fill` defaults to the pixel at
+    `sample`, which is the right answer for the flat-ground and black-scan frames.
+    """
+    pix = fitz.Pixmap(src)
+    W, H = pix.width, pix.height
+    if W == H:
+        return src
+    S = max(W, H)
+    if fill is None:
+        r, g, b = pix.pixel(int(W * sample[0]), int(H * sample[1]))[:3]
+        fill = (r / 255, g / 255, b / 255)
+    doc = fitz.open()
+    page = doc.new_page(width=S, height=S)
+    page.draw_rect(fitz.Rect(0, 0, S, S), color=None, fill=fill)
+    ox, oy = (S - W) / 2, (S - H) / 2
+    page.insert_image(fitz.Rect(ox, oy, ox + W, oy + H), filename=src)
+    out = dst or src
+    page.get_pixmap().save(out)
+    return out
+
+
+def mirror(src, dst=None):
+    """Flip left-for-right.
+
+    The cheapest way to break a duplicate score between two images that share a subject.
+    Two ear cutaways on white measured r = 0.632 against each other; mirroring one dropped
+    the pair to 0.476 with no other change and no regeneration. Check the subject first —
+    anatomy and scenery mirror fine, lettering and clock faces do not.
+    """
+    pix = fitz.Pixmap(fitz.csRGB, fitz.Pixmap(src)) if fitz.Pixmap(src).n > 3 \
+        else fitz.Pixmap(src)
+    W, H, n = pix.width, pix.height, pix.n
+    row = W * n
+    buf = bytearray(pix.samples)
+    out_b = bytearray(len(buf))
+    for y in range(H):
+        b0 = y * row
+        rev = bytearray(buf[b0:b0 + row])[::-1]
+        if n == 3:                    # reversing bytes also reverses R,G,B within a pixel
+            rev[0::3], rev[2::3] = rev[2::3], rev[0::3]
+        out_b[b0:b0 + row] = rev
+    new = fitz.Pixmap(pix.colorspace, W, H, bytes(out_b), False)
+    out = dst or src
+    new.save(out)
+    return out
+
+
+def crop_to(src, dst=None, top=0.0, bottom=1.0, left=0.0, right=1.0):
+    """Crop by fractions of the frame. Returns the path written."""
+    pix = fitz.Pixmap(src)
+    W, H = pix.width, pix.height
+    x0, x1 = int(left * W), int(right * W)
+    y0, y1 = int(top * H), int(bottom * H)
+    doc = fitz.open()
+    page = doc.new_page(width=x1 - x0, height=y1 - y0)
+    page.insert_image(fitz.Rect(-x0, -y0, W - x0, H - y0), filename=src)
+    out = dst or src
+    page.get_pixmap().save(out)
+    return out
+
+
+def erase_drawn_rules(src, dst=None, min_run=0.22, ink=150, blank=205,
+                      margin=5, thickness=3, fill=(255, 255, 255), passes=3):
+    """Rub out the straight rules an image model drew into a diagram — and nothing else.
+
+    Asking for "a clear empty area where the callout labels will go" gets you literal drawn
+    rectangles. They are erasable, but only where they run across blank paper, so each pixel
+    goes only if the paper `margin` either side of the rule is blank. Where a rule crosses
+    the drawing it is left alone and reads as part of the hatching.
+
+    The rules are FOUND here, not passed in. Hard-coded pixel positions were the first
+    attempt and they silently missed after `trim_uniform_border` changed the frame size by
+    36 px — a repair that reports success and does nothing is worse than no repair.
+    """
+    # Run more than once: each pass whitens the clear stretches, which turns the pixels
+    # that were blocked by their neighbours into erasable ones. One pass leaves the rule as
+    # a dotted trace, which still reads as a drawn line.
+    lines = None
+    for _ in range(passes):
+        lines = _erase_rules_once(src, dst, min_run, ink, blank, margin, thickness,
+                                  fill, lines)
+        src = dst or src
+        if not lines:
+            break
+    return len(lines or ())
+
+
+def _erase_rules_once(src, dst, min_run, ink, blank, margin, thickness, fill, lines=None):
+    pix = fitz.Pixmap(fitz.csRGB, fitz.Pixmap(src))
+    W, H = pix.width, pix.height
+    g = pix.samples
+
+    def dark(x, y):
+        i = (y * W + x) * 3
+        return min(g[i], g[i + 1], g[i + 2]) < ink
+
+    def light(x, y):
+        if not (0 <= x < W and 0 <= y < H):
+            return False
+        i = (y * W + x) * 3
+        return min(g[i], g[i + 1], g[i + 2]) > blank
+
+    # Detect the rules on the first pass only. Once a pass has whitened most of a rule the
+    # surviving dashes are too short to be re-detected, so the positions carry forward and
+    # each pass rubs out a little more of what the previous one unblocked.
+    if lines is not None:
+        found = list(lines)
+    else:
+        found = []
+        for axis, N, M in (("v", W, H), ("h", H, W)):
+            for a in range(N):
+                run = best = 0
+                for b in range(M):
+                    on = dark(a, b) if axis == "v" else dark(b, a)
+                    run = run + 1 if on else 0
+                    if run > best:
+                        best = run
+                if best < min_run * M:
+                    continue
+                clear = 0
+                for b in range(0, M, 3):
+                    if axis == "v":
+                        if light(a - margin, b) and light(a + margin, b):
+                            clear += 1
+                    elif light(b, a - margin) and light(b, a + margin):
+                        clear += 1
+                if clear / (M / 3.0) > 0.45:
+                    found.append((axis, a))
+
+    doc = fitz.open()
+    page = doc.new_page(width=W, height=H)
+    page.insert_image(fitz.Rect(0, 0, W, H), filename=src)
+    col = tuple(c / 255 for c in fill)
+    for axis, a in found:
+        M = H if axis == "v" else W
+        run_start = None
+        for b in range(M):
+            ok = (light(a - margin - thickness, b) and light(a + margin + thickness, b)) \
+                if axis == "v" else \
+                (light(b, a - margin - thickness) and light(b, a + margin + thickness))
+            if ok and run_start is None:
+                run_start = b
+            elif not ok and run_start is not None:
+                _paint(page, axis, a, run_start, b, thickness, col); run_start = None
+        if run_start is not None:
+            _paint(page, axis, a, run_start, M, thickness, col)
+    out = dst or src
+    page.get_pixmap().save(out)
+    return found
+
+
+def _paint(page, axis, a, b0, b1, thickness, col):
+    r = fitz.Rect(a - thickness, b0, a + thickness + 1, b1) if axis == "v" \
+        else fitz.Rect(b0, a - thickness, b1, a + thickness + 1)
+    page.draw_rect(r, color=None, fill=col)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,78 @@
+VertiZen™ — 20 static ads
+=========================
+Roll-on for vertiges + acouphènes. French market, Olethra.
+Model: gemini-3-pro-image-preview (Nano Banana Pro). Spend: $5.00. No regenerations.
+
+HEADLINE CLAIM (client-supplied, page-supported)
+  VertiZen™ | Éliminez 98 % des bourdonnements, sifflements et vertiges
+  en seulement 5 minutes
+
+Numbers used, all quoted from the funnel: 98 % · 5 minutes · 30 à 60 minutes (the pills'
+onset) · 2 heures (an untreated crisis) · 25 ans · 60 jours.
+NOT used: any ingredient, "Tinnix™" (the ad copy carried the wrong product name), the
+Canadian press logos, 4.9 / 9 897.
+
+TIMEFRAME
+  5 minutes throughout, as asked. "3 à 5 minutes" appears nowhere. 30-60 minutes and
+  2 heures appear only as the ENEMY's durations, never as VertiZen's.
+
+
+THE SET
+-------
+A — variations on your eight winners
+  A1  cervical X-ray                      native, no text
+  A2  ear cutaway, colour                 native, no text
+  A3  nerve line drawing                  NERF SURSOLLICITÉ + numbered callouts
+  A4  temporal CT + red circle            winner 8's ring device, composited exact
+  A5  hand behind the ear                 native, no text
+  A6  pack on sage ground                 Fini les vertiges / Fini les acouphènes
+  A7  pack, desk, notepad                 25 ANS … SOULAGÉ EN 5 MINUTES !
+
+B — the candid set, the problem before the product
+  B1  gripping the kitchen counter        98 % de vertiges en moins
+  B2  pills and water at 3 a.m.           Un comprimé : 30 à 60 min / VertiZen : 5 min
+  B3  edge of the bed, head in hands      native
+  B4  otoscope examination                native
+  B5  hand flat on the hallway wall       native
+
+C — mechanism and comparison
+  C1  pill route vs skin route            estomac, foie, 30 à 60 min vs 5 minutes
+  C2  MRI, inner ear circled              winner 8's device again, different scan
+  C3  two clocks                          2 heures vs 5 minutes
+  C4  vestibular render                   Votre centre de contrôle de l'équilibre
+
+D — product in use
+  D1  applying behind the ear             Soulagement en 5 minutes + CTA
+  D2  UGC, holding the bottle             Isabelle Carpentier, cliente vérifiée
+  D3  bottle in a handbag                 native
+  D4  before / after, same chair          PENDANT LA CRISE / 5 MINUTES APRÈS
+
+Six carry no text and no product, against four of your eight winners.
+All copy is composited in code, so any wording change is free and instant.
+
+
+QC — every one of the 20 was opened at full size
+------------------------------------------------
+Eight defects found and repaired, all in code, no regeneration:
+
+  A2  duplicated A3 at r = 0.632 (both ear cutaways on white). Mirrored → 0.476.
+  A3  the model drew literal rectangles where the brief asked for "clear empty areas
+      for the callouts". Rules rubbed out where they cross blank paper.
+  A7  the handwriting ran off the notepad onto the table. Refitted to the paper.
+  B1  36 % of the frame was a blank foreground slab. Cropped; the space is now a
+      cream claim panel and a CTA bar.
+  B2  33 % dead frame, same fix. The near blister's garbled foil print is blurred.
+  B4  18 % dead frame. Cropped and re-squared from the sides; still native.
+  C3  the clock hands said nothing — roughly 9:20 and 12:00. Both dials are now drawn
+      in code: 2:00 with a two-hour wedge against 12:05. Its cream ground also stopped
+      short of the top and bottom edges; flooded flat.
+  D3  the till receipt printed mirror-flipped Latin, readable enough to read as fake.
+      Blurred to genuine out-of-focus thermal print.
+
+Duplicate gate: all 190 pairs below r = 0.60. Highest is 0.547 (C2 | C4).
+All 20 are exactly square.
+Contrast measured under every composited line before it was drawn; none below 0.33.
+
+KNOWN, ACCEPTED
+  A3 keeps a faint dashed trace where the model's rules crossed the engraved hatching —
+  erasing there would have taken artwork with it. At feed size it reads as a leader line.

@@ -1,0 +1,18 @@
+A single flat square image, 1:1. A clinical radiograph.
+
+SCENE: A lateral X-RAY OF THE HUMAN CERVICAL SPINE, filling the frame, bone-white against
+deep black. The seven neck vertebrae stack in a clear column with the disc spaces visible
+between them, the jaw and teeth at the upper left, the base of the skull above. The natural
+forward curve of the neck is visibly FLATTENED — the column runs almost straight instead of
+curving. Soft tissue reads as a pale grey haze around the bone.
+
+TEXT ON IMAGE: NONE. No headline, no caption, no label, no number, no watermark, no branding
+of any kind anywhere. Picture only.
+No patient name, no date, no letter markers, no lettering of any kind on the film.
+
+STYLE: an authentic radiograph — correct bone density gradients, slight film grain, deep
+black background. Not an illustration, not a 3D render.
+
+Do not add any text beyond what is specified. No watermark, no captions, no distorted or
+misspelled lettering, no duplicate packs, no extra or orphan limbs — exactly the number of
+people and body parts described.
