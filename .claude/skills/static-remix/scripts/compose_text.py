@@ -230,6 +230,119 @@ class Composer:
         fg = 0.2126 * color[0] + 0.7152 * color[1] + 0.0722 * color[2]
         return abs(fg - bg) >= minimum, bg, abs(fg - bg)
 
+    def busy_under(self, x0, y0, x1, y1, step=3):
+        """How BUSY the picture is under a rectangle — mean absolute difference between
+        neighbouring pixels, normalised to 0-1.
+
+        Brightness is not readability. Black line art on white paper measures as a bright,
+        high-contrast background and sails through `contrast_ok`, and then the headline is
+        laid straight over the hatching and cannot be read. That shipped. Type needs ground
+        that is EMPTY, and emptiness is low local variation, not high luminance difference.
+
+        Measured on real ads, which is where the 0.018 gate comes from:
+
+            flat vector ground (white paper, studio sweep)     0.0006 - 0.0021
+            a plain wall in a photograph                       0.0059
+            blank notepad paper in a photograph                0.0137   <- type reads fine
+            ---------------------------------------------------------- gate 0.018
+            a busy bookshelf behind a headline                 0.0252   <- needs a scrim
+            a label clipping the edge of a drawing             0.0282   <- CLIENT REJECTED
+            a label straight over engraved hatching            0.1963   <- CLIENT REJECTED
+
+        Both rejected placements passed `contrast_ok` comfortably: black-on-white line art
+        measures as a bright, high-contrast background. Brightness is not readability.
+        """
+        pix = fitz.Pixmap(fitz.csGRAY, fitz.Pixmap(self.src))
+        sx, sy = pix.width / self.W, pix.height / self.H
+        px0, py0 = max(0, int(x0 * self.W)), max(0, int(y0 * self.H))
+        px1 = min(self.W - 1, int(x1 * self.W))
+        py1 = min(self.H - 1, int(y1 * self.H))
+        g = pix.samples
+        def at(x, y):
+            return g[min(pix.height - 1, int(y * sy)) * pix.width
+                     + min(pix.width - 1, int(x * sx))]
+        diffs = []
+        for y in range(py0, py1, step):
+            for x in range(px0, px1 - step, step):
+                diffs.append(abs(at(x, y) - at(x + step, y)))
+        return (sum(diffs) / len(diffs) / 255) if diffs else 0.0
+
+    def ink_under(self, x0, y0, x1, y1, step=2, tol=28):
+        """Fraction of the patch that is NOT background.
+
+        `busy_under` measures how DENSE the variation is, and a single thin outline
+        crossing an otherwise empty band barely registers — a headline once sat straight
+        across the top of a line-drawn head with a busyness of 0.0019, comfortably "clear",
+        and the outline ran through the middle of the words. Density and presence are two
+        different questions, so both get asked.
+        """
+        pix = fitz.Pixmap(fitz.csGRAY, fitz.Pixmap(self.src))
+        sx, sy = pix.width / self.W, pix.height / self.H
+        g = pix.samples
+        vals = []
+        for y in range(max(0, int(y0 * self.H)), min(self.H - 1, int(y1 * self.H)), step):
+            row = min(pix.height - 1, int(y * sy)) * pix.width
+            for x in range(max(0, int(x0 * self.W)), min(self.W - 1, int(x1 * self.W)), step):
+                vals.append(g[row + min(pix.width - 1, int(x * sx))])
+        if not vals:
+            return 0.0
+        vals.sort()
+        bg = vals[len(vals) // 2]
+        return sum(1 for v in vals if abs(v - bg) > tol) / len(vals)
+
+    def clear_ok(self, x0, y0, x1, y1, maximum=0.018, max_ink=0.020):
+        """Is this patch quiet enough to put type on?
+
+        Two independent tests, because they fail in different ways:
+          busyness  catches hatching, foliage, clutter — dense competing detail
+          ink       catches a single outline or edge crossing an otherwise empty band
+        Returns (ok, busyness). The ink figure is reported in the raise message.
+        """
+        b = self.busy_under(x0, y0, x1, y1)
+        if b > maximum:
+            return False, b
+        ink = self.ink_under(x0, y0, x1, y1)
+        return ink <= max_ink, b
+
+    def callout(self, x, baseline, text, tx, ty, key="sans-bold", size=0.038,
+                color=NEARBK, side="auto", dot=0.008, weight=0.0022, check=True):
+        """A label on EMPTY ground with a thin leader line running to the thing it names.
+
+        This is how the client's own winning diagram does it, and it is the only way an
+        annotation stays readable on line art. Dropping the label straight onto the drawing
+        was rejected on sight: "the writing is placed on top of the lines, which makes it
+        hard to read."
+
+        x, baseline place the LABEL. tx, ty are the point on the anatomy it names.
+        Raises if the label would sit on busy ground — move the label, never shrink it.
+        """
+        w = self.measure(text, key, size)
+        if x + w > 0.97:
+            raise SystemExit(
+                f'callout "{text}" runs off the right edge ({x + w:.3f} > 0.97) — '
+                f'break it over two lines or move it left. Never shrink it to fit.')
+        if x < 0.01:
+            raise SystemExit(f'callout "{text}" runs off the left edge (x={x:.3f}).')
+        if check:
+            ok, busy = self.clear_ok(x - 0.01, baseline - size * 0.95,
+                                     x + w + 0.01, baseline + size * 0.30)
+            if not ok:
+                raise SystemExit(
+                    f'"{text}" is not on clear ground '
+                    f'(busyness {busy:.4f}, ink {self.ink_under(x - 0.01, baseline - size * 0.95, x + w + 0.01, baseline + size * 0.30):.4f}) — '
+                    f'move the label to empty background, do not shrink it.')
+        if side == "auto":
+            side = "right" if tx > x + w / 2 else "left"
+        ax = (x + w + 0.012) if side == "right" else (x - 0.012)
+        ay = baseline - size * 0.30
+        self.page.draw_line(fitz.Point(ax * self.W, ay * self.H),
+                            fitz.Point(tx * self.W, ty * self.H),
+                            color=color, width=weight * self.H)
+        self.page.draw_circle(fitz.Point(tx * self.W, ty * self.H), dot * self.H,
+                              color=None, fill=color)
+        self.text(x, baseline, text, key=key, size=size, color=color, shadow=False)
+        return w
+
     def text_panel(self, x, baseline, lines, key="sans-bold", size=0.060, color=NEARBK,
                    fill=WHITE, pad=0.018, lead=None, radius=0.10, opacity=0.94):
         """Draw copy on its own solid panel — the reliable answer when the picture behind is
@@ -687,6 +800,45 @@ def _paint(page, axis, a, b0, b1, thickness, col):
     r = fitz.Rect(a - thickness, b0, a + thickness + 1, b1) if axis == "v" \
         else fitz.Rect(b0, a - thickness, b1, a + thickness + 1)
     page.draw_rect(r, color=None, fill=col)
+
+
+WINNER_COPY_FILE = "/root/.claude/skills/static-remix/references/winner-copy.md"
+
+
+def winner_lines(path=WINNER_COPY_FILE):
+    """The verbatim on-image copy of the client's winning ads, from the corpus file."""
+    out, on = [], False
+    for raw in open(path, encoding="utf-8"):
+        line = raw.rstrip("\n")
+        if line.startswith("## The corpus"):
+            on = True; continue
+        if on and line.startswith("## "):
+            break
+        if on and line.startswith("  ") and line.strip():
+            out.append(line.strip())
+    return out
+
+
+def assert_not_winner_copy(lines, corpus=None, label=""):
+    """Refuse to composite a line the client's own winning ad already carries.
+
+    The pixel gate cannot see this. Two ads scored a clean 0.359 and 0.370 against the
+    winners and were rejected on sight anyway, because what they had copied was the WORDS —
+    one reused a winner's headline and all three of its bullets changing a single word, the
+    other reused a winner's handwritten line unchanged.
+
+    The claim is fine to reuse; it is proven. The wording is what has to move.
+    """
+    corpus = corpus if corpus is not None else winner_lines()
+    norm = lambda t: " ".join(t.lower().replace("\u2019", "'").split()).strip(" .!:\u2026")
+    seen = {norm(c): c for c in corpus}
+    for line in lines:
+        hit = seen.get(norm(line))
+        if hit:
+            raise SystemExit(
+                f'{label}: "{line}" is copied verbatim from a winning ad ("{hit}").\n'
+                f'  Keep the claim, change the words — see references/winner-copy.md.')
+    return True
 
 
 if __name__ == "__main__":
