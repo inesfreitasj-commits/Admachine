@@ -544,3 +544,32 @@ printed OK.
 box gets ticked. So: detect the thing at run time rather than hard-coding where it was, and
 make the repair assert what it found — `erase_drawn_rules` returns a count and the job
 raises if it is short.
+
+## A positively-phrased empty zone still gets drawn as a box
+
+The last product's rule said: don't ask for "a clear empty area where the labels go", say
+"the upper third is plain background" instead. That corrected phrasing was used on the next
+product — *"THE TOP FIFTH AND THE BOTTOM FIFTH OF THE FRAME ARE FLAT EMPTY WHITE with nothing
+in them"* — and the model drew **two black rectangles, top and bottom**, exactly as before.
+
+So the phrasing is not the fix. Naming a zone at all, in any wording, invites a rectangle
+around it. Two things follow:
+
+1. **Stop trying to word it safely.** Describe the picture and stop: "a large three-dimensional
+   artery cross-section, centred". Say nothing about the parts of the frame you intend to use.
+2. **Run `erase_drawn_rules()` on every flat-ground diagram**, not only the ones you think went
+   wrong. It costs nothing and it is the only thing that has ever actually removed them.
+
+**A rule sitting ON the frame edge survives the eraser** — it has no blank paper on its outer
+side, so the "is the paper either side clear?" test can never pass. Paint the four edges after
+erasing, the way `A3` and `H2` both needed.
+
+## The image model draws real manufacturer branding into real places
+
+Ask for a hospital imaging room and you get GE, SIEMENS and SOMATOM rendered crisply on the
+equipment. Ask for a French kitchen and you get *Le Monde* legible on the newspaper, and a
+bathroom shelf comes with *Le Petit Marseillais* on the tube.
+
+The client's own winners carry it too, so it is not fatal — but it is someone else's trademark
+in a paid ad. Soften the marks on any hero object with `Composer.soften()`. Background props
+in a genuinely candid frame can keep theirs; a brand name on the thing the ad is about cannot.

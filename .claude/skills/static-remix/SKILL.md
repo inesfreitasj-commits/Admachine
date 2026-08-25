@@ -466,6 +466,7 @@ was checked and `var_02` was assumed fine.
 | **Anatomy** | Feet: five toes with nails, ankle bone visible, Achilles hollow present, heel in contact. Hands: five fingers, real pressure. **Count the limbs** — orphan feet and third arms drift in |
 | **Footwear** | Right sex, right style, straps and fastenings actually present |
 | **Pack lettering** | **Crop the pack and read it at 100 %.** Below ~50 % of frame height the model's label micro-copy garbles, and it is invisible at review size — a client once had to hand-fix three boxes |
+| **Pack lettering on a fallback model** | The batch ran on anything other than Nano Banana Pro and a pack is in frame. Flash garbles the label's small lines; crop and read every pack at 300 % before delivering |
 | Sequence direction | A timeline or before/after runs the wrong way — state what changes between first and last panel |
 | **Dead frame** | **What fraction of the frame carries no information?** Four of five candid shots in one batch gave 18-36 % to a blank out-of-focus foreground. Crop it and rebuild the square — never ship a third of an ad as a smear |
 | **Paper props** | Receipts, prescriptions, invoices, forms and price labels print gibberish. Crop and read them. Wall posters at genuine background blur are usually fine |

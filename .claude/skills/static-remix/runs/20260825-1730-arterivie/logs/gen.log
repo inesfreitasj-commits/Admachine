@@ -1,0 +1,102 @@
+gemini-image-ref: HTTP 503 (retryable) for production/S1_ct_gantry_feet.png
+{
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-image-ref: HTTP 503 (retryable) for production/S1_ct_gantry_feet.png
+{
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-image-ref: HTTP 503 (retryable) for production/S1_ct_gantry_feet.png
+{
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-image-ref: HTTP 503 (retryable) for production/S2_mri_control_glass.png
+{
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-image-ref: HTTP 503 (retryable) for production/S2_mri_control_glass.png
+{
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-image-ref: HTTP 503 (retryable) for production/S2_mri_control_glass.png
+{
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-image-ref: HTTP 503 (retryable) for production/S3_angio_suite.png
+{
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-image-ref: HTTP 503 (retryable) for production/S3_angio_suite.png
+{
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+gemini-image-ref: HTTP 503 (retryable) for production/S3_angio_suite.png
+{
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+OK  production/S1_ct_gantry_feet.png  (2225239 bytes, aspect 1:1)
+OK  production/S2_mri_control_glass.png  (1866149 bytes, aspect 1:1)
+OK  production/S3_angio_suite.png  (2382462 bytes, aspect 1:1)
+OK  production/S4_man_entering_scanner.png  (1918920 bytes, aspect 1:1)
+OK  production/S5_ultrasound_probe_groin.png  (2119471 bytes, aspect 1:1)
+OK  production/S6_waiting_room_men.png  (2011289 bytes, aspect 1:1)
+OK  production/H1_artery_cutaway_jar.png  (972719 bytes, aspect 1:1, ref product.png)
+OK  production/H2_two_arteries_compare.png  (831438 bytes, aspect 1:1)
+OK  production/H3_jar_orange_ground.png  (1246999 bytes, aspect 1:1, ref product.png)
+OK  production/H4_couple_bed_relief.png  (2094362 bytes, aspect 1:1)
+OK  production/M1_penile_vs_coronary.png  (879773 bytes, aspect 1:1)
+OK  production/M2_plaque_timeline.png  (721190 bytes, aspect 1:1)
+OK  production/M3_pelvic_artery_map.png  (1059028 bytes, aspect 1:1)
+OK  production/M4_pill_vs_cleaning.png  (906268 bytes, aspect 1:1)
+OK  production/P1_wife_holding_jar.png  (2105812 bytes, aspect 1:1, ref product.png)
+OK  production/P2_man_kitchen_jar.png  (2316229 bytes, aspect 1:1, ref product.png)
+OK  production/P3_bathroom_shelf_native.png  (1744037 bytes, aspect 1:1, ref product.png)
+OK  production/N1_pharmacy_shelf.png  (1817227 bytes, aspect 1:1, ref product.png)
+OK  production/N2_cardboard_sign.png  (2181366 bytes, aspect 1:1)
+OK  production/N3_doctor_artery_model.png  (2165234 bytes, aspect 1:1)
+OK  production/N3_doctor_artery_model.png  (2209152 bytes, aspect 1:1)

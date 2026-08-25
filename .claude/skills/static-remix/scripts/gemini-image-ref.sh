@@ -27,6 +27,15 @@
 
 set -uo pipefail
 
+# Nano Banana Pro is the model this skill is built around. Its 503 "high demand" is a
+# RECURRING condition, not a one-off — it took out an entire VeinoVie batch and an entire
+# ArtériVie batch on separate days. So the fallback is part of the design.
+#
+# THE FALLBACK IS HIGGSFIELD, NEVER FLASH. Flash was picked twice under time pressure and
+# both times it cost pack-label fidelity, which is the single defect this client has raised
+# most often. A batch that is late is recoverable; a batch of ads with the product's own name
+# misspelled on the jar is not. On a 503, stop and hand back to the caller, which then routes
+# to Higgsfield marketing_studio_image via the MCP tool.
 MODEL="${GEMINI_IMAGE_MODEL:-gemini-3-pro-image-preview}"
 ENDPOINT="https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent"
 

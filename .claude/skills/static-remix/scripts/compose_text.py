@@ -819,7 +819,7 @@ def winner_lines(path=WINNER_COPY_FILE):
     return out
 
 
-def assert_not_winner_copy(lines, corpus=None, label=""):
+def assert_not_winner_copy(lines, corpus=None, label="", path=None):
     """Refuse to composite a line the client's own winning ad already carries.
 
     The pixel gate cannot see this. Two ads scored a clean 0.359 and 0.370 against the
@@ -829,7 +829,7 @@ def assert_not_winner_copy(lines, corpus=None, label=""):
 
     The claim is fine to reuse; it is proven. The wording is what has to move.
     """
-    corpus = corpus if corpus is not None else winner_lines()
+    corpus = corpus if corpus is not None else winner_lines(path or WINNER_COPY_FILE)
     norm = lambda t: " ".join(t.lower().replace("\u2019", "'").split()).strip(" .!:\u2026")
     seen = {norm(c): c for c in corpus}
     for line in lines:
