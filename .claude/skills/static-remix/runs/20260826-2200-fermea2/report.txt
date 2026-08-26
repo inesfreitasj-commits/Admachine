@@ -131,3 +131,13 @@ made on BA2 above. Left as is.
 
 Spend: 8 generations + 6 retries (5 for RS2's tilt issue, 1 for TP2's newspaper, 1 for TP1's
 gate collision) ≈ 15 calls total.
+
+
+Addendum — one more, RS3 (29 total)
+=======================================
+One more shelf rupture-de-stock ad: RS3_shelf_last_standing — a single bottle standing alone
+on an otherwise empty shelf (no hand in frame, distinct from both RS1's empty-gap and RS2's
+hand-pulling-a-bottle), its own handwritten note ("Il n'en reste qu'une. / Le reste est en
+ligne."). Applied the upright-bottle lesson from RS2 up front — rendered correctly, label
+fully legible, on the first generation. Duplicate gate: clean on both the hard gate and the
+advisory list — lowest score of the whole 29-ad batch (0.112 against win_02).
