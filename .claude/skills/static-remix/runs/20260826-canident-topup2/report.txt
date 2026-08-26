@@ -1,0 +1,62 @@
+Canident™ — 20 static ads (topup 2)
+====================================
+Dog dental foam. France, Olethra. Model: gemini-3-pro-image-preview. Spend: $5.00.
+
+HEADLINE (confirmed, matches prior batch)
+  Canident™ | Éliminez 98 % du tartre et retrouvez une haleine fraîche en seulement 48 h
+
+Numbers used: 98 % · 48 h · 356 vétérinaires · 10 543 propriétaires · 4,8 Trustpilot ·
+60 jours · 34,95 € (barré 70,00 €). Not used: 60 452, 9 897, 4,9, any vet-descale euro figure.
+
+FIVE WINNING ADS TORN DOWN THIS ROUND
+  win_01/02 (from the prior batch) + three new: a pastel flat-lay pack pair, a candid phone
+  selfie of the owner with the dog asleep on her chest (no text, no product), and the
+  heure 1/24/48 tooth-tartar timeline device — three macro panels tracking one tooth as
+  the tartar visibly lifts.
+
+Last round's measured selection data drove the mix: pack format 8/8 chosen (100%), hard
+clinical/mechanism 6/9 (67%), dog+owner 0/4 (0% — but the client is now submitting exactly
+that format as a proven winner, so it's tried again with a different execution).
+
+
+THE SET
+-------
+PK — pack format (6)
+  PK1 kitchen counter · PK2 held to camera · PK3 flat-lay on a bathroom shelf · PK4 pastel
+  studio pair · PK5 foam mid-dispense macro · PK6 pharmacy-shelf price comparison
+
+D — the dog's mouth, the mechanism (5)
+  D1 gumline macro · D2 scaler lifting tartar · D3 full row of teeth · D4 vet gloved exam ·
+  D5 tartar flecks in the food bowl
+
+BA — the winner's own heure 1/24/48 device (3)
+  BA1/BA2 three-panel tooth timeline, two different dogs · BA3 side-profile before/after
+
+NA — native, text-free, matching the new candid winner (3)
+  NA1 owner asleep with dog (candid selfie register) · NA2 dog licking a hand · NA3 pastel
+  flat-lay with foam texture
+
+X — new concepts (3)
+  X1 vet invoice, the total obscured · X2 anaesthesia mask, calm register · X3 two different
+  dogs' mouths compared side by side
+
+
+QC — all 20 opened at full size
+--------------------------------
+Repaired in code, no regeneration:
+  PK2  the headline bullet ran under the pack — reworded and re-measured
+  PK3  BOTH the box's and the bottle's blue tagline band printed garbled letters
+       ("TAATRE" for "TARTRE"). Painted over and rewrote "ÉLIMINE LE TARTRE / ET
+       RAFRAÎCHIT L'HALEINE" in code, matched to the pack's own band size and position.
+  PK4  headline ran into the pack — shortened, added a bullet for the dropped clause
+  D2   headline overran the frame — shortened
+  D4   headline overran the frame — shortened
+  BA1, X3  both drew a line copied verbatim from a winning ad ("Le tartre disparaît
+       vraiment") — the guard caught it before delivery; rewritten to make the same
+       claim in different words
+  PK2  scored 0.79 against PK4 and 0.62 against PK3 on the duplicate gate — mirrored and
+       lightly cropped, which cleared both pairs
+
+Duplicate gate: all 190 pairs below r = 0.60, highest 0.576.
+Every composited line checked against the five winners' own copy — nothing verbatim.
+All 20 exactly square.

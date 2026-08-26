@@ -573,3 +573,19 @@ bathroom shelf comes with *Le Petit Marseillais* on the tube.
 The client's own winners carry it too, so it is not fatal — but it is someone else's trademark
 in a paid ad. Soften the marks on any hero object with `Composer.soften()`. Background props
 in a genuinely candid frame can keep theirs; a brand name on the thing the ad is about cannot.
+
+## A pack rendered small in a busy flat-lay garbles its own tagline band, not just the wordmark
+
+The wordmark and the big product-name lines survive at surprising scale — six pack ads in one
+batch had those exactly right. The failure was narrower: the thin two-line coloured TAGLINE
+band (the accent strip below the wordmark) garbled on the one ad where the pack shared the
+frame with several other objects (a leash, a towel) and so rendered smaller than the others.
+Same "under ~50 % of frame height garbles" rule as before, just on a sub-element most checks
+would skip past because the rest of the label reads fine.
+
+**The fix, when it happens:** measure the band's real rectangle by sampling pixels (a solid
+band color is a much stricter filter than "any bluish pixel" — light-blue decorative
+elements above the band will false-positive on a loose threshold), then paint over it and
+redraw the known-correct text in code, sized to the band's own measured height. Do this
+per-image; a global brand-mark helper can't cover a text element like a tagline whose exact
+mistakes vary render to render.
