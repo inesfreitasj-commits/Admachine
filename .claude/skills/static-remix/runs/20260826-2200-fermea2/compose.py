@@ -115,6 +115,64 @@ def SH1_shelf_bestseller():
     c.save(o("SH1_shelf_bestseller"))
 
 
+# ---------------------------------------------------------------- shelf rupture-de-stock
+# The handwritten note is baked into the photo itself (per the SU2 lesson this round) —
+# no code text needed, code text over a photographed note would look pasted-on.
+for _n in ("RS1_shelf_empty_note", "RS2_shelf_last_bottle"):
+    def _rs(n=_n): passthrough(n)
+    _rs.__name__ = _n
+    job(_rs)
+
+
+# ---------------------------------------------------------------- UGC testimonial quote
+@job
+def UGC1_testimonial_nathalie():
+    c = Composer(p("UGC1_testimonial_nathalie"))
+    c.scrim(0.68, 1.0, opacity=0.70)
+    l1, l2 = "« Mes bras paraissent beaucoup", "plus fermes et lisses. »"
+    attr = "— Nathalie L., cliente vérifiée"
+    check([l1 + " " + l2, attr], "UGC1 testimonial")
+    c.text(0.055, 0.845, l1, key="sans-italic", size=0.046)
+    c.text(0.055, 0.905, l2, key="sans-italic", size=0.046)
+    c.text(0.055, 0.963, attr, key="sans-bold", size=0.032)
+    c.save(o("UGC1_testimonial_nathalie"))
+
+@job
+def UGC2_testimonial_caroline():
+    c = Composer(p("UGC2_testimonial_caroline"))
+    c.scrim(0.68, 1.0, opacity=0.70)
+    l1, l2 = "« Ma peau paraît maintenant", "plus douce et tonique. »"
+    attr = "— Caroline G., cliente vérifiée"
+    check([l1 + " " + l2, attr], "UGC2 testimonial")
+    c.text(0.055, 0.845, l1, key="sans-italic", size=0.046)
+    c.text(0.055, 0.905, l2, key="sans-italic", size=0.046)
+    c.text(0.055, 0.963, attr, key="sans-bold", size=0.032)
+    c.save(o("UGC2_testimonial_caroline"))
+
+
+# ---------------------------------------------------------------- surgical marker / no text
+for _n in ("SM1_preop_arm", "SM2_preop_thigh"):
+    def _sm(n=_n): passthrough(n)
+    _sm.__name__ = _n
+    job(_sm)
+
+
+# ---------------------------------------------------------------- TEST PRODUIT macro (TP1-2)
+@job
+def TP1_hip_macro():
+    l1 = [("Hanches et taille marquées par le temps ?", "sans")]
+    l2 = "16 huiles comparées, notre top 5"
+    check([l1[0][0], l2], "TP1 hook")
+    hook_lockup(p("TP1_hip_macro"), o("TP1_hip_macro"), l1, l2)
+
+@job
+def TP2_ankle_macro():
+    l1 = [("Chevilles fines, ridées, fragiles ?", "sans")]
+    l2 = "le classement complet de 16 huiles"
+    check([l1[0][0], l2], "TP2 hook")
+    hook_lockup(p("TP2_ankle_macro"), o("TP2_ankle_macro"), l1, l2)
+
+
 # ---------------------------------------------------------------- native / no text
 for _n in ("U1_bathroom_holding", "U2_kitchen_applying", "U3_car_seat",
            "U4_phone_screenshot", "P2_bottle_stones_garden", "P3_bottle_marble_bathroom",

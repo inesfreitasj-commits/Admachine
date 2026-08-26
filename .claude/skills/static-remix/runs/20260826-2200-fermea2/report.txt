@@ -86,3 +86,48 @@ Known limitation (unchanged from earlier this session)
 Higgsfield's output CDN is still blocked by this environment's egress proxy. Not relevant to
 this delivery — everything here is real Nano Banana Pro output — but noted in case a future
 batch needs the Higgsfield fallback again.
+
+
+Addendum — round 2b, 8 more ads (28 total)
+============================================
+You pasted back 4 of the winning ads (win_01 surgical-marker, win_02 shelf rupture-de-stock,
+win_03 UGC testimonial, win_05/06 TEST PRODUIT macro) and asked for more like them. Two of
+those devices already had new ads above (surgical-marker → SU1, TEST PRODUIT → S1-S3); the
+other two — shelf rupture-de-stock and UGC testimonial — had none. Added 2 more of each
+device, 8 new ads: RS1-RS2 (shelf), UGC1-UGC2 (testimonial), SM1-SM2 (surgical-marker),
+TP1-TP2 (TEST PRODUIT).
+
+Defects caught and fixed in this batch
+-----------------------------------------
+- RS2 (hand pulling the last bottle off the shelf) needed 7 generations. The bottle held at
+  a sharp diagonal kept garbling its own small-caps subhead line ("RAFFERMIT VISIBLEMENT ET
+  NOURRIT LA PEAU" / "USAGE QUOTIDIEN") — a different word broken each time, never all three
+  correct together. Diagnosed the tilt itself as the likely cause (foreshortening stressing
+  the renderer) rather than treating it as random bad luck; reprompted for the bottle held
+  nearly upright instead, and it rendered correctly on the very next try.
+- TP2 (ankle macro) rendered a real, recognizable French newspaper masthead ("Le Monde") in
+  the background — an unrequested real trademark. Reprompted to explicitly forbid any
+  newspaper/magazine/printed publication in the background; regenerated clean.
+- TP1 (hip macro) collided with S3 (hand macro) on the duplicate gate at 0.610 (just over
+  the 0.60 gate) — both had a similar warm-skin-fill-plus-blurred-greenery composition.
+  Moved TP1 indoors (bedroom/wardrobe background) instead of outdoors; dropped to 0.364.
+
+QC and duplicate gate (full 28)
+----------------------------------
+All 8 new finals opened at full size. Product label verified correct on every shot showing
+the pack. Testimonial quotes for UGC1/UGC2 (Nathalie Lavoie, Caroline Gagnon) are page-
+verbatim from product-page.md, not winner lines — Françoise Gauthier's quote stays reserved
+for win_03 per the corpus note. RS1/RS2's handwritten shelf notes and SM1/SM2's surgical
+markings carry no code-composited text, matching the SU1/SU2 precedent.
+
+Duplicate gate over all 28 + 6 winners: hard gate (r=0.60, own-batch pairs) clean, highest
++0.502. Three items landed on the advisory list (not a gate) above 0.45 — TP2 vs win_05
+(0.541), SM2 vs win_01 (0.490), RS2 vs win_02 (0.453) — each reviewed side by side against
+its named winner. All three share their device (TEST PRODUIT / surgical-marker / shelf) with
+a winner by design, but the actual photographed scene in each (ankle-on-wood-floor vs
+wrist-in-car; thigh vs upper-arm-pinch; hand-pulling-a-bottle vs an empty-gap-with-a-note) is
+materially different — judged as legitimate device reuse, not a re-render, same call already
+made on BA2 above. Left as is.
+
+Spend: 8 generations + 6 retries (5 for RS2's tilt issue, 1 for TP2's newspaper, 1 for TP1's
+gate collision) ≈ 15 calls total.
