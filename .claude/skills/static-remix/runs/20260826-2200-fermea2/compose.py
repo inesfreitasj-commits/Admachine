@@ -118,7 +118,8 @@ def SH1_shelf_bestseller():
 # ---------------------------------------------------------------- shelf rupture-de-stock
 # The handwritten note is baked into the photo itself (per the SU2 lesson this round) —
 # no code text needed, code text over a photographed note would look pasted-on.
-for _n in ("RS1_shelf_empty_note", "RS2_shelf_last_bottle", "RS3_shelf_last_standing"):
+for _n in ("RS1_shelf_empty_note", "RS2_shelf_last_bottle", "RS3_shelf_last_standing",
+           "RS4_shelf_empty_populated"):
     def _rs(n=_n): passthrough(n)
     _rs.__name__ = _n
     job(_rs)

@@ -162,3 +162,15 @@ Two defects surfaced and got fixed before landing on a clean version (4 generati
 
 Also dropped RS2's duplicate-gate score against win_02 from 0.453 to 0.342 — the busier,
 more varied background reads as less similar to the winner's own sparser shelf, not more.
+
+
+Addendum — one more, RS4 (30 total)
+=======================================
+One more shelf ad, with the fully-stocked fake-brand treatment applied from the start:
+RS4_shelf_empty_populated — the same empty-gap-plus-note composition as RS1, but now
+surrounded by a densely-stocked shelf of invented brands (Lumaline, Cédréa, Vertune,
+Solacea, Auréa, Heremane, Botanéa, Éclatant, Dermasure, Hydratane, Nutrivie, Naturelle,
+Pureté Marine — none resembling a real brand), no Ferméa bottle anywhere in frame besides
+the price tag. Rendered correctly on the first generation — lesson from RS2's redo (vary
+product shapes, forbid a second Ferméa silhouette) applied up front. Duplicate gate clean,
+0.168 against win_02.
