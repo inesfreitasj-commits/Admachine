@@ -1,0 +1,88 @@
+Ferméa — round 2 topup, 20 ads
+================================
+
+Engine: Nano Banana Pro (gemini-3-pro-image-preview), on the client's own Google API key.
+Spend: 20 generations + 4 retries (3 transient 503s, 1 reprompt for P4) ≈ 24 calls total.
+
+Why this batch exists
+----------------------
+A first attempt at this batch ran on Higgsfield (marketing_studio_image) after Pro returned
+503 repeatedly. That batch was undeliverable — Higgsfield's output CDN is blocked by this
+environment's egress proxy, so nothing could be downloaded, composited, or QC'd — and on
+review it also had two real defects: skin texture too mild for the "before" state, and the
+cardboard-sign concept left blank instead of carrying real text like the winning ad it
+recreates. Pro came back up; this batch is the redo, on Pro, with both fixed at the prompt
+level before generation (not patched after).
+
+What changed at the prompt level
+---------------------------------
+1. Skin texture (BA1-BA6, S1-S3, SU1) — rewrote every "before" description from a light
+   "crepey" mention to explicit deep furrows, loose hanging folds, papery translucent
+   quality, and a stated requirement that the aging read as obvious at thumbnail size. Also
+   pushed the "after" side's improvement further so the gap is unmistakable.
+2. SU2 (cardboard sign) — the winning ad this recreates (win_04) has bold handwritten marker
+   text on its sign. The first draft asked for a blank cardboard meaning to composite type
+   over it later, which would have looked fake next to a photographed handwritten sign.
+   Rewrote the prompt to have the model render genuine handwritten marker text directly:
+   "J'AI TOUT TESTÉ / AUCUNE N'A FONCTIONNÉ / SAUF CELLE-LÀ" — a paraphrase of win_04's claim
+   (checked against winner-copy.md; not verbatim).
+
+Two more defects caught in QC after generation
+------------------------------------------------
+1. P4 (Trustpilot phone) — first render ignored the "blank screen" framing implied by the
+   concept and drew its own stars plus an invalid rating ("5,36" — Trustpilot tops out at
+   5.0). The thumb was also pressing directly on that fake content, so a code-only patch
+   would have painted over part of the hand. Reprompted for a genuinely blank screen with
+   fingers on the phone's bezel only, regenerated, then composited the verified real figure
+   (4,8 / 60 452 avis, from product-page.md) cleanly onto the clean screen.
+2. SH1 (shelf bestseller) — the model invented a price tag reading "24,90 €", not the
+   verified 34,95 €. Redacted back to blank in code, matching the genuinely blank tags
+   sitting right beside it in the same shot, rather than print an unverified number.
+
+QC pass
+-------
+Every one of the 20 finals opened at full size. Skin texture confirmed dramatically more
+aged/loose on every before/after and macro shot. Product label (Ferméa wordmark, "Huile
+Corps Raffermissante", "RAFFERMIT VISIBLEMENT ET NOURRIT LA PEAU", "100 ml / 3,4 fl. oz.",
+"USAGE QUOTIDIEN") checked correct and legible on every shot showing the pack. No other
+fabricated numbers or claims found.
+
+Duplicate gate
+--------------
+20 ads / 190 pairs against each other: clean, highest pair +0.472 (gate is 0.60).
+Against the 6 winning ads (advisory list, gate is 0.45 but not a hard rule — see the
+module's own docstring): S2 (forearm macro) initially scored 0.578 against win_05 because
+its first draft was set in a car interior, essentially the same scene as the winner.
+Reprompted with a different setting (a stone garden wall) and it dropped to 0.305.
+BA2 (inner-arm before/after) sits at 0.498 against win_06 — reviewed side by side; it's a
+different structural device (split before/after panel with the product held) against
+win_06's single continuous photo, and the score reads as shared warm skin tone/palette
+rather than a re-render. Left as is. Everything else on the advisory list is under 0.44.
+
+Copy
+----
+Every composited line checked with assert_not_winner_copy against this run's own
+winner-copy.md (the 6 new winning ads' corpus) — nothing reused verbatim. All figures
+(94 %, 7 jours, 60 jours, 4,8 / 60 452 avis Trustpilot) traceable to product-page.md, which
+flags these as the "safest numbers" where the sales page and advertorial disagree elsewhere.
+
+The 20 ads
+----------
+BA1-BA6   before/after split panels (décolleté, inner arm, hand, thigh, stomach, knee) —
+          JOUR 1 / JOUR 7 badges + "94 % : peau plus ferme sous 7 jours"
+S1-S3     macro skin close-ups (décolleté, forearm, hand) — VAINQUEUR DU TEST 2026 /
+          TEST PRODUIT hook lockup, distinct headline per body area
+SU1       clinical surgical-marker décolleté — no text, left to speak for itself
+SU2       cardboard sign outside a pharmacy — handwritten claim baked into the photo
+U1-U4     native/UGC lifestyle (bathroom, kitchen, car, phone-screenshot) — no text
+P1        instructional pump-into-palm — "Quelques gouttes suffisent, matin et soir." /
+          "Peau plus ferme en 7 jours"
+P2-P3     product beauty shots (garden stones, marble bathroom) — no text
+P4        Trustpilot phone screenshot — 4,8 / 60 452 avis vérifiés
+SH1       pharmacy shelf bestseller — "ARTICLE LE PLUS COMMANDÉ" badge
+
+Known limitation (unchanged from earlier this session)
+--------------------------------------------------------
+Higgsfield's output CDN is still blocked by this environment's egress proxy. Not relevant to
+this delivery — everything here is real Nano Banana Pro output — but noted in case a future
+batch needs the Higgsfield fallback again.

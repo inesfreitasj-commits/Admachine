@@ -1,0 +1,43 @@
+OK  production/BA1_decollete.png  (2283559 bytes, aspect 1:1)
+OK  production/BA2_inner_arm_holding.png  (2271600 bytes, aspect 1:1, ref product.png)
+SKIP BA3_hand_back (already exists)
+OK  production/BA4_thigh.pOK  production/BA4_thigh.png  (2133741 bytes, aspect 1:1)
+SKIP BA5_stomach_holding (already exists)
+gemini-image-ref:OK  production/BA6_knee.png  (2104100 bytes, aspect 1:1)
+gemini-image-ref: HTTP 503 (retryable) for production/U1_bathroom_holding.png
+{
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary.gemini-image-ref: HTTP 503 (retryable) for production/U1_bathroom_holding.png
+{
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikegemini-image-ref: HTTP 503 (retryable) for production/U3_car_seat.png
+{
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikgemini-image-ref: HTTP 503 (retryable) for production/U3_car_seat.png
+{
+  "error": {
+    "code": 503,
+    "message": "This OK  production/U4_phone_screenshot.png  (2408726 bytes, aspect 1:1)
+OK  production/P1_pump_into_palm.png  (2396864 bytes, aspect 1:1, ref product.png)
+gemini-image-ref: HTTP 503 (retryable) for production/P2_bottle_stones_garden.png
+{
+  "error": {
+    "code": 503,
+    "message": "This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.",
+    "status": "UNAVAILABLE"
+  }
+}
+
+FAIL P2_bottle_stones_garden (exit 5)
+OK  production/P3_bottle_marble_bathroom.png  (1755074 bytes, aspect 1:1, ref product.png)
+OK  production/P4_trustpilot_phone.png  (2187241 bytes, aspect 1:1, ref product.png)
+OK  production/S1_decollete_badge.png  (2566683 bytes, aspect 1:1)
+OK  production/S2_forearm_badge.png  (2395338 bytes, aspect 1:1)
+OK  production/S3_hand_badge.png  (2575477 bytes, aspect 1:1)
+OK  production/SH1_shelf_bestseller.png  (2288679 bytes, aspect 1:1, ref product.png)
+OK  production/SU1_preop_decollete.png  (2304822 bytes, aspect 1:1)
+OK  production/SU2_cardboard_sign.png  (2268564 bytes, aspect 1:1)
+BATCH DONE
