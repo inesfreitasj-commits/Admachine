@@ -1,12 +1,24 @@
 A single flat square photograph, 1:1. A French pharmacy shelf, slightly angled view.
 
-SCENE: A woman's hand reaches into frame and lifts the LAST Ferméa bottle off an otherwise
-near-empty shelf — the shelf around it has only a few OTHER brands' plain, generic bottles
-left, spaced apart, most of the shelf bare wood. A small white price-tag holder is clipped
-to the shelf edge nearby. THE BOTTLE IS HELD NEARLY UPRIGHT, tilted no more than a few
-degrees off vertical, label facing the camera reasonably square-on — not held at a sharp
-diagonal angle. The label's every line of text must stay flat and horizontal enough to be
-read edge to edge without distortion.
+SCENE: A woman's hand reaches into frame and lifts the LAST Ferméa bottle off a well-stocked
+pharmacy shelf, densely lined with OTHER body-care and skincare brands' bottles and boxes —
+a busy, realistic, fully-stocked retail shelf, not a sparse one. These other products carry
+their own small INVENTED brand names and logos, clearly legible where in focus but never
+matching or resembling any real cosmetics brand — made-up names such as "Lumaline",
+"Cédréa", "Vertune", "Solacea" or similar plausible-sounding French-style invented brand
+words.
+
+EVERY ONE of these other products must be VISIBLY DIFFERENT from the Ferméa bottle in
+shape, colour and packaging type, so none of them could be mistaken for another Ferméa
+unit — a mix of: short wide jars with screw lids, flat rectangular tubes, tall clear glass
+bottles with droppers, and cardboard boxes standing on end. NONE of the other products may
+be a tall black cylindrical bottle with a black pump — that silhouette belongs to Ferméa
+alone in this photo.
+
+THE BOTTLE IS HELD NEARLY UPRIGHT, tilted no more than a few degrees off vertical, label
+facing the camera reasonably square-on — not held at a sharp diagonal angle. The label's
+every line of text must stay flat and horizontal enough to be read edge to edge without
+distortion.
 
 Propped on the shelf beside the remaining bottles, a small piece of plain white paper or
 card with a short note written on it in ordinary blue ballpoint handwriting — a real
@@ -35,8 +47,16 @@ Short unpolished nails, visible knuckle creases, veins and age spots where relev
 SETTING: France, present day. Ordinary pharmacy shelf lighting, slightly cool fluorescent
 overhead light.
 
-TEXT ON IMAGE: only the handwritten note described above and the pack's own printed label,
-correctly spelled, in real legible French — nothing else anywhere in the frame.
+CRITICAL: the bottle in the woman's hand is the ONLY Ferméa product anywhere in the frame —
+that is the entire point of the "dernière pièce" note. No other shelf, row, or area visible
+in the photo (including any shelf below or beside the main one) may show another Ferméa
+bottle, box, or label of any kind. Every other product in the photo belongs to one of the
+invented brands described above, never Ferméa.
+
+TEXT ON IMAGE: the handwritten note described above, the pack's own printed label, and the
+invented brand names on the surrounding products described above — correctly spelled, in
+real legible French where in focus. Nothing resembling a real, existing cosmetics brand
+anywhere in the frame.
 
 CAMERA: plain, documentary retail photography, slightly angled, even light, not styled.
 

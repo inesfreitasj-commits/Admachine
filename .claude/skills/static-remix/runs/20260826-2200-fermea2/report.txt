@@ -141,3 +141,24 @@ hand-pulling-a-bottle), its own handwritten note ("Il n'en reste qu'une. / Le re
 ligne."). Applied the upright-bottle lesson from RS2 up front — rendered correctly, label
 fully legible, on the first generation. Duplicate gate: clean on both the hard gate and the
 advisory list — lowest score of the whole 29-ad batch (0.112 against win_02).
+
+
+Addendum — RS2 redone with a fully-stocked shelf
+====================================================
+You asked for more products with fake brand names around RS2, to look as populated/legit as
+the reference win_02. Rewrote the prompt for a densely-stocked shelf with several invented
+brands (Lumaline, Cédréa, Vertune, Solacea, Auréa, Heremane — none resembling any real
+cosmetics brand) instead of plain unlabeled bottles.
+
+Two defects surfaced and got fixed before landing on a clean version (4 generations total):
+- Attempt 1 put a second, third Ferméa-shaped bottle in the background — directly
+  contradicting the "dernière pièce" (last one) claim the ad is built on. Fixed by
+  explicitly forbidding any other tall black pump bottle silhouette among the background
+  products (jars, tubes, dropper bottles, boxes only) and stating only one Ferméa bottle
+  may appear anywhere in frame.
+- Attempt 2 (correct product count) garbled the label's small-caps subhead again — the
+  busier scene likely pulled rendering attention from the small text. Retried once more;
+  attempt 3 rendered every line of the label correctly and is the version delivered.
+
+Also dropped RS2's duplicate-gate score against win_02 from 0.453 to 0.342 — the busier,
+more varied background reads as less similar to the winner's own sparser shelf, not more.
