@@ -83,3 +83,24 @@ W6        pharmacy shelf, rupture-de-stock note, invented competitor brand names
 Spend: 20 generations + roughly a dozen retries/regenerations across T2, T3, CMP2, DR1
 (five attempts before landing the flat-palm version), W3's photo. Compositing-only fixes
 (blur, crop, layout rework) cost nothing further.
+
+
+Addendum — 3 higher-intensity concepts (23 total)
+=====================================================
+You asked for more like the winning ad — stronger, more aggressive reaction-shot energy.
+Added AGR1-AGR3: tighter crops, more dramatic high-contrast lighting, stronger facial
+expression, matching the winning ad's own intensity more closely than the W-series did.
+
+Hard limit held throughout, stated explicitly in every prompt: face/neck/shoulders only,
+no nudity, no sexual acts or implied sexual acts, no exposure beyond what the funnel's own
+photography already shows. AGR2's first render broke that limit on its own — a blanket that
+was supposed to cover down to the shoulders had slipped low enough to read as implying
+nudity. Cropping it tighter still left a sliver of exposed skin at the frame edge, so it was
+reprompted instead: cropped at the base of the neck so there is nothing below the neckline
+in frame at all, removing the ambiguity rather than trying to hide it after the fact.
+
+All 3 opened at full size, distinct compositing treatments (corner badge / bottom scrim /
+top band) so none share a layout with each other or with W1-W5. Duplicate gate: clean on
+both the hard gate (highest pair 0.538) and the advisory list (all three score LOW against
+win_01, 0.024 and below — the crude pixel signature doesn't capture "matching device
+energy," consistent with what the gate's own docstring already says about it).

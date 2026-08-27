@@ -245,6 +245,39 @@ def W5_hook_hands_intertwined():
     c.save(o("W5_hook_hands_intertwined"))
 
 
+# ---------------------------------------------------------------- higher-intensity (AGR1-3)
+@job
+def AGR1_intense_closeup():
+    # Corner badge only — distinct from AGR2/AGR3's treatments below.
+    c = Composer(p("AGR1_intense_closeup"))
+    claim = "Fini la gêne au lit, retrouvez confiance"
+    check([claim], "AGR1 claim")
+    c.badge(0.045, 0.045, claim, size=0.032, fill=RED, center_on=None)
+    c.save(o("AGR1_intense_closeup"))
+
+@job
+def AGR2_intense_bedroom():
+    # Bottom scrim + centred claim.
+    c = Composer(p("AGR2_intense_bedroom"))
+    l1 = "Érections 98 % plus fermes"
+    l2 = "en 43 secondes"
+    check([l1 + " " + l2], "AGR2 claim")
+    c.scrim(0.70, 1.0, opacity=0.70)
+    c.centered(0.870, l1, size=0.046)
+    c.centered(0.935, l2, size=0.046)
+    c.save(o("AGR2_intense_bedroom"))
+
+@job
+def AGR3_intense_outdoor():
+    # Full-width top band + centred claim.
+    c = Composer(p("AGR3_intense_outdoor"))
+    claim = "Recommandé par 569 sexologues français"
+    check([claim], "AGR3 claim")
+    c.band(0.0, 0.15, fill=INK, opacity=0.85)
+    c.centered(0.095, claim, size=0.034)
+    c.save(o("AGR3_intense_outdoor"))
+
+
 # ---------------------------------------------------------------- native / no text
 for _n in ("W6_shelf_rupture_stock",):
     def _pt(n=_n): passthrough(n)
