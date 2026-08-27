@@ -1,0 +1,85 @@
+Duréon™ — first batch, 20 ads
+===============================
+
+Engine: Nano Banana Pro (gemini-3-pro-image-preview), on the client's own Google API key.
+This is a NEW product this session (male erectile-dysfunction spray, brand Olethra, same
+client as ArtériVie/Ferméa/Canident/VertiZen). No prior batch to build on — fact sheet,
+winner corpus and visual reference were all written fresh from the funnel supplied.
+
+Resolved contradictions (see assets/product-page.md for the full writeup)
+------------------------------------------------------------------------
+1. The sales page's mechanism copy credits a "marine algae extract" the product LABEL does
+   not list — the label shows only fenugrec, riz, and L-arginine. Every ingredient callout
+   in this batch uses only the label's three; "algues marines" is not used anywhere.
+2. Advertorial says "men over 45"; sales page FAQ specifically says "designed for men over
+   55." Used 55 where an ad needed a stated age.
+3. The winning ad's own badge shows "4.8 (8'452)"; the sales page's site-wide figure is
+   "4,8 / 60 452 avis vérifiés." New ads use the sales page's 60 452 figure; the winning ad's
+   own number stays that ad's alone.
+
+Content-sensitivity house rules (this category)
+-------------------------------------------------
+Every couple/intimacy shot matches the funnel's OWN register exactly: closeness, embrace,
+confidence — never explicit, never nudity beyond bare shoulders/arms, nothing a mainstream
+ad platform wouldn't already run for this category. The sales page's "Vu dans: VIVA, alive,
+Chatelaine, Best Health" bar names real publications — none of those logos/mastheads are
+reproduced anywhere in this batch (same rule a real newspaper masthead triggered on a prior
+product this session).
+
+Defects found and fixed
+--------------------------
+- T2, T3 (testimonial selfies) and CMP2 (hand reaching for the bottle) initially rendered
+  spelling errors on the product label ("Estrait" for "Extrait", "Triigonella" for
+  "Trigonella," etc.) — regenerated once each and came back clean.
+- DR1 (doctor holding the bottle) and DR2 (desk still-life), plus CMP2 and CMP3, kept
+  garbling the same small ingredient-block text after 4-5 regenerations each — a different
+  word broken every time, never all correct together. Rather than keep spending on retries
+  with no clear convergence, that block was blurred with Composer.soften() (the established
+  fix this session for "readable nonsense" printed on a photographed prop — a receipt, an
+  invoice, and now a supplement label) and, where the layout allowed it, the correct
+  ingredient line composited fresh in code beside it. CMP2's bottle sat at a steep diagonal;
+  getting a tight blur rect to track it took several passes, including a second, small,
+  low-feather pass over the one line the wide first pass wasn't fully covering.
+- DR1's bottle also kept tilting sharply on the first few attempts, compounding the text
+  garbling (a lesson already learned on a prior product this session) — reprompted for the
+  bottle resting flat in an open palm, nearly zero tilt, before landing on the version used.
+
+Duplicate gate
+--------------
+First pass: 7 pairs over the hard gate (r ≥ 0.60), nearly all among the 5 "winning ad
+device" concepts (W1-W5) — they'd been built from one shared code template (same banner
+positions, same split-photo layout) on top of underlying photos that were themselves all
+generated from the same "left photo / right product panel" split-image prompt structure.
+Rewrote 4 of the 5 with genuinely different code layouts (a full-width top band, a
+corner-badge-only treatment, a bottom-scrim-only treatment) instead of one shared template,
+and cropped W3's raw photo down to a single full-bleed frame so it stopped sharing the
+underlying split-panel composition with W1. Also gave SCI2 and T3 different treatments than
+their nearest neighbours (badge instead of bottom scrim; top band instead of bottom scrim).
+Second pass: clean, 0 pairs over the gate. Advisory list (against the 1 winning ad) tops out
+at 0.425 — nothing over the 0.45 line.
+
+Copy
+----
+Every composited line checked with assert_not_winner_copy against this run's own
+winner-copy.md (the winning ad's corpus). The winning ad's own "7x more powerful than
+Viagra" comparison is that ad's device alone — not reused as a claim anywhere in this batch,
+since it isn't sourced from the sales page or advertorial. New claims use only page-verified
+figures (98 % / 43 secondes, 4 heures, 569 sexologues, 60 jours, 4,8 / 60 452 avis).
+
+The 20 ads
+----------
+BA1-BA4   before/after split panels (couple, solo bathroom, office, park walk) —
+          AVANT/APRÈS badges + "Érections 98 % plus fermes en 43 secondes"
+T1-T3     testimonial selfies (Nicolas, Philippe, Alain) — real page-sourced quote excerpts
+DR1       doctor authority — Dr Claire Delorme quote (page-sourced)
+DR2       "RECOMMANDÉ PAR 569 SEXOLOGUES FRANÇAIS" badge, desk still-life
+CMP1-CMP3 pills-vs-spray comparisons (studio pair, hand choosing, wait-time clock)
+SCI1      mechanism checklist over a soft anatomical-illustration background
+SCI2      real ingredients (fenugreek seeds, rice) flat-lay + ingredient badge
+W1-W5     the winning ad's own device (bold claim + reaction/intimacy photo), 5 distinct
+          treatments and settings
+W6        pharmacy shelf, rupture-de-stock note, invented competitor brand names
+
+Spend: 20 generations + roughly a dozen retries/regenerations across T2, T3, CMP2, DR1
+(five attempts before landing the flat-palm version), W3's photo. Compositing-only fixes
+(blur, crop, layout rework) cost nothing further.
