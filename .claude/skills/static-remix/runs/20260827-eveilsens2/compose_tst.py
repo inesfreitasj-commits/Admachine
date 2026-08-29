@@ -128,7 +128,7 @@ def TST3_legs_tangled():
 @job
 def TST4_shoulder_glance():
     quote = [("« Il a fallu qu'il me redemande", WHITE), ("deux fois si j'allais bien. »", PINK)]
-    bullets = ["ORIGINE 100 % VÉGÉTALE", "AUCUNE HORMONE", "AUCUNE ORDONNANCE NÉCESSAIRE"]
+    bullets = ["FORMULE 100 % D'ORIGINE NATURELLE", "AUCUNE HORMONE", "AUCUNE ORDONNANCE NÉCESSAIRE"]
     tagline = "+60 000 CLIENTES ONT DIT OUI."
     assert_not_winner_copy([t for t, _ in quote] + bullets + [tagline],
                            label="TST4", path=WINNER_COPY)
@@ -165,7 +165,7 @@ def TST5_back_curve():
 @job
 def TST6_toes_curl():
     quote = [("Ses orteils se sont", WHITE), ("recroquevillés en une minute.", PINK)]
-    bullets = ["SANS ABONNEMENT", "ORIGINE VÉGÉTALE", "60 JOURS D'ESSAI, SANS RISQUE"]
+    bullets = ["SANS ABONNEMENT", "D'ORIGINE NATURELLE", "60 JOURS D'ESSAI, SANS RISQUE"]
     tagline = "ELLE NE S'Y ATTENDAIT PAS."
     assert_not_winner_copy([t for t, _ in quote] + bullets + [tagline],
                            label="TST6", path=WINNER_COPY)

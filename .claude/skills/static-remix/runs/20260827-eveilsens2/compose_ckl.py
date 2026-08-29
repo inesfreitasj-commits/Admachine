@@ -63,7 +63,7 @@ def CKL1_20ans_aggressive():
     # layout (that first attempt scored 0.76 against win_02 and 0.64 against CKL2 — a
     # structural re-render, not just close wording; see report.txt for the full story).
     headline = ["REVIVEZ L'INTENSITÉ", "DE VOS 20 ANS.", "EN 90 SECONDES."]
-    bullets = ["2 GOUTTES SUFFISENT", "ORIGINE 100 % VÉGÉTALE",
+    bullets = ["2 GOUTTES SUFFISENT", "FORMULE 100 % D'ORIGINE NATURELLE",
                "AUCUNE HORMONE AJOUTÉE", "60 JOURS POUR CHANGER D'AVIS"]
     assert_not_winner_copy(headline + bullets, label="CKL1", path=WINNER_COPY)
 
@@ -126,7 +126,7 @@ def CKL3_avis_proof():
 @job
 def CKL4_discreet_aggressive():
     headline = ["PERSONNE NE SAURA.", "VOUS, VOUS LE SAUREZ."]
-    bullets = ["LIVRAISON DISCRÈTE", "ORIGINE 100 % VÉGÉTALE", "COMPATIBLE PRÉSERVATIFS"]
+    bullets = ["LIVRAISON DISCRÈTE", "100 % D'ORIGINE NATURELLE", "COMPATIBLE PRÉSERVATIFS"]
     footer = "60 JOURS POUR CHANGER D'AVIS. REMBOURSÉE."
     assert_not_winner_copy(headline + bullets + [footer], label="CKL4", path=WINNER_COPY)
 

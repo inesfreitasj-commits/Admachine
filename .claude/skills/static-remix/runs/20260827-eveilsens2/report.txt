@@ -293,3 +293,20 @@ Delivery
 --------
 6 finals added to final_v2/ (now 32 total in that folder). Committed and pushed to
 claude/static-remix-skill-rhn2vk.
+
+================================================================================
+Correction — a fabricated claim caught by the client
+================================================================================
+
+The client flagged that "ORIGINE 100 % VÉGÉTALE" (used as a checklist bullet on CKL1, CKL4,
+TST4, TST6) doesn't trace to assets/product-page.md. They were right. That line was written
+as a reworded substitute for "100 % naturelle" (needed because that exact phrase collides
+verbatim with win_01/win_02's own copy) but ended up asserting something stronger and more
+specific than the page supports: the page says "complexe végétal exclusif" for one ingredient
+blend (OD-17™) and "100 % naturelle" for the formula as a whole — not "100 % vegetal origin".
+The base also lists Aqua, Glycérine and Sodium PCA, none of which are accurately described as
+plant-derived. Corrected all 4 occurrences to "100 % D'ORIGINE NATURELLE" / "FORMULE 100 %
+D'ORIGINE NATURELLE" (grounded in the page's own "100 % naturelle et sans hormones",
+distinct wording from the corpus) and re-checked width/fit on every affected image — CKL4's
+longer replacement text initially ran off the frame edge, shortened to fit. Re-synced,
+recommitted, and redelivered CKL1, CKL4, TST4, TST6.
