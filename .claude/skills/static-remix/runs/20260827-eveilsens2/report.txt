@@ -1,0 +1,86 @@
+ÉveilSens — round 2, 16 ads
+============================
+
+Engine: Nano Banana Pro (gemini-3-pro-image-preview), on the client's own Google API key.
+Spend: 16 generations, all 16 succeeded on the first pass, zero regeneration needed for the
+underlying photography (one prompt rewrite + one regen for a tastefulness fix — see below).
+
+Why this batch exists
+----------------------
+Same product, same funnel/advertorial as the earlier incomplete 20260819-1418 run — reused
+that run's product-page.md, product-visual.md and product.png unchanged, per instruction.
+The client sent a new 7-page winning-ads PDF and asked for a more aggressive angle than the
+first run: stronger claim, legs, explicit register matching the winners' own boldest ads —
+comparable in intensity to the client's own win_03/win_04/win_06 (lace lingerie, bare legs,
+arched back), not a re-run of the more conservative first attempt.
+
+Batch mix (16 concepts, "lean aggressive")
+--------------------------------------------
+LNG1-6 — lingerie/bedroom register matching win_03/win_06 (arched back, side-profile gasp,
+  sheets macro, morning-after softer beat, couple embrace, hands-in-sheets).
+LEG1-4 — bare-legs register matching win_04 (crossed legs on bed, bathtub edge, nightstand
+  reach, thigh close-up with product in hand).
+PRD1-4 — product-forward shots (pink checklist background, 2-bottle bundle + box, ingredient
+  flat-lay, hand holding bottle) carrying the claim line more prominently for feed variety.
+DR1-2 — the gynecologist-endorsement device from the funnel's own proof section, plus a
+  hormone-pill-vs-product comparison panel.
+
+Every prompt containing a person carries an explicit "TASTEFULNESS — HARD LIMITS" paragraph:
+torso/chest covered, no nudity, no depicted or implied sexual acts — comparable to
+mainstream lingerie/wellness advertising, ceiling set by the client's own win_06 (the most
+exposed of their 7 winners). This is a hard line regardless of product category, communicated
+to and accepted by the client before generation.
+
+Defects caught in QC and fixed before delivery
+-------------------------------------------------
+1. LNG5 (couple embrace) — first render implied full nudity: no strap or fabric edge was
+   visible on the woman despite the prompt's clothing instruction, because the embrace
+   concealed it. Rewrote the prompt to require the camisole strap and lace fabric edge be
+   unambiguously visible against her skin, not hidden by the pose or crop. Regenerated once;
+   confirmed correct (visible lace camisole, strap, and covering fabric).
+
+2. Systemic label-text garbling — the bottle's own printed script line ("Augmentez votre
+   plaisir. Profitez de l'orgasme.") rendered with vowel-substitution garbling on every one
+   of the 12 raw renders where the label was legible-sized (LNG3, LNG6, LEG1-4, PRD1-4,
+   DR1-2) — a different specific misspelling each time, but the same systemic failure, not
+   per-image bad luck. This is a hard piece of text for the model on this label's cursive
+   script styling (confirmed as the same failure mode seen on other products' small/dense
+   label text this session). Rather than keep regenerating with no guarantee of a clean roll,
+   applied the established blur+retype fix: Composer.soften() over the garbled region, the
+   correct two-line claim composited back in code (sans-italic — closest available face to
+   the label's own script).
+   First pass at this used a fixed text size and got the blur-rect coordinates wrong on
+   several images — either too small/narrow (text overflowed onto surrounding photo) or
+   simply mis-placed (the true text position missed entirely, leaving it fully sharp and
+   readable next to the new line). Rewrote to auto-fit the replacement text's size to each
+   rect's own width, and re-derived every rect's coordinates precisely by colour-thresholding
+   the garbled maroon text against the pink label background in the raw production PNGs
+   (rather than eyeballing crops), then padded generously and lowered soften()'s feather so
+   the blur is at full strength exactly where the text sits, not just at the rect's center.
+   All 12 re-verified clean after this pass. The bottle's smaller bottom band ("Female
+   Pleasure Enhancer") was also inconsistently garbled on some images but was left alone —
+   secondary, smaller, lower-priority text, consistent with this session's standing
+   "illegible-or-minor fine print is acceptable" precedent. PRD2's background cardboard box
+   (out of focus, a secondary prop, not one of the two hero bottles) was left alone for the
+   same reason.
+
+QC pass
+-------
+All 16 finals opened at full size. Product visual (white squeeze/dropper bottle, tapered
+translucent nozzle, magenta-to-pink gradient label, brand lozenge, flower motif) checked
+correct on every shot showing the pack. Claim line legible and correctly spelled on all 12
+composited images. No fabricated ingredient, mechanism, or figure found — none of these
+concepts required a new number or claim beyond the product's own two-line tagline.
+
+Duplicate gate
+--------------
+16 ads / 120 pairs against each other: clean, highest pair +0.558 (gate is 0.60).
+Against the 7 winning ads (advisory list, gate is 0.45, not a hard rule — see the module's
+own docstring): nothing crosses the line. Highest is LNG6_hands_sheets at +0.435 against
+win_03 — reviewed; different framing (hands-in-sheets macro vs. win_03's face-up testimonial
+portrait), reads as shared warm-toned bedding/skin palette, not a re-render. Everything else
+is under 0.44.
+
+Delivery
+--------
+16 finals in final/. Committed and pushed to claude/static-remix-skill-rhn2vk.
