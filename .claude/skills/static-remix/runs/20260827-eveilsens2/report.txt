@@ -142,3 +142,40 @@ Delivery
 --------
 16 finals in final_v2/ (supersedes v1's final/). Committed and pushed to
 claude/static-remix-skill-rhn2vk.
+
+================================================================================
+CLN1-6 — native clinical/medical mood shots (product-free)
+================================================================================
+
+Why these exist
+----------------
+The client's own win_05 is an unbranded medical-equipment close-up (gloved hands on an
+ultrasound probe, no product, no text) — a "native" pattern-interrupt device: content that
+doesn't read as an ad, meant to stop the scroll before the sell even starts. Client asked for
+more in that exact register.
+
+The 6 concepts
+---------------
+CLN1_ultrasound_probe, CLN2_vitals_monitor, CLN3_instrument_tray, CLN4_monitor_waveform,
+CLN5_iv_drip, CLN6_exam_light — all gloved-hands-on-equipment close-ups, cool blue-teal
+clinical documentary grade, shallow depth of field, no face, no patient, no product, no
+on-image text of any kind (per client's explicit choice to keep these product-free — the
+product only enters later in the funnel). No product reference image used in generation,
+since none of these show the bottle; each is a standalone text prompt. Monitor screens in
+CLN2/CLN4 show only atmospheric abstract waveform glow and generic vital-sign-style numerals
+— not a real diagnosis, not a claim, purely equipment realism (same treatment as background
+prop text elsewhere in this run).
+
+Duplicate gate
+--------------
+Re-ran across all 22 finals (16 delivered + these 6) plus the 7 winning ads: clean, highest
+internal pair +0.473 (gate 0.60). Against winners, advisory-only: highest is
+CLN3_instrument_tray at +0.393 against win_02 — not close to the 0.45 line. Notably
+CLN1_ultrasound_probe, the concept closest in idea to win_05, scores only +0.037 against it —
+confirms a genuinely different composition and framing, not a re-render of the client's own
+winning ad.
+
+Delivery
+--------
+6 finals added to final_v2/ (now 22 total in that folder). Committed and pushed to
+claude/static-remix-skill-rhn2vk.
