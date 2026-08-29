@@ -1,0 +1,41 @@
+gemini-image-ref: HTTP 429 for production_v2/CKL1_20ans_aggressive.png
+{
+  "error": {
+    "code": 429,
+    "message": "Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+
+FAIL CKL1_20ans_aggressive (exit 4)
+gemini-image-ref: HTTP 429 for production_v2/CKL2_sans_ordonnance.png
+{
+  "error": {
+    "code": 429,
+    "message": "Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+
+FAIL CKL2_sans_ordonnance (exit 4)
+gemini-image-ref: HTTP 429 for production_v2/CKL3_avis_proof.png
+{
+  "error": {
+    "code": 429,
+    "message": "Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+
+FAIL CKL3_avis_proof (exit 4)
+gemini-image-ref: HTTP 429 for production_v2/CKL4_discreet_aggressive.png
+{
+  "error": {
+    "code": 429,
+    "message": "Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing. Learn more at https://ai.google.dev/gemini-api/docs/billing#prepay. ",
+    "status": "RESOURCE_EXHAUSTED"
+  }
+}
+
+FAIL CKL4_discreet_aggressive (exit 4)
+CKL BATCH DONE

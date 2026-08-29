@@ -179,3 +179,63 @@ Delivery
 --------
 6 finals added to final_v2/ (now 22 total in that folder). Committed and pushed to
 claude/static-remix-skill-rhn2vk.
+
+================================================================================
+CKL1-4 — checklist / strong-claim ads (following up win_01/win_02)
+================================================================================
+
+Why these exist
+----------------
+Client pointed at their own win_01 and win_02 specifically ("product + checkmark bullets +
+short punchy claim, sometimes a guarantee band") and asked for more in that register, pushed
+more aggressive. Base product photography generated fresh per concept (varied crop/framing,
+generous open space) against the corrected assets/product_v2.png reference; all headline,
+checklist and guarantee copy composited in code (Composer) rather than baked into the AI
+photo, so every line is pixel-exact and independently checked.
+
+The 4 concepts
+---------------
+CKL1_20ans_aggressive — "REVIVEZ L'INTENSITÉ DE VOS 20 ANS. EN 90 SECONDES." + 4-bullet
+  checklist (2 gouttes, origine végétale, sans hormones, garantie folded in as a bullet).
+  Flat-lay composition, bottle small at the very bottom, huge open ground above it.
+CKL2_sans_ordonnance — "AUCUNE ORDONNANCE. AUCUNE ATTENTE. SEULEMENT 90 SECONDES." +
+  3-bullet checklist + a compact pill badge ("+60 000 CLIENTES CONQUISES"), not a full band.
+CKL3_avis_proof — "60 452 AVIS. UN SEUL VERDICT." + 4-bullet checklist (2 gouttes, 90
+  secondes, sensations décuplées, garantie folded in). Centred layout, small bottle bottom-
+  centre.
+CKL4_discreet_aggressive — "PERSONNE NE SAURA. VOUS, VOUS LE SAUREZ." + 3-bullet checklist
+  + guarantee band. Bottle left, text right — mirrored from win_02's own bottle-right layout.
+
+Every claim traces to assets/product-page.md (2 gouttes, 90 secondes, sans hormones, sans
+ordonnance, sans abonnement, garantie 60 jours, 60 452 avis, +60 000 clientes, livraison
+discrète, compatible préservatifs, complexe végétal). Every composited line checked against
+assets/winner-copy.md via assert_not_winner_copy before saving — caught and fixed 3 real
+verbatim collisions during drafting ("100 % NATURELLE", "SANS HORMONES", "SANS ORDONNANCE",
+and the exact "GARANTIE 60 JOURS - SATISFAIT OU REMBOURSÉ" band line all appear unchanged in
+win_01/win_02 — the module refused to composite them until reworded).
+
+Defect caught after first compositing pass
+---------------------------------------------
+CKL4's first headline (left-aligned from x=0.50) ran off the right edge of the frame — fixed
+by centring it within the available right-half space instead.
+
+Duplicate-gate defect and fix (the real one)
+-----------------------------------------------
+First pass: CKL1 scored 0.762 against win_02 and 0.636 against CKL2 (hard gate is 0.60) — a
+genuine structural re-render, not a wording problem. CKL1's first draft reproduced win_02's
+own large-shape layout almost exactly: headline top-left, checklist below it, bottle right,
+solid full-width guarantee band across the bottom. Per the dupe_gate module's own guidance
+("the fix is the LARGE shapes... rewriting the headline will not move this number"),
+regenerated CKL1's base photo entirely differently — flat-lay, bottle small at the very
+bottom, headline+checklist centred over a large open field, no bottom band — and dropped the
+full-width band from CKL2 and CKL3 as well (badge / folded-into-checklist instead), since
+that band was the single largest shape shared with win_02 across all three. Re-ran the gate:
+hard gate now clean (highest internal pair 0.575). CKL3 still sits at 0.490 against win_02 on
+the advisory (not a hard rule) list — reviewed side by side: centred layout with a small
+bottom-centre bottle, no band, different specific claims — reads as a distinct composition
+sharing the product line's own pink/magenta palette, not a re-render. Left as is.
+
+Delivery
+--------
+4 finals added to final_v2/ (now 26 total in that folder). Committed and pushed to
+claude/static-remix-skill-rhn2vk.
