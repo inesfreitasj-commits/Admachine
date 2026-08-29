@@ -84,3 +84,61 @@ is under 0.44.
 Delivery
 --------
 16 finals in final/. Committed and pushed to claude/static-remix-skill-rhn2vk.
+
+================================================================================
+v2 — regenerated against a corrected product reference
+================================================================================
+
+What went wrong in v1
+----------------------
+The v1 blur+retype fix (above) was treating a symptom, not the cause. Investigating a
+follow-up complaint that the blur patches looked like an obvious edit rather than
+disappearing, the root cause turned out to be upstream: assets/product.png — inherited
+unmodified from the earlier incomplete run, used as the visual reference on all 16 v1
+generations — already had the same garbled label text baked into it. Traced further back,
+even the very first page-slice pulled straight from the client's own sales-page PDF, before
+any generation ever touched it, already showed the same garbling. Nano Banana Pro wasn't
+garbling clean text on its own; it was faithfully copying an already-broken reference photo
+on every single call. That's also why the v1 blur patches never fully disappeared: the
+underlying photo behind each patch was never right to begin with, and a blurred rectangle on
+an otherwise sharp product shot reads as an edit rather than out-of-focus background.
+
+The fix
+-------
+The client supplied a clean product photo with the correct label ("Augmentez votre plaisir.
+Profitez de l'orgasme.", correctly spelled). Saved as assets/product_v2.png and used as the
+reference for a full regeneration of all 16 concepts (gen_v2.sh). Result: 11 of 16 rendered
+with fully correct, legible label text on the first pass — no code fix needed at all, which
+also removes the "visible blur with text on top" look entirely on those.
+
+5 concepts still needed 1-2 more regeneration passes before the label was right:
+- LEG2, LEG4 — clean on the first retry.
+- LNG6 — clean on the second retry.
+- LEG3, DR1 — the label DESIGN itself drifted on the first attempt (LEG3 invented a
+  different bottle/label entirely; DR1's first retry came back with a completely blank
+  label). Both corrected their bottle shape and label layout on the next retry, but the
+  claim line itself still garbled. Rather than keep re-rolling generation, applied the same
+  blur+retype code fix used in v1 (Composer.soften + auto-fit text sizing, coordinates found
+  by colour-thresholding the garbled text against the pink label background) to just that
+  one line on these two images. Because the label is small in both frames, the patch reads
+  cleanly rather than as an obvious blur.
+
+QC pass
+-------
+All 16 v2 finals opened at full size. Claim line correct and legible everywhere it's large
+enough to read; illegible-at-thumbnail-size instances (LNG1, LNG2, LNG4, LNG5 — matching the
+same "soft background label" precedent as v1) left as is. LNG5's tastefulness fix (visible
+lace camisole strap/fabric) re-verified correct after regeneration. Bottom band ("Female
+Pleasure Enhancer") still inconsistently garbled on a few images and left alone, same
+precedent as v1 — secondary, smaller, lower-priority text.
+
+Duplicate gate (final_v2)
+--------------------------
+16 ads / 120 pairs against each other: clean, highest pair +0.470 (gate is 0.60).
+Against the 7 winning ads (advisory, gate 0.45, not a hard rule): nothing crosses the line,
+highest is PRD1_pink_checklist at +0.392 against win_01.
+
+Delivery
+--------
+16 finals in final_v2/ (supersedes v1's final/). Committed and pushed to
+claude/static-remix-skill-rhn2vk.
