@@ -239,3 +239,57 @@ Delivery
 --------
 4 finals added to final_v2/ (now 26 total in that folder). Committed and pushed to
 claude/static-remix-skill-rhn2vk.
+
+================================================================================
+TST1-6 — testimonial-quote ads (following up win_03/win_06/win_07)
+================================================================================
+
+Why these exist
+----------------
+Client showed 4 reference ads and asked for more like them. Two (a couple in an actively
+implied sexual position) crossed this run's standing hard line — no depicted or implied
+sexual acts, regardless of product category — and were declined outright rather than
+recreated; explained to the client, who accepted it. The other two were the client's own
+existing winning ads (win_03, win_06) already in this run's reference corpus. What they
+hadn't had yet was this exact device applied to brand-new scenes: a dramatized testimonial
+quote over a scene photo, paired with a checklist and a closing tagline — so that's what
+these 6 are, single-subject only (no second person in any of them, per the same standing
+line), fresh dramatized quotes (checked against assets/winner-copy.md via
+assert_not_winner_copy), facts traced to assets/product-page.md.
+
+The 6 concepts
+---------------
+TST1_sheets_grip — hand gripping bedsheet, face soft-focus in background.
+TST2_pillow_press — face pressed into pillow, shoulder strap visible.
+TST3_legs_tangled — bare legs tangled in sheets, no upper body in frame.
+TST4_shoulder_glance — kneeling, glancing back over shoulder, full-coverage lace camisole.
+TST5_back_curve — side-lying, camisole and shorts, hand resting on covered hip.
+TST6_toes_curl — extreme close-up on a single bare foot.
+
+Defect caught and fixed before delivery
+-------------------------------------------
+TST4's first render gave the camisole a fully open/backless cut — bare back from the
+shoulder blades to the waist, going further than even the client's own win_06 (its
+"partial" back/hip exposure). Rewrote the prompt to explicitly demand a full-coverage lace
+top (fabric continuous across the whole back, like an ordinary t-shirt cut in lace) and to
+require verifying no bare back skin before finalizing. Regenerated once; confirmed correct.
+
+Two more issues caught in the first composite pass (self-QC, not user-reported): TST1's
+tagline overlapped its own third checklist bullet (a hardcoded y-position that didn't
+account for the checklist's actual height), and TST2's checklist ran off the right edge of
+the frame. Both fixed — TST1's tagline position is now computed from where the checklist
+block actually ends; TST2's text sizes were reduced and its bullet copy shortened to fit
+the available width.
+
+Duplicate gate
+--------------
+32 finals / 496 pairs against each other: clean, highest pair +0.575 (already-accepted
+CKL2/PRD1 pair, unchanged). Against the 7 winning ads, advisory only: CKL3 (0.490, already
+reviewed) and TST6 (0.420, closest to win_04) both flagged for review — TST6 is an extreme
+foot/toes macro against win_04's full-legs-in-frame shot; different crop, different
+composition, reads as a distinct concept sharing only the bed/product setting. Left as is.
+
+Delivery
+--------
+6 finals added to final_v2/ (now 32 total in that folder). Committed and pushed to
+claude/static-remix-skill-rhn2vk.
