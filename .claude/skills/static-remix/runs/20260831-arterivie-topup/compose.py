@@ -81,17 +81,22 @@ P_DATA = {
 PRICE_LINE = "34,95 € au lieu de 70,00 € · Garantie 60 jours"
 PROOF_LINE = "4,8 ★★★★★ — plus de 60 452 avis"
 
-# per-concept text anchor (x, headline top-y, text alignment) matching each base photo's own
-# open space — alignment also varies the proof/price line's position instead of a uniform
-# full-width band, which was the single biggest shared shape in the first pass.
+# per-concept text anchor (x, alignment) plus the VERTICAL ZONE (top, bottom) actually open
+# in that column of the base photo. The first pass anchored every concept near the top and
+# let the block's own height decide where it ended — on the 4 concepts with no badges row
+# that left 40-50% of the frame empty below the text, floating with nothing to balance it
+# against. Now the block is measured first and centred within its zone instead.
 P_LAYOUT = {
-    "P1_base": (0.055, 0.09, "left"),
-    "P2_base": (0.50, 0.09, "right"),
-    "P3_base": (0.06, 0.075, "left"),
-    "P4_base": (0.055, 0.09, "left"),
-    "P5_base": (0.50, 0.08, "right"),
-    "P6_base": (0.045, 0.10, "left"),
-    "P7_base": (0.50, 0.09, "right"),
+    # (x, align, zone_top, zone_bottom, avail_override) — avail_override caps text width so
+    # a line never stretches under the bottle even when the bottle sits low but wide; None
+    # falls back to the full remaining-frame-width default.
+    "P1_base": (0.055, "left", 0.08, 0.40, 0.46),   # bottle cap starts ~x0.55, widens fast below y0.4
+    "P2_base": (0.50, "right", 0.08, 0.90, None),   # bottle lower-left only; right column clear full height
+    "P3_base": (0.06, "left", 0.08, 0.58, None),    # bottle bottom-centre ~0.62-0.95; zone stops above it
+    "P4_base": (0.055, "left", 0.08, 0.38, None),   # diagonal bottle spans nearly full width below y0.42
+    "P5_base": (0.50, "right", 0.08, 0.36, None),   # diagonal bottle reaches into the right column below y0.4
+    "P6_base": (0.045, "left", 0.16, 0.90, None),   # small bottle, upper-right corner only
+    "P7_base": (0.50, "right", 0.08, 0.90, None),   # macro crop, hard left/right split full height
 }
 
 def _wrap2(text):
@@ -118,6 +123,50 @@ def _fit(c, text, key, avail, cap):
     w = c.measure(text, key, ref)
     return min(avail / w * ref if w > 0 else cap, cap)
 
+def _p_layout_pass(c, d, x, avail, headline_c, check_c, badge_fill, y0, draw):
+    """Runs the P block's full layout math once. draw=False just measures (returns the
+    final y with nothing rendered); draw=True actually paints at that same y0. Keeping one
+    function for both means the measured height and the drawn height can never drift apart."""
+    size = min(0.046, *(_fit(c, line, "sans-bold", avail, 0.046) for line in d["headline"]))
+    gap = size * 1.3
+    if draw:
+        for i, line in enumerate(d["headline"]):
+            c.text(x, y0 + i * gap, line, key="sans-bold", size=size, color=headline_c, shadow=False)
+    y = y0 + len(d["headline"]) * gap + 0.035
+    csize = min(0.026, _fit(c, "✓ " + d["good"], "sans-bold", avail, 0.026),
+                _fit(c, "✗ " + d["bad"], "sans-bold", avail, 0.026))
+    if draw:
+        check_line(c, x, y, "✓", d["good"], csize, check_c)
+        check_line(c, x, y + csize * 1.55, "✗", d["bad"], csize, headline_c)
+    by = y + csize * 1.55 + 0.055
+    if d["badges"]:
+        bx = x
+        badge_size, padx = 0.020, 0.016
+        for b in d["badges"]:
+            w = c.measure(b, "sans-bold", badge_size) + 2 * padx
+            if bx + w > 0.97:
+                bx = x
+                by += 0.052
+            if draw:
+                bx2, _ = c.badge(bx, by, b, key="sans-bold", size=badge_size, fill=badge_fill,
+                                  color=WHITE, padx=padx, pady=0.012, radius=0.5)
+                bx = bx2 + 0.014
+            else:
+                bx += w + 0.014
+        by += 0.075
+    else:
+        by += 0.02
+    tsize = _fit(c, d["tagline"], "sans-bold", avail, 0.024)
+    if draw:
+        c.text(x, by, d["tagline"], key="sans-bold", size=tsize, color=check_c, shadow=False)
+    proof = f"{PROOF_LINE}  ·  {PRICE_LINE}"
+    psize = _fit(c, proof, "sans", avail, 0.017)
+    end_y = by + tsize * 1.9
+    if draw:
+        c.text(x, end_y, proof, key="sans", size=psize, color=(0.4, 0.4, 0.4), shadow=False)
+    return end_y
+
+
 def make_p_job(name):
     def _job():
         d = P_DATA[name]
@@ -126,40 +175,14 @@ def make_p_job(name):
 
         headline_c, check_c, badge_fill = (NAVY, ORANGE, NAVY) if d["scheme"] == "navy" else (ORANGE, NAVY, ORANGE)
         c = Composer(p(name))
-        x, y0, align = P_LAYOUT[name]
-        avail = 0.97 - x
-        size = min(0.046, *(_fit(c, line, "sans-bold", avail, 0.046) for line in d["headline"]))
-        gap = size * 1.3
-        for i, line in enumerate(d["headline"]):
-            c.text(x, y0 + i * gap, line, key="sans-bold", size=size, color=headline_c, shadow=False)
-        y = y0 + len(d["headline"]) * gap + 0.035
-        csize = min(0.026, _fit(c, "✓ " + d["good"], "sans-bold", avail, 0.026),
-                    _fit(c, "✗ " + d["bad"], "sans-bold", avail, 0.026))
-        check_line(c, x, y, "✓", d["good"], csize, check_c)
-        check_line(c, x, y + csize * 1.55, "✗", d["bad"], csize, headline_c)
-        by = y + csize * 1.55 + 0.055
-        if d["badges"]:
-            bx = x
-            badge_size, padx = 0.020, 0.016
-            for b in d["badges"]:
-                w = c.measure(b, "sans-bold", badge_size) + 2 * padx
-                if bx + w > 0.97:
-                    bx = x
-                    by += 0.052
-                bx2, _ = c.badge(bx, by, b, key="sans-bold", size=badge_size, fill=badge_fill,
-                                  color=WHITE, padx=padx, pady=0.012, radius=0.5)
-                bx = bx2 + 0.014
-            by += 0.075
-        else:
-            by += 0.02
-        tsize = _fit(c, d["tagline"], "sans-bold", avail, 0.024)
-        c.text(x, by, d["tagline"], key="sans-bold", size=tsize, color=check_c, shadow=False)
-        # proof/price: plain small text right under the tagline, no solid band and no fixed
-        # cross-image y — each concept's block simply ends wherever its own content ends.
-        proof = f"{PROOF_LINE}  ·  {PRICE_LINE}"
-        psize = _fit(c, proof, "sans", avail, 0.017)
-        c.text(x, by + tsize * 1.9, proof, key="sans", size=psize, color=(0.4, 0.4, 0.4),
-               shadow=False)
+        x, align, zone_top, zone_bottom, avail_override = P_LAYOUT[name]
+        avail = avail_override if avail_override is not None else 0.97 - x
+        # measure pass: how tall is this concept's own block, unaffected by where it starts?
+        measured_end = _p_layout_pass(c, d, x, avail, headline_c, check_c, badge_fill,
+                                       y0=0.0, draw=False)
+        block_h = measured_end  # since y0=0.0, the returned end_y IS the height
+        y0 = zone_top + max(0.0, (zone_bottom - zone_top - block_h) / 2)
+        _p_layout_pass(c, d, x, avail, headline_c, check_c, badge_fill, y0=y0, draw=True)
         c.save(o(name))
     _job.__name__ = name
     return _job
@@ -170,11 +193,11 @@ for _n in P_DATA:
 
 # ---------------------------------------------------------------- F series: fake newspaper
 F_DATA = {
-    "F1_artery_diagram": dict(has_quote=True, y0=0.145,
+    "F1_artery_diagram": dict(has_quote=True, y0=0.20,
         headline=["UNE FORMULE CIBLÉE", "POUR LES ARTÈRES DU PÉNIS"],
         teaser="Les spécialistes s'intéressent de plus près au rôle des artères dans la circulation masculine.",
         quote="« Je ne savais même pas que c'était lié aux artères. »"),
-    "F2_heart_network": dict(has_quote=False, y0=0.20,
+    "F2_heart_network": dict(has_quote=False, y0=0.32,
         headline=["POURQUOI LE VIAGRA", "NE SUFFIT PLUS APRÈS 50 ANS"],
         teaser="Ce qui bloque vraiment la circulation ne se voit pas à l'œil nu.",
         quote="« Mon médecin ne m'en avait jamais parlé. »"),
@@ -182,7 +205,7 @@ F_DATA = {
         headline=["CE QUE LES CHERCHEURS SAVENT", "SUR LES ARTÈRES ET L'ÉRECTION"],
         teaser="Une étude de 2005 a changé la manière dont les chercheurs voient le problème.",
         quote="« Ça a changé ma façon de voir le problème. »"),
-    "F4_before_after_diagram": dict(has_quote=True, y0=0.19,
+    "F4_before_after_diagram": dict(has_quote=True, y0=0.19, tight=True,
         headline=["LA DIFFÉRENCE ENTRE UNE ARTÈRE", "SAINE ET UNE ARTÈRE OBSTRUÉE"],
         teaser="Une différence de 1 à 2 mm peut tout changer.",
         quote="« Une différence que j'ai sentie en quelques semaines. »"),
@@ -190,7 +213,7 @@ F_DATA = {
         headline=["UNE ROUTINE SIMPLE POUR", "SOUTENIR LE CŒUR ET LES ARTÈRES"],
         teaser="Une prise quotidienne, sans bouleverser sa routine.",
         quote="« C'est devenu un réflexe, comme se brosser les dents. »"),
-    "F6_pelvic_floor_diagram": dict(has_quote=True, y0=0.235,
+    "F6_pelvic_floor_diagram": dict(has_quote=True, y0=0.235, tight=True,
         headline=["CE QUE PERSONNE N'EXPLIQUE SUR", "LES TROUBLES DE L'ÉRECTION APRÈS 50 ANS"],
         teaser="La cause est plus simple qu'on ne le pense.",
         quote="« J'aurais aimé le savoir dix ans plus tôt. »"),
@@ -216,15 +239,22 @@ def make_f_job(name):
         for i, line in enumerate(d["headline"]):
             c.text(0.05, y0 + i * gap, line, key="sans-bold", size=size, color=(0.08, 0.08, 0.08),
                    shadow=False)
-        y = y0 + len(d["headline"]) * gap + 0.035
+        # spacing below deliberately generous — the diagram baked into the photo sits wherever
+        # it sits and can't be centred against, so instead of clustering everything at the top
+        # (leaving 40-50% of the frame blank below, which read as a layout bug) the block
+        # itself spreads out to use more of the vertical space. "tight" concepts (diagram
+        # sitting higher up the page) keep closer to the original spacing so the quote
+        # doesn't run down into it.
+        tight = d.get("tight", False)
+        y = y0 + len(d["headline"]) * gap + (0.035 if tight else 0.075)
         for i, line in enumerate(_wrap2(d["teaser"])):
             tsize = _fit(c, line, "sans", avail, 0.026)
             c.text(0.05, y + i * tsize * 1.5, line, key="sans", size=tsize,
                    color=(0.2, 0.2, 0.2), shadow=False)
         if d["has_quote"]:
-            y += 0.085
+            y += 0.085 if tight else 0.155
             c.page.draw_line((0.05 * c.W, y * c.H), (0.35 * c.W, y * c.H), color=NAVY, width=0.003 * c.H)
-            y += 0.045
+            y += 0.045 if tight else 0.075
             for i, line in enumerate(_wrap2(d["quote"])):
                 qsize = _fit(c, line, "sans-italic", avail, 0.026)
                 c.text(0.05, y + i * qsize * 1.5, line, key="sans-italic", size=qsize, color=NAVY,
