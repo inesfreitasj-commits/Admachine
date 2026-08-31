@@ -267,6 +267,173 @@ for _n in F_DATA:
     job(make_f_job(_n))
 
 
+# ---------------------------------------------------------------- W series: replacements for
+# F2/F3/F5 (flagged as not good — empty layout). Two previously-untouched winning-ad devices
+# (W1 = win_06's partner-testimonial, W2 = win_05's icon/graphic) plus one newspaper redo
+# with a genuine multi-line body paragraph composited in code, so the text itself fills the
+# page instead of floating over blank paper with nothing to anchor it.
+def _wrap_to_width(c, text, key, size, max_w):
+    """Greedy word-wrap: as many words per line as fit at this size/width. Unlike _wrap2
+    (always exactly 2 lines) this handles an arbitrary-length paragraph."""
+    words = text.split()
+    lines, cur = [], ""
+    for w in words:
+        trial = (cur + " " + w).strip()
+        if c.measure(trial, key, size) <= max_w or not cur:
+            cur = trial
+        else:
+            lines.append(cur)
+            cur = w
+    if cur:
+        lines.append(cur)
+    return lines
+
+
+def _fix_jar_label(c, rect, dark=NAVY):
+    """Blur the garbled portion of the jar label and retype it — the label is small/angled
+    in these two W concepts (a hand-held photo and a small graphic-composition jar), and it
+    garbled on both first attempts, same failure mode already seen across every product
+    label in this session's larger runs."""
+    x0, y0, x1, y1 = rect
+    c.soften(x0, y0, x1, y1, radius=0.030, feather=0.14)
+    subtitle = "Soutient naturellement"
+    subtitle2 = "votre système circulatoire"
+    avail = (x1 - x0) * 0.92
+    ssize = min(_fit(c, subtitle, "sans", avail, 0.020), _fit(c, subtitle2, "sans", avail, 0.020))
+    cx = (x0 + x1) / 2
+    sy = y0 + (y1 - y0) * 0.20
+    c.centered(sy, subtitle, key="sans", size=ssize, color=(0.15, 0.15, 0.15), shadow=False,
+               center_on=cx)
+    c.centered(sy + ssize * 1.4, subtitle2, key="sans", size=ssize, color=(0.15, 0.15, 0.15),
+               shadow=False, center_on=cx)
+    msize = min(_fit(c, "RENFORCE", "sans-bold", avail, 0.032),
+                _fit(c, "LE CŒUR", "sans-bold", avail, 0.032),
+                _fit(c, "ET LES ARTÈRES", "sans-bold", avail, 0.032))
+    my = sy + ssize * 1.4 + msize * 1.7
+    c.centered(my, "RENFORCE", key="sans-bold", size=msize, color=dark, shadow=False, center_on=cx)
+    c.centered(my + msize * 1.35, "LE CŒUR", key="sans-bold", size=msize, color=ORANGE,
+               shadow=False, center_on=cx)
+    c.centered(my + msize * 2.7, "ET LES ARTÈRES", key="sans-bold", size=msize * 0.85, color=dark,
+               shadow=False, center_on=cx)
+
+
+@job
+def W1_temoignage_epouse():
+    quote = ["« Je l'ai commandée sans lui en parler. »",
+             "Trois semaines plus tard, il m'a posé la question."]
+    proof = f"{PROOF_LINE}  ·  {PRICE_LINE}"
+    assert_not_winner_copy(quote, label="W1", path=WINNER_COPY)
+
+    c = Composer(p("W1_temoignage_epouse"))
+    # the jar is small and secondary in this lifestyle shot — a full retype at this scale
+    # overwhelmed it and read as a pasted sticker, not a photographed label (tried first,
+    # reverted). A soft blur alone reads as natural shallow depth of field instead, which
+    # this photo already has throughout its background.
+    c.soften(0.275, 0.475, 0.385, 0.565, radius=0.007, feather=0.30)
+    # her head/hair occupies roughly x0.42-0.62 up top, so the quote sits further right,
+    # in the clear wall/window strip — narrow enough that each sentence needs its own wrap
+    # rather than one long line.
+    x, avail = 0.665, 0.30
+    size = 0.026
+    lines = []
+    for sentence in quote:
+        lines.extend(_wrap_to_width(c, sentence, "sans-italic", size, avail))
+    gap = size * 1.5
+    y0 = 0.08
+    for i, line in enumerate(lines):
+        c.text(x, y0 + i * gap, line, key="sans-italic", size=size, color=NAVY, shadow=True)
+    proof_lines = _wrap_to_width(c, proof, "sans", 0.015, avail)
+    py = y0 + len(lines) * gap + 0.03
+    for i, line in enumerate(proof_lines):
+        c.text(x, py + i * 0.022, line, key="sans", size=0.015, color=(0.35, 0.35, 0.35),
+               shadow=True)
+    c.save(o("W1_temoignage_epouse"))
+
+
+@job
+def W2_icone_masculin():
+    headline = "Un symbole. Un résultat."
+    tagline = "Soutenir le cœur, c'est soutenir tout le reste."
+    badges = ["97 % EN MOINS", "DÈS 7 JOURS", "60 JOURS GARANTIE"]
+    assert_not_winner_copy([headline, tagline] + badges, label="W2", path=WINNER_COPY)
+
+    c = Composer(p("W2_icone_masculin"))
+    # subtitle line garbled on the first render (RENFORCE/LE CŒUR/ET LES ARTÈRES came out
+    # correct, only these two lines needed fixing)
+    sub_rect = (0.715, 0.470, 0.845, 0.505)
+    c.soften(*sub_rect, radius=0.026, feather=0.14)
+    sub_cx = (sub_rect[0] + sub_rect[2]) / 2
+    sub_avail = (sub_rect[2] - sub_rect[0]) * 0.94
+    s1, s2 = "Soutient naturellement", "votre système circulatoire"
+    ssize = min(_fit(c, s1, "sans", sub_avail, 0.013), _fit(c, s2, "sans", sub_avail, 0.013))
+    sy = sub_rect[1] + (sub_rect[3] - sub_rect[1]) * 0.35
+    c.centered(sy, s1, key="sans", size=ssize, color=(0.15, 0.15, 0.15), shadow=False, center_on=sub_cx)
+    c.centered(sy + ssize * 1.4, s2, key="sans", size=ssize, color=(0.15, 0.15, 0.15),
+               shadow=False, center_on=sub_cx)
+    # orange "COMPLÉMENT ALIMENTAIRE" band text, also garbled
+    band_rect = (0.715, 0.503, 0.845, 0.528)
+    c.soften(*band_rect, radius=0.024, feather=0.14)
+    band_cx = (band_rect[0] + band_rect[2]) / 2
+    band_avail = (band_rect[2] - band_rect[0]) * 0.94
+    band_text = "COMPLÉMENT ALIMENTAIRE"
+    bsize = _fit(c, band_text, "sans-bold", band_avail, 0.013)
+    c.centered((band_rect[1] + band_rect[3]) / 2 + bsize * 0.35, band_text, key="sans-bold",
+               size=bsize, color=WHITE, shadow=False, center_on=band_cx)
+
+    x, avail = 0.06, 0.88
+    hsize = _fit(c, headline, "sans-bold", avail, 0.058)
+    c.text(x, 0.75, headline, key="sans-bold", size=hsize, color=WHITE, shadow=False)
+    tsize = _fit(c, tagline, "sans-bold", avail, 0.028)
+    c.text(x, 0.80, tagline, key="sans-bold", size=tsize, color=ORANGE, shadow=False)
+    bx, by = x, 0.865
+    badge_size, padx = 0.020, 0.016
+    for b in badges:
+        w = c.measure(b, "sans-bold", badge_size) + 2 * padx
+        if bx + w > 0.95:
+            bx = x
+            by += 0.052
+        bx2, _ = c.badge(bx, by, b, key="sans-bold", size=badge_size, fill=ORANGE, color=NAVY,
+                          padx=padx, pady=0.012, radius=0.5)
+        bx = bx2 + 0.014
+    c.save(o("W2_icone_masculin"))
+
+
+@job
+def W3_encart_temoignages():
+    headline = ["CE QUE RÉVÈLENT VRAIMENT", "LES HOMMES DE PLUS DE 50 ANS"]
+    body = ("Beaucoup d'hommes de plus de 50 ans remarquent une baisse progressive de leurs "
+            "érections, sans toujours en comprendre la cause. Les recherches récentes pointent "
+            "du doigt les artères, plus fines et plus fragiles que celles du cœur, plutôt qu'un "
+            "simple manque de désir. Plusieurs témoignages évoquent un changement dès la "
+            "première semaine avec ArtériVie™.")
+    quote = "« Je pensais que c'était juste l'âge. En fait, tout venait de mes artères. »"
+    proof = f"{PROOF_LINE}  ·  {PRICE_LINE}"
+    assert_not_winner_copy(headline + [body, quote], label="W3", path=WINNER_COPY)
+
+    c = Composer(p("W3_encart_temoignages"))
+    x, avail = 0.05, 0.90
+    hsize = min(0.050, *(_fit(c, l, "sans-bold", avail, 0.050) for l in headline))
+    hgap = hsize * 1.25
+    y0 = 0.10
+    for i, line in enumerate(headline):
+        c.text(x, y0 + i * hgap, line, key="sans-bold", size=hsize, color=(0.08, 0.08, 0.08),
+               shadow=False)
+    y = y0 + len(headline) * hgap + 0.06
+    bsize = 0.028
+    for line in _wrap_to_width(c, body, "sans", bsize, avail):
+        c.text(x, y, line, key="sans", size=bsize, color=(0.2, 0.2, 0.2), shadow=False)
+        y += bsize * 1.5
+    y += 0.05
+    c.page.draw_line((x * c.W, y * c.H), ((x + 0.30) * c.W, y * c.H), color=NAVY, width=0.003 * c.H)
+    y += 0.05
+    qsize = _fit(c, quote, "sans-italic", avail, 0.030)
+    c.text(x, y, quote, key="sans-italic", size=qsize, color=NAVY, shadow=False)
+    y += qsize * 1.6
+    psize = _fit(c, proof, "sans", avail, 0.017)
+    c.text(x, y + 0.03, proof, key="sans", size=psize, color=(0.4, 0.4, 0.4), shadow=False)
+    c.save(o("W3_encart_temoignages"))
+
+
 if __name__ == "__main__":
     want = sys.argv[1:] or list(jobs)
     for n in want:

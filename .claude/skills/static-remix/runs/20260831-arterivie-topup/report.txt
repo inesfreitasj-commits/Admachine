@@ -88,3 +88,58 @@ headline crosses lightly over the stethoscope's earpiece in one spot but stays f
 Delivery
 --------
 20 finals in final/. Committed and pushed to claude/static-remix-skill-rhn2vk.
+
+================================================================================
+Layout fix + W1-3 replace F2/F3/F5
+================================================================================
+
+Layout fix (P and F series)
+-----------------------------
+Client flagged that most images had text clustered at the top with a large dead zone below
+it — a real layout problem, not the earlier duplicate-gate issue. Reworked the P series to a
+measure-then-centre pass: each concept's own text block height is computed first, then
+vertically centred within the actual open zone in its photo (rather than always starting
+near the top and floating however far down the content happened to reach). Caught and fixed
+one regression this introduced: on 3 concepts (P1, P4, P5) the newly-centred block dropped
+low enough to overlap the bottle itself; tightened those three concepts' zones and text
+width so the block stays clear. F series text can't be centred the same way (the diagram is
+baked into the photo and sits wherever it sits), so its internal spacing was widened instead
+to use more of the vertical frame; one regression here too (F4's quote reaching down into
+its diagram) fixed by giving F4 and F6 tighter spacing than the other four.
+
+F2/F3/F5 replaced
+-------------------
+Client separately flagged F2, F3 and F5 specifically as still not good even after the layout
+fix and asked for different ads instead, pulling from winning-ad devices not yet used in
+this topup and avoiding any more x-ray. Three replacements, all checked for native French
+phrasing against the client's own localization standard before compositing:
+
+W1_temoignage_epouse — win_06's partner-testimonial device (a woman recommending the
+  product), previously untouched in this topup. Quote: "« Je l'ai commandée sans lui en
+  parler. » Trois semaines plus tard, il m'a posé la question." First composite pass tried a
+  full label retype on the small handheld jar and the text overwhelmed it, reading as a
+  pasted sticker rather than a photographed label; a first blur-only attempt then overdid it
+  the other way and erased the jar's visible branding entirely. Settled on a tight, gentle
+  soften — small enough radius to preserve the jar's visible white/orange colour-blocking
+  and "ArtériVie" wordmark, blurring only the smaller subtitle line below it, reading as
+  natural shallow depth of field rather than an edit. Quote block also had to move once it
+  was clear the first position sat behind her hairline — moved into the open wall/window
+  area to the right, each sentence wrapped independently since that column is narrower.
+W2_icone_masculin — win_05's icon/graphic device (male-symbol/flexed-bicep icon, jar),
+  previously untouched. Flat poster-style composition rather than a photograph. The jar's
+  own label garbled two lines on the first render (subtitle + "COMPLÉMENT ALIMENTAIRE"
+  band); fixed with a coordinate-precise blur+retype, first attempt landed on the wrong
+  region entirely (missed the real band position, duplicated text in blank space above it)
+  — corrected coordinates from a closer crop and re-verified clean.
+W3_encart_temoignages — a newspaper-native redo that fixes the F-series emptiness problem at
+  its root rather than patching around it: the base photo was generated with NO diagram and
+  a genuinely large blank panel, then a real 5-sentence composite (headline + 3-sentence body
+  paragraph + pull-quote + proof line) fills essentially the whole page using a proper
+  greedy word-wrap — no risk of AI-rendered-paragraph garbling since every word is
+  code-composited, and no dead space since the text naturally occupies the space instead of
+  needing to be artificially spread out.
+
+Duplicate gate re-verified with the final 20 (17 carried over + W1/W2/W3, F2/F3/F5 dropped):
+clean, highest pair +0.567. W1 sits at 0.445 against win_06 (the device it's deliberately
+built on) — under the advisory line, and expected given it's the same proven device with
+fresh photography and copy, not a re-render.
