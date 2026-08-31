@@ -1,0 +1,26 @@
+A single flat square photograph, 1:1. A photograph of an X-ray viewing monitor in a bright,
+normally-lit clinical room (not a dim reading room) — the room's ordinary ceiling light is
+visible reflected softly on the monitor's glass, and pale wall colour is visible filling the
+background around the monitor.
+
+SCENE: A pelvic X-ray image fills the centre of the monitor — classic high-contrast
+bone-white skeletal structure against a dark background WITHIN the screen only, clinical and
+clean, not gory or graphic. A hand-drawn RED CIRCLE overlays a soft-tissue area near the
+pelvic floor, with a RED QUESTION MARK beside it, as if someone annotated the screen to flag
+something for a second opinion. Small white technical readout text is scattered around the
+frame edges of the SCREEN in a monospace clinical-monitor font — plausible generic scan
+metadata only (facility name, exam-type label, exposure/angle numbers) — none of it needs to
+be specific or legible at a glance, it just needs to read as authentic monitor overlay text,
+not a marketing claim of any kind.
+
+TEXT ON IMAGE: only the scattered on-screen monitor metadata described above. Absolutely NO
+marketing headline, no caption, no watermark, no logo, no brand name, no product, no
+lettering that reads as an advertisement anywhere in the frame.
+
+CAMERA: photographed in a bright, normally-lit room — pale wall and ceiling light clearly
+visible filling much of the frame AROUND the monitor, so the overall image is NOT dominated
+by black; only the screen's own interior is high-contrast. Very slight screen glare,
+slightly soft focus consistent with a phone photo of a screen.
+
+Do not add any marketing text, watermark, caption, or branding of any kind. No product, no
+logo. No face, no patient visible, no people in frame at all.

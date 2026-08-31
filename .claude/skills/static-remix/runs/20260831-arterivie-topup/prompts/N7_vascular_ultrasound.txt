@@ -1,0 +1,22 @@
+A single flat square photograph, 1:1. A photograph of a vascular ultrasound viewing monitor
+screen, shot straight-on as if photographed off the screen itself in a dim clinical room.
+
+SCENE: A vascular ultrasound image fills most of the frame — a greyscale longitudinal vessel
+view with a bright echogenic patch along one wall (a plausible plaque-like finding),
+clinical and clean, not gory or graphic. A hand-drawn RED CIRCLE overlays that bright patch,
+with a RED QUESTION MARK beside it, as if someone annotated the screen to flag something for
+a second opinion. Small white technical readout text is scattered around the frame edges in
+a monospace clinical-monitor font — plausible generic scan metadata only (facility name,
+exam-type label, depth/gain numbers) — none of it needs to be specific or legible at a
+glance, it just needs to read as authentic monitor overlay text, not a marketing claim.
+
+TEXT ON IMAGE: only the scattered on-screen monitor metadata described above. Absolutely NO
+marketing headline, no caption, no watermark, no logo, no brand name, no product, no
+lettering that reads as an advertisement anywhere in the frame.
+
+CAMERA: photographed off a real monitor — very slight screen glare/reflection, faint scan
+lines, cool blue-grey colour cast, slightly soft focus consistent with a phone photo of a
+screen.
+
+Do not add any marketing text, watermark, caption, or branding of any kind. No product, no
+logo. No face, no patient visible, no people in frame at all.

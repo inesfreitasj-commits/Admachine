@@ -1,0 +1,26 @@
+A single flat square photograph, 1:1. A photograph of a CT angiography scan image, shot from
+a low angle looking slightly UP at the monitor (not straight-on), so the monitor's own frame
+and stand are visible at an angle, warm ambient room light spilling in from one side (not a
+uniformly dark room).
+
+SCENE: A CT angiogram image fills the centre of the frame — a cross-sectional slice showing
+branching blood-vessel structures in false-colour (typically greyscale with the contrast-lit
+vessels appearing brighter), clinical and clean, not gory or graphic. A hand-drawn RED CIRCLE
+overlays one narrow vessel segment, with a RED QUESTION MARK beside it, as if someone
+annotated the screen to flag something for a second opinion. Small white technical readout
+text is scattered around the frame edges in a monospace clinical-monitor font — plausible
+generic scan metadata only (facility name, exam-type label, slice/angle numbers) — none of it
+needs to be specific or legible at a glance, it just needs to read as authentic monitor
+overlay text, not a marketing claim of any kind.
+
+TEXT ON IMAGE: only the scattered on-screen monitor metadata described above. Absolutely NO
+marketing headline, no caption, no watermark, no logo, no brand name, no product, no
+lettering that reads as an advertisement anywhere in the frame.
+
+CAMERA: photographed from a low angle looking up at the monitor, warm ambient light visible
+spilling across part of the frame (not a uniformly dark background like a typical reading
+room), giving this a warmer, less purely-black overall tone than a straight-on dark-room
+shot. Slight screen glare, slightly soft focus consistent with a phone photo of a screen.
+
+Do not add any marketing text, watermark, caption, or branding of any kind. No product, no
+logo. No face, no patient visible, no people in frame at all.
