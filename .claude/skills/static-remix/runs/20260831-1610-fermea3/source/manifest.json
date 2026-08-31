@@ -1,0 +1,109 @@
+{
+  "pdf": "/root/.claude/uploads/bf0cd556-3b67-5206-a435-cab5cfef6902/13597688-Untitled_design_29.pdf",
+  "pages": 7,
+  "heading_style": null,
+  "headings_found": [],
+  "frameworks": {
+    "UNLABELED": 7
+  },
+  "images": [
+    {
+      "file": "img_0001_UNLABELED.png",
+      "page": 1,
+      "framework": "UNLABELED",
+      "width": 308,
+      "height": 311,
+      "bbox": [
+        0.0,
+        0.0,
+        1500.0,
+        1514.3
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0002_UNLABELED.png",
+      "page": 2,
+      "framework": "UNLABELED",
+      "width": 317,
+      "height": 318,
+      "bbox": [
+        -0.0,
+        0.0,
+        1500.0,
+        1504.5
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0003_UNLABELED.png",
+      "page": 3,
+      "framework": "UNLABELED",
+      "width": 312,
+      "height": 313,
+      "bbox": [
+        0.0,
+        0.0,
+        1500.0,
+        1504.5
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0004_UNLABELED.png",
+      "page": 4,
+      "framework": "UNLABELED",
+      "width": 310,
+      "height": 312,
+      "bbox": [
+        -0.0,
+        0.0,
+        1500.0,
+        1509.7
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0005_UNLABELED.png",
+      "page": 5,
+      "framework": "UNLABELED",
+      "width": 311,
+      "height": 306,
+      "bbox": [
+        -0.0,
+        0.0,
+        1524.8,
+        1500.0
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0006_UNLABELED.png",
+      "page": 6,
+      "framework": "UNLABELED",
+      "width": 310,
+      "height": 312,
+      "bbox": [
+        -0.0,
+        0.0,
+        1500.0,
+        1509.7
+      ],
+      "source": "embedded"
+    },
+    {
+      "file": "img_0007_UNLABELED.png",
+      "page": 7,
+      "framework": "UNLABELED",
+      "width": 312,
+      "height": 313,
+      "bbox": [
+        0.0,
+        0.0,
+        1500.0,
+        1504.5
+      ],
+      "source": "embedded"
+    }
+  ]
+}

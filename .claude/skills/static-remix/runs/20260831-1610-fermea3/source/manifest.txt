@@ -1,0 +1,13 @@
+PDF: /root/.claude/uploads/bf0cd556-3b67-5206-a435-cab5cfef6902/13597688-Untitled_design_29.pdf (7 pages)
+Heading font: NOT DETECTED (no text layer?) — images labelled UNLABELED
+
+Frameworks detected (7 images total):
+  UNLABELED                        7 images
+
+  img_0001_UNLABELED.png                   p1    UNLABELED                    308x311
+  img_0002_UNLABELED.png                   p2    UNLABELED                    317x318
+  img_0003_UNLABELED.png                   p3    UNLABELED                    312x313
+  img_0004_UNLABELED.png                   p4    UNLABELED                    310x312
+  img_0005_UNLABELED.png                   p5    UNLABELED                    311x306
+  img_0006_UNLABELED.png                   p6    UNLABELED                    310x312
+  img_0007_UNLABELED.png                   p7    UNLABELED                    312x313
