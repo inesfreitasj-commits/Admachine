@@ -1,0 +1,16 @@
+A single flat square graphic-style image, 1:1. A clean flat infographic, NOT a photograph — white background, a single bold horizontal timeline bar across the middle of the frame.
+
+SCENE: A title at the top in bold dark green text:
+  "36 heures chrono"
+A horizontal timeline bar spans the middle of the frame with three small marked points: "H0" (left end), "H18" (middle), "H36" (right end), each with a tiny dot marker. Beneath the timeline, small text under each point:
+  "Application"
+  "Premiers signes"
+  "Résultat visible"
+
+In the bottom corner, a small clean product photo of a green jar (matching the attached reference photo exactly: "Lumélia" white script wordmark, white pump top) standing upright.
+
+TEXT ON IMAGE: only the title, timeline labels, and captions described above, correctly spelled legible French, clean editorial sans-serif typography.
+
+CAMERA: clean flat graphic-design layout, even studio product lighting for the small product photo only.
+
+Do not add text beyond what is specified. No watermark, no captions, no distorted or misspelled lettering, no duplicate products, no extra bottles, no extra or orphan limbs.
