@@ -1,0 +1,17 @@
+A single flat square image, 1:1. A realistic smartphone text-message screenshot (iMessage-style bubbles), clean status bar at top, ordinary French carrier icons.
+
+CONVERSATION (grey bubble = friend, pink bubble = the sender), correctly spelled natural French, casual idiomatic tone:
+Friend: "Alors ce weekend en amoureux ?? 👀"
+Sender: "Disons que j'ai découvert un petit secret..."
+Friend: "Raconte !!"
+Sender: "ÉveilSens. Je te jure, ça change tout"
+
+Below the screenshot, small and clean: the product bottle resting on a nightstand, softly lit, at least a third of the frame height.
+
+PRODUCT (must match the attached reference photo exactly): the ÉveilSens™ bottle — small white opaque squeeze bottle with a long tapered translucent conical nozzle, magenta-to-pink gradient wrap label with the oval brand lozenge and petal motif.
+
+TEXT ON IMAGE: only the message bubbles above, correctly spelled legible French, authentic smartphone UI typography.
+
+CAMERA: flat screenshot capture composited with a soft product photo below, natural indoor light.
+
+Do not add text beyond what is specified. No watermark, no distorted or misspelled lettering, no duplicate products, no extra or orphan limbs. Genuine phone-camera or documentary-photo quality, not AI-glossy. France, present day.
