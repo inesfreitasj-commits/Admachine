@@ -1,0 +1,11 @@
+A single flat square image, 1:1. A realistic order-confirmation screenshot from a French e-commerce checkout page, clean minimal UI, white background.
+
+CONTENT: a confirmation header reading "Commande confirmée ✅", an order summary line "ÉveilSens™ — Female Pleasure Enhancer" with quantity "x2", a price line "19,97€ / pièce", and a delivery line "Emballage discret · Livraison sous 3 à 7 jours". Below the screenshot, the physical product box sitting on a doormat/entryway floor as if just delivered, natural daylight.
+
+PRODUCT (must match the attached reference photo exactly): the ÉveilSens™ retail box — hot-pink palette, petal motif, white text panels.
+
+TEXT ON IMAGE: only the checkout text described above, correctly spelled legible French, clean sans-serif e-commerce typography.
+
+CAMERA: flat UI screenshot composited with a candid entryway photo below, natural daylight.
+
+Do not add text beyond what is specified. No watermark, no distorted or misspelled lettering, no duplicate products, no extra or orphan limbs. Genuine phone-camera or documentary-photo quality, not AI-glossy. France, present day.
