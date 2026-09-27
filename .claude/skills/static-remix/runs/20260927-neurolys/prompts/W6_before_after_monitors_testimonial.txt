@@ -1,0 +1,8 @@
+Photorealistic Meta/Instagram static ad, testimonial-device layout matching the winning ad format.
+
+Top ~70%: photo of a male doctor in scrubs standing beside two side-by-side wall monitors: left monitor labelled "AVANT" shows a dense glowing red nerve-pain heatmap overlay on a leg silhouette; right monitor labelled "APRÈS 4 JOURS" shows the same leg silhouette mostly cooled to calm blue/green with only faint red spots remaining. Doctor gestures toward the right monitor with a reassuring expression. Small inset shows the Neurolys pouch.
+
+Bottom ~30%: solid deep RED background band. White bold sans-serif caption, name-tag pill "Patrick Roy" above the quote:
+"En quelques jours à peine, j'ai retrouvé des nuits plus calmes. Sans promesse miracle."
+
+Aspect ratio 4:5, ad-quality sharp focus, clean legible French labels, no watermarks, no logos.
