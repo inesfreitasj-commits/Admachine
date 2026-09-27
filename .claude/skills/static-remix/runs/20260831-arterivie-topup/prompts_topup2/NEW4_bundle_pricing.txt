@@ -1,0 +1,15 @@
+A single flat square graphic, 1:1, pale peach background, clean composite pricing layout, matching a real direct-response ad.
+
+LAYOUT: three vertical columns, each topped with a small label and a jar illustration placeholder area:
+Column 1, "À partager avec vos proches": "3x ArtériVie™" — "18,32 € / pièce" — "Total: 54,95 €" (barré "210,00 €")
+Column 2, highlighted with an orange border, "LE PLUS CHOISI", "Pour vous & votre partenaire": "2x ArtériVie™" — "22,48 € / pièce" — "Total: 44,95 €" (barré "140,00 €")
+Column 3, "Pour vous": "1x ArtériVie™" — "34,95 € / pièce" — "Total: 34,95 €" (barré "70,00 €")
+Each column has small text "Garantie satisfait ou remboursé 60 jours" beneath.
+
+PRODUCT (must match the attached reference photo exactly): the ArtériVie™ jar — short wide white plastic supplement jar with white screw lid, orange heart logo, orange lower-third color field — shown once in column 2 in the correct quantity grouping (two jars), standing upright, sharp focus, at least 40% of the frame height, with a single jar in columns 1 and 3 sized proportionally.
+
+TEXT ON IMAGE: only the pricing text described above, correctly spelled legible French, clean bold typography matching a real e-commerce pricing table.
+
+CAMERA: clean composite product photography, soft even studio light.
+
+Do not add text beyond what is specified. No watermark, no distorted or misspelled lettering, no duplicate products, no extra or orphan limbs.

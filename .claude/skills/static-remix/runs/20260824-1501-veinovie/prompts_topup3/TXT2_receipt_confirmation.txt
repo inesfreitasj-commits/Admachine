@@ -1,0 +1,11 @@
+A single flat square image, 1:1. A realistic order-confirmation screenshot from a French e-commerce checkout page, clean minimal UI, white background.
+
+CONTENT: a confirmation header reading "Commande confirmée ✅", an order summary line "VeinoVie™ — Kit Détox Lymphatique" with quantity "x2", a price line "29,95€ chacun", and a delivery line "Livraison estimée : 2-3 jours". Below the screenshot, the physical product box and tube sitting on a doormat/entryway floor as if just delivered, natural daylight.
+
+PRODUCT (must match the attached reference photo exactly): shown as a WHITE BOX and GREEN TUBE together, box on the left, tube on the right, slightly overlapping, at least half the frame height. White card box with a green swoosh across the top, a green band down the left edge, a green oval "100% NATUREL" badge, "DÉTOX" / "LYMPHATIQUE" in large dark-green bold italic caps, "VeinoVie™" in a white rounded box, a photo panel of pale legs, a red-outlined circle of golden-amber beads. The tube matches in green plastic with a white flip cap and the same text/graphics in white.
+
+TEXT ON IMAGE: only the checkout text described above, correctly spelled legible French, clean sans-serif e-commerce typography.
+
+CAMERA: flat UI screenshot composited with a candid entryway photo below, natural daylight.
+
+Do not add text beyond what is specified. No watermark, no captions, no distorted or misspelled lettering, no duplicate products, no extra bottles, no extra or orphan limbs. Genuine phone-camera or documentary-photo quality, not AI-glossy. France, present day.
