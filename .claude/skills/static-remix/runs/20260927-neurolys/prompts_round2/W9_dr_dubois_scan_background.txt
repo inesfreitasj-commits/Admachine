@@ -1,0 +1,8 @@
+Photorealistic Meta/Instagram static ad, testimonial-device layout matching the winning ad format, but with a different camera composition: doctor seated at a desk in the foreground, scan imagery visible softly in the BACKGROUND rather than being pointed at directly.
+
+Top ~70%: photo of a confident male doctor in his 50s, white coat, stethoscope, seated at a clinic desk, hands loosely clasped, looking toward camera with a warm reassuring expression. Behind him, softly out of focus, a large wall-mounted monitor displays a glowing red-orange brain/nerve scan visualization, adding depth without dominating the frame. Warm clinic lighting, sharp focus on the doctor, shallow depth of field on the background scan. Small inset lower-left shows the Neurolys pouch on the desk beside him.
+
+Bottom ~30%: solid deep RED background band. White bold sans-serif caption, name-tag pill reading "Dr Nicolas Dubois" above the main quote text:
+"Mes patients me parlent souvent de leurs douleurs nerveuses. Aujourd'hui, j'ai enfin une solution simple à leur proposer. Voici mon témoignage, sans promesse miracle."
+
+Aspect ratio 4:5, ad-quality sharp focus, realistic skin tones, natural color grading, no watermarks, no logos.
